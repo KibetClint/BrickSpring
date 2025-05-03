@@ -11,16 +11,16 @@ const Home = () => {
 
   // Hero slides data
   const slides = [
-    { id: 1, title: 'Revolutionizing Weight Scale Technology Integration', subtitle: 'Seamless solutions for modern business operations', imgUrl: '/src/assets/img/UNIWA V710 PDA.png' },
-    { id: 2, title: 'Optimize Operations with Real-Time Data', subtitle: 'Harness the power of instant weight analytics', imgUrl: '/src/assets/img/Checkered plate platform scales.png' },
-    { id: 3, title: 'Custom Integration, Maximum ROI', subtitle: 'Tailored solutions for your unique business needs', imgUrl: '/src/assets/img/Computing.jpg' }
+    { id: 1, title: 'Revolutionizing Weight Scale Technology Integration', subtitle: 'Seamless solutions for modern business operations', imgUrl: 'public/img/UNIWA V710 PDA.png' },
+    { id: 2, title: 'Optimize Operations with Real-Time Data', subtitle: 'Harness the power of instant weight analytics', imgUrl: 'public/img/Checkered plate platform scales.png' },
+    { id: 3, title: 'Custom Integration, Maximum ROI', subtitle: 'Tailored solutions for your unique business needs', imgUrl: 'public/img/Computing.jpg' }
   ];
 
   // Product data
   const products = [
-    { id: 1, name: 'SmartScale Pro', description: 'Enterprise-grade digital scale with advanced computer integration', price: 1299.99, category: 'Hardware', imageUrl: '/src/assets/img/Accessories.png' },
-    { id: 2, name: 'WeighConnect Software', description: 'Cloud-based software for real-time weight data analysis', price: 499.99, category: 'Software', imageUrl: '/src/assets/img/Computing.jpg' },
-    { id: 3, name: 'ScaleLink Gateway', description: 'Interface for connecting legacy scales to modern systems', price: 349.99, category: 'Integration', imageUrl: '/src/assets/img/L36 printer.png' }
+    { id: 1, name: 'SmartScale Pro', description: 'Enterprise-grade digital scale with advanced computer integration', price: 1299.99, category: 'Hardware', imageUrl: 'public/img/Accessories.png' },
+    { id: 2, name: 'WeighConnect Software', description: 'Cloud-based software for real-time weight data analysis', price: 499.99, category: 'Software', imageUrl: 'public/img/Computing.jpg' },
+    { id: 3, name: 'ScaleLink Gateway', description: 'Interface for connecting legacy scales to modern systems', price: 349.99, category: 'Integration', imageUrl: 'public/img/L36 printer.png' }
   ];
 
   const [activeFilter, setActiveFilter] = useState('All');

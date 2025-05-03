@@ -15,7 +15,7 @@ const Products = () => {
         'Enterprise-grade digital scale with advanced computer integration capabilities',
       price: 1299.99,
       category: 'Hardware',
-      imageUrl: '/src/assets/img/Accessories.png',
+      imageUrl: 'public/img/Accessories.png',
     },
     {
       id: 2,
@@ -24,7 +24,7 @@ const Products = () => {
         'Cloud-based software solution for real-time weight data processing and analysis',
       price: 499.99,
       category: 'Software',
-      imageUrl: '/src/assets/img/Computing.jpg',
+      imageUrl: 'public/img/Computing.jpg',
     },
     {
       id: 3,
@@ -33,7 +33,7 @@ const Products = () => {
         'Hardware interface for connecting legacy scales to modern computer systems',
       price: 349.99,
       category: 'Integration',
-      imageUrl: '/src/assets/img/L36 printer.png',
+      imageUrl: 'public/img/L36 printer.png',
     },
     {
       id: 4,
@@ -42,7 +42,7 @@ const Products = () => {
         'Complete weight management system for large-scale industrial applications',
       price: 2499.99,
       category: 'Hardware',
-      imageUrl: '/src/assets/img/UNIWA V710 PDA.png',
+      imageUrl: 'public/img/UNIWA V710 PDA.png',
     },
     {
       id: 5,
@@ -51,7 +51,7 @@ const Products = () => {
         'Developer toolkit for custom integration of weight data into existing systems',
       price: 799.99,
       category: 'Software',
-      imageUrl: '/src/assets/img/Low profile platform scale.png',
+      imageUrl: 'public/img/Low profile platform scale.png',
     },
     {
       id: 6,
@@ -60,7 +60,7 @@ const Products = () => {
         'Touchscreen terminal for weight data collection and processing',
       price: 1899.99,
       category: 'Hardware',
-      imageUrl: '/src/assets/img/OCS-10A CAP 100-300KG.png',
+      imageUrl: 'public/img/OCS-10A CAP 100-300KG.png',
     },
   ];
 
