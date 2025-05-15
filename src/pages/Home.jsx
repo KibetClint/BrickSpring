@@ -15,9 +15,11 @@ const Home = () => {
     { id: 3, title: 'Custom Integration, Maximum ROI', subtitle: 'Tailored solutions for your unique business needs', imgUrl: '/images/Computing.jpg' }
   ];
 
-  // Product data (unchanged)
+  // Product data
   const products = [
-    /* ... */
+    { id: 1, name: 'SmartScale Pro', description: 'Enterprise-grade digital scale with advanced computer integration', price: 1199, category: 'Hardware', imageUrl: '/images/Accessories.png' },
+    { id: 2, name: 'WeighConnect Software', description: 'Cloud-based software for real-time weight data analysis', price: 499, category: 'Software', imageUrl: '/images/Computing.jpg' },
+    { id: 3, name: 'ScaleLink Gateway', description: 'Interface for connecting legacy scales to modern systems', price: 349, category: 'Integration', imageUrl: '/images/L36 printer.png' }
   ];
 
   const [activeFilter, setActiveFilter] = useState('All');
@@ -32,7 +34,7 @@ const Home = () => {
   return (
     <div className="bg-[#FFF9E6] text-gray-800">
       <main>
-        {/* Hero Slider without nav buttons */}
+        {/* Hero Slider */}
         <section className="relative h-[60vh] sm:h-[70vh] lg:h-[80vh] overflow-hidden">
           <Swiper
             modules={[Autoplay, Pagination]}
@@ -40,12 +42,6 @@ const Home = () => {
             pagination={{ clickable: true }}
             loop
             className="h-full"
-            breakpoints={{
-              320: { slidesPerView: 1 },    // small phones
-              640: { slidesPerView: 1 },    // larger phones
-              768: { slidesPerView: 1 },    // tablets
-              1024: { slidesPerView: 1 }    // desktops
-            }}
           >
             {slides.map(slide => (
               <SwiperSlide key={slide.id} className="relative h-full">
@@ -164,60 +160,42 @@ const Home = () => {
             </div>
           </div>
         </section>
-                <section className="py-20 bg-[#FFF9E6]">
+
+        {/* Why Choose Us */}
+        <section className="py-20 bg-[#FFF9E6]">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold mb-4 text-[#236837]">Why Choose Us</h2>
-              <p className="text-xl text-[#236837] max-w-3xl mx-auto">
-                At Brickspring Enterprises, we combine innovation with expertise
-                to deliver unparalleled weight scale technology solutions.
-              </p>
+              <p className="text-xl text-[#236837] max-w-3xl mx-auto">At Brickspring Enterprises, we combine innovation with expertise to deliver unparalleled weight scale technology solutions.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="bg-[#236837]/10 rounded-lg p-8 text-center transition-transform hover:scale-105">
                 <div className="w-20 h-20 bg-[#236837] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <i className="fas fa-lightbulb text-white text-3xl"></i>
+                  <i className="fas fa-lightbulb text-white text-3xl" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-[#236837]">
-                  Innovation Leadership
-                </h3>
-                <p className="text-gray-600">
-                  Pioneering the latest advancements in weight scale technology
-                  and computer integration to keep your business ahead of the
-                  curve.
-                </p>
+                <h3 className="text-xl font-bold mb-4 text-[#236837]">Innovation Leadership</h3>
+                <p className="text-gray-600">Pioneering the latest advancements in weight scale technology and computer integration to keep your business ahead of the curve.</p>
               </div>
               <div className="bg-[#236837]/10 rounded-lg p-8 text-center transition-transform hover:scale-105">
                 <div className="w-20 h-20 bg-[#236837] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <i className="fas fa-cogs text-white text-3xl"></i>
+                  <i className="fas fa-cogs text-white text-3xl" />
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-[#236837]">Technical Expertise</h3>
-                <p className="text-gray-600">
-                  Our team of certified engineers and developers brings decades
-                  of combined experience in scale technology and system
-                  integration.
-                </p>
+                <p className="text-gray-600">Our team of certified engineers and developers brings decades of combined experience in scale technology and system integration.</p>
               </div>
               <div className="bg-[#236837]/10 rounded-lg p-8 text-center transition-transform hover:scale-105">
                 <div className="w-20 h-20 bg-[#236837] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <i className="fas fa-headset text-white text-3xl"></i>
+                  <i className="fas fa-headset text-white text-3xl" />
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-[#236837]">Customer Support</h3>
-                <p className="text-gray-600">
-                  Dedicated 24/7 support team committed to ensuring your systems
-                  run smoothly with minimal downtime and maximum efficiency.
-                </p>
+                <p className="text-gray-600">Dedicated 24/7 support team committed to ensuring your systems run smoothly with minimal downtime and maximum efficiency.</p>
               </div>
               <div className="bg-[#236837]/10 rounded-lg p-8 text-center transition-transform hover:scale-105">
                 <div className="w-20 h-20 bg-[#236837] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <i className="fas fa-chart-line text-white text-3xl"></i>
+                  <i className="fas fa-chart-line text-white text-3xl" />
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-[#236837]">Proven Results</h3>
-                <p className="text-gray-600">
-                  Our solutions have helped hundreds of businesses achieve
-                  measurable improvements in efficiency, accuracy, and
-                  operational costs.
-                </p>
+                <p className="text-gray-600">Our solutions have helped hundreds of businesses achieve measurable improvements in efficiency, accuracy, and operational costs.</p>
               </div>
             </div>
           </div>

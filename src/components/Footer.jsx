@@ -1,107 +1,150 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../assets/BG1.png';
-import { FaBars, FaTimes, FaFacebook, FaTwitter, FaInstagram, FaEnvelope } from 'react-icons/fa';
-import { throttle } from 'lodash';
+import React from 'react';
 
-export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  // Throttled scroll handler for background and top bar
-  useEffect(() => {
-    const handleScroll = throttle(() => {
-      setScrolled(window.scrollY > 50);
-    }, 200);
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navLinks = ['Home', 'About Us', 'Products', 'Solutions', 'Consultation', 'Contact'];
-  const getRoute = item => (item === 'Home' ? '/' : `/${item.toLowerCase().replace(/\s+/g, '-')}`);
-
+export default function Footer() {
   return (
-    <>
-      {/* Top Info Bar */}
-      <div
-        className={`${scrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'} transition-opacity duration-300 fixed inset-x-0 top-0 z-50 bg-[#1F6632] text-[#FFFEFB] sm:flex hidden`}
-      >
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-2 text-sm">
-          <div className="flex space-x-4">
-            <a href="#" className="hover:opacity-80 transition"><FaFacebook /></a>
-            <a href="#" className="hover:opacity-80 transition"><FaTwitter /></a>
-            <a href="#" className="hover:opacity-80 transition"><FaInstagram /></a>
+    <footer
+      className="pt-16 pb-8"
+      style={{ backgroundColor: '#1F6632', color: '#FFFEFB' }} // deep green bg, cream text
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          {/* Company Info */}
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold mb-4 text-[#FFFEFB]">
+              Brickspring Enterprises
+            </h3>
+            <p className="mb-4 text-sm sm:text-base text-[#FFFEFB]/80">
+              Revolutionizing how weight scales and computers work together since 2023.
+              We provide cutting-edge solutions for businesses of all sizes.
+            </p>
+            <div className="flex space-x-4">
+              {['linkedin-in','twitter','facebook-f','instagram'].map(icon => (
+                <a
+                  key={icon}
+                  href="#"
+                  className="transition hover:opacity-80"
+                  style={{ color: '#FFFEFB' }}
+                >
+                  <i className={`fab fa-${icon} text-xl`} />
+                </a>
+              ))}
+            </div>
           </div>
-          <div className="flex items-center space-x-2">
-            <FaEnvelope />
-            <span className="text-[#FFFEFB]/80">contact@brickspring.com</span>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold mb-4 text-[#FFFEFB]">
+              Quick Links
+            </h3>
+            <ul className="space-y-2 text-sm sm:text-base">
+              {[
+                { label: 'Home', href: '/' },
+                { label: 'About Us', href: '/about-us' },
+                { label: 'Products', href: '/products' },
+                { label: 'Solutions', href: '/solutions' },
+                { label: 'Case Studies', href: '#' },
+                { label: 'Contact', href: '/contact' },
+              ].map(link => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="transition hover:opacity-80"
+                    style={{ color: '#FFFEFB' }}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Products & Services */}
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold mb-4 text-[#FFFEFB]">
+              Products & Services
+            </h3>
+            <ul className="space-y-2 text-sm sm:text-base">
+              {[
+                'SmartScale Pro',
+                'WeighConnect Software',
+                'ScaleLink Gateway',
+                'Consultation Services',
+                'Implementation',
+                'Support Plans',
+              ].map(item => (
+                <li key={item}>
+                  <a
+                    href="#"
+                    className="transition hover:opacity-80"
+                    style={{ color: '#FFFEFB' }}
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Newsletter */}
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold mb-4 text-[#FFFEFB]">
+              Newsletter
+            </h3>
+            <p className="mb-4 text-sm sm:text-base text-[#FFFEFB]/80">
+              Subscribe to our newsletter for the latest updates, industry insights, and exclusive offers.
+            </p>
+            <form className="mb-4 flex flex-col sm:flex-row">
+              <input
+                type="email"
+                placeholder="Your email address"
+                className="px-4 py-2 w-full sm:flex-1 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFFEFB]"
+                style={{
+                  backgroundColor: '#FFFEFB',
+                  color: '#1F6632',
+                  border: '1px solid #FFFEFB',
+                }}
+              />
+              <button
+                type="submit"
+                className="mt-2 sm:mt-0 px-4 py-2 rounded-md transition focus:outline-none focus:ring-2"
+                style={{ backgroundColor: '#FFFEFB', color: '#1F6632' }}
+              >
+                <i className="fas fa-paper-plane" />
+              </button>
+            </form>
+            <div className="flex space-x-4 justify-start sm:justify-center">
+              {['cc-visa','cc-mastercard','cc-amex','cc-paypal'].map(icon => (
+                <i
+                  key={icon}
+                  className={`fab fa-${icon} text-2xl`}
+                  style={{ color: '#FFFEFB', opacity: 0.8 }}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t" style={{ borderColor: '#FFFEFB', paddingTop: '1rem' }}>
+          <div className="flex flex-col md:flex-row justify-between items-center text-sm sm:text-base">
+            <p className="mb-4 md:mb-0" style={{ color: '#FFFEFB', opacity: 0.8 }}>
+              © 2025 Brickspring Enterprises. All rights reserved.
+            </p>
+            <div className="flex space-x-4">
+              {['Privacy Policy','Terms of Service','Cookie Policy'].map(text => (
+                <a
+                  key={text}
+                  href="#"
+                  className="transition hover:opacity-80"
+                  style={{ color: '#FFFEFB' }}
+                >
+                  {text}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Main Navbar */}
-      <header
-        className={`fixed w-full z-40 transition-all duration-300 ${
-          scrolled
-            ? 'backdrop-blur-sm bg-[#1F6632]/90 shadow-md top-0'
-            : 'bg-[#1F6632] top-4'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 sm:py-4">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img src={logo} alt="Brickspring logo" className="h-10 w-10 sm:h-12 sm:w-12 mr-2 rounded-full object-cover" />
-            <span className="text-lg sm:text-xl md:text-2xl font-bold text-[#FFFEFB]">Brickspring</span>
-          </Link>
-
-          {/* Desktop Links */}
-          <nav className="hidden md:flex space-x-6 lg:space-x-8 text-sm sm:text-base">
-            {navLinks.map(item => (
-              <Link
-                key={item}
-                to={getRoute(item)}
-                className="text-[#FFFEFB] hover:text-[#FEFAEA] transition-colors duration-200"
-              >
-                {item}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Mobile Toggle */}
-          <button
-            onClick={() => setMenuOpen(prev => !prev)}
-            className="md:hidden text-[#FFFEFB] focus:outline-none focus:ring-2 focus:ring-[#FFFEFB] p-2"
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-          >
-            {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-          </button>
-        </div>
-
-        {/* Mobile Slide-out Menu */}
-        <div
-          className={`fixed top-0 right-0 w-1/4 max-w-xs bg-[#1F6632] text-[#FFFEFB] transform transition-transform duration-300 z-50 shadow-lg ${
-            menuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
-          style={{ height: 'auto' }}
-        >
-          <div className="px-10 pt-10 pb-4 flex flex-col space-y-4">
-            {navLinks.map(item => (
-              <Link
-                key={item}
-                to={getRoute(item)}
-                onClick={() => setMenuOpen(false)}
-                className="text-lg hover:text-[#FEFAEA] transition-colors duration-200"
-              >
-                {item}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </header>
-
-      {/* Spacer to avoid layout shift */}
-      <div className={`${scrolled ? 'h-14' : 'h-20'} transition-all duration-300`} />
-    </>
+    </footer>
   );
 }
