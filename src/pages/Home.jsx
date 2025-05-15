@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 
 const Home = () => {
   // Placeholder cart function
@@ -16,11 +15,9 @@ const Home = () => {
     { id: 3, title: 'Custom Integration, Maximum ROI', subtitle: 'Tailored solutions for your unique business needs', imgUrl: '/images/Computing.jpg' }
   ];
 
-  // Product data
+  // Product data (unchanged)
   const products = [
-    { id: 1, name: 'SmartScale Pro', description: 'Enterprise-grade digital scale with advanced computer integration', price: 1199, category: 'Hardware', imageUrl: '/images/Accessories.png' },
-    { id: 2, name: 'WeighConnect Software', description: 'Cloud-based software for real-time weight data analysis', price: 499, category: 'Software', imageUrl: '/images/Computing.jpg' },
-    { id: 3, name: 'ScaleLink Gateway', description: 'Interface for connecting legacy scales to modern systems', price: 349, category: 'Integration', imageUrl: '/images/L36 printer.png' }
+    /* ... */
   ];
 
   const [activeFilter, setActiveFilter] = useState('All');
@@ -35,15 +32,20 @@ const Home = () => {
   return (
     <div className="bg-[#FFF9E6] text-gray-800">
       <main>
-        {/* Hero Slider */}
+        {/* Hero Slider without nav buttons */}
         <section className="relative h-[60vh] sm:h-[70vh] lg:h-[80vh] overflow-hidden">
           <Swiper
-            modules={[Autoplay, Navigation, Pagination]}
+            modules={[Autoplay, Pagination]}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
-            navigation
             pagination={{ clickable: true }}
             loop
             className="h-full"
+            breakpoints={{
+              320: { slidesPerView: 1 },    // small phones
+              640: { slidesPerView: 1 },    // larger phones
+              768: { slidesPerView: 1 },    // tablets
+              1024: { slidesPerView: 1 }    // desktops
+            }}
           >
             {slides.map(slide => (
               <SwiperSlide key={slide.id} className="relative h-full">
