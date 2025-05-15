@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import { Autoplay, Pagination } from 'swiper/modules';
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Autoplay, Pagination } from "swiper/modules";
 
 const Home = () => {
   // Placeholder cart function
@@ -10,25 +10,68 @@ const Home = () => {
 
   // Hero slides data
   const slides = [
-    { id: 1, title: 'Revolutionizing Weight Scale Technology Integration', subtitle: 'Seamless solutions for modern business operations', imgUrl: '/images/UNIWA V710 PDA.png' },
-    { id: 2, title: 'Optimize Operations with Real-Time Data', subtitle: 'Harness the power of instant weight analytics', imgUrl: '/images/Checkered plate platform scales.png' },
-    { id: 3, title: 'Custom Integration, Maximum ROI', subtitle: 'Tailored solutions for your unique business needs', imgUrl: '/images/Computing.jpg' }
+    {
+      id: 1,
+      title: "Revolutionizing Weight Scale Technology Integration",
+      subtitle: "Seamless solutions for modern business operations",
+      imgUrl: "/images/UNIWA V710 PDA.png",
+    },
+    {
+      id: 2,
+      title: "Optimize Operations with Real-Time Data",
+      subtitle: "Harness the power of instant weight analytics",
+      imgUrl: "/images/Checkered plate platform scales.png",
+    },
+    {
+      id: 3,
+      title: "Custom Integration, Maximum ROI",
+      subtitle: "Tailored solutions for your unique business needs",
+      imgUrl: "/images/Computing.jpg",
+    },
   ];
 
   // Product data
   const products = [
-    { id: 1, name: 'SmartScale Pro', description: 'Enterprise-grade digital scale with advanced computer integration', price: 1199, category: 'Hardware', imageUrl: '/images/Accessories.png' },
-    { id: 2, name: 'WeighConnect Software', description: 'Cloud-based software for real-time weight data analysis', price: 499, category: 'Software', imageUrl: '/images/Computing.jpg' },
-    { id: 3, name: 'ScaleLink Gateway', description: 'Interface for connecting legacy scales to modern systems', price: 349, category: 'Integration', imageUrl: '/images/L36 printer.png' }
+    {
+      id: 1,
+      name: "",
+      description:
+        "Enterprise-grade digital scale with advanced computer integration",
+      price: 1199,
+      category: "Hardware",
+      imageUrl: "/images/Accessories.png",
+    },
+    {
+      id: 2,
+      name: "Cyberseurity Software",
+      description: "Cloud-based software for real-time weight data analysis",
+      price: 499,
+      category: "Software",
+      imageUrl: "/images/Computing.jpg",
+    },
+    {
+      id: 3,
+      name: "ScaleLink Gateway",
+      description: "Interface for connecting legacy scales to modern systems",
+      price: 349,
+      category: "Integration",
+      imageUrl: "/images/L36 printer.png",
+    },
   ];
 
-  const [activeFilter, setActiveFilter] = useState('All');
-  const [sortOption, setSortOption] = useState('category');
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [sortOption, setSortOption] = useState("category");
 
-  const filtered = activeFilter === 'All' ? products : products.filter(p => p.category === activeFilter);
+  const filtered =
+    activeFilter === "All"
+      ? products
+      : products.filter((p) => p.category === activeFilter);
   const sorted = [...filtered].sort((a, b) =>
-    sortOption === 'price-low' ? a.price - b.price :
-    sortOption === 'price-high' ? b.price - a.price : a.id - b.id
+    sortOption === "price-low"
+      ? a.price - b.price
+      : sortOption === "price-high"
+      ? b.price - a.price
+      : a.id - b.id
   );
 
   return (
@@ -41,9 +84,8 @@ const Home = () => {
             autoplay={{ delay: 5000, disableOnInteraction: false }}
             pagination={{ clickable: true }}
             loop
-            className="h-full"
-          >
-            {slides.map(slide => (
+            className="h-full">
+            {slides.map((slide) => (
               <SwiperSlide key={slide.id} className="relative h-full">
                 <img
                   src={slide.imgUrl}
@@ -81,35 +123,38 @@ const Home = () => {
               Our Products
             </h2>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#236837] max-w-2xl mx-auto">
-              Discover our range of innovative solutions designed to transform how weight scales and computers work together.
+              Discover our range of innovative solutions designed to transform
+              how weight scales and computers work together.
             </p>
           </div>
           <div className="max-w-7xl mx-auto px-4">
             {/* Filters & Sort UI */}
             <div className="mb-8 flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-4 sm:space-y-0">
               <div className="flex flex-wrap gap-2">
-                {['All', 'Hardware', 'Software', 'Integration'].map(cat => (
+                {["All", "Hardware", "Software", "Integration"].map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setActiveFilter(cat)}
                     className={`px-3 py-1.5 rounded-full transition ${
-                      activeFilter === cat ? 'bg-[#236837] text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                    } text-xs sm:text-sm md:text-base`}
-                  >
+                      activeFilter === cat
+                        ? "bg-[#236837] text-white"
+                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                    } text-xs sm:text-sm md:text-base`}>
                     {cat}
                   </button>
                 ))}
               </div>
               <div className="flex items-center">
-                <label htmlFor="sort" className="mr-2 text-xs sm:text-sm md:text-base text-gray-700">
+                <label
+                  htmlFor="sort"
+                  className="mr-2 text-xs sm:text-sm md:text-base text-gray-700">
                   Sort by:
                 </label>
                 <select
                   id="sort"
                   value={sortOption}
-                  onChange={e => setSortOption(e.target.value)}
-                  className="border border-gray-300 rounded-md px-2 py-1 text-xs sm:text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#236837]"
-                >
+                  onChange={(e) => setSortOption(e.target.value)}
+                  className="border border-gray-300 rounded-md px-2 py-1 text-xs sm:text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#236837]">
                   <option value="category">Category</option>
                   <option value="price-low">Price: Low to High</option>
                   <option value="price-high">Price: High to Low</option>
@@ -118,12 +163,12 @@ const Home = () => {
             </div>
 
             {/* Product Grid */}
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {sorted.map(product => (
+              {sorted.map((product) => (
                 <div
                   key={product.id}
-                  className="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden flex flex-col"
-                >
+                  className="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden flex flex-col">
                   <div className="h-48 sm:h-56 w-full">
                     <img
                       src={product.imageUrl}
@@ -149,8 +194,7 @@ const Home = () => {
                       </span>
                       <button
                         onClick={addToCart}
-                        className="bg-[#236837] hover:bg-[#1a5129] text-white px-4 py-2 rounded-md text-xs sm:text-sm md:text-base transition focus:outline-none focus:ring-2 focus:ring-[#236837]"
-                      >
+                        className="bg-[#236837] hover:bg-[#1a5129] text-white px-4 py-2 rounded-md text-xs sm:text-sm md:text-base transition focus:outline-none focus:ring-2 focus:ring-[#236837]">
                         Read More
                       </button>
                     </div>
@@ -165,45 +209,75 @@ const Home = () => {
         <section className="py-20 bg-[#FFF9E6]">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-4 text-[#236837]">Why Choose Us</h2>
-              <p className="text-xl text-[#236837] max-w-3xl mx-auto">At Brickspring Enterprises, we combine innovation with expertise to deliver unparalleled weight scale technology solutions.</p>
+              <h2 className="text-4xl font-bold mb-4 text-[#236837]">
+                Why Choose Us
+              </h2>
+              <p className="text-xl text-[#236837] max-w-3xl mx-auto">
+                At Brickspring Enterprises, we combine innovation with expertise
+                to deliver unparalleled weight scale technology solutions.
+              </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="bg-[#236837]/10 rounded-lg p-8 text-center transition-transform hover:scale-105">
                 <div className="w-20 h-20 bg-[#236837] rounded-full flex items-center justify-center mx-auto mb-6">
                   <i className="fas fa-lightbulb text-white text-3xl" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-[#236837]">Innovation Leadership</h3>
-                <p className="text-gray-600">Pioneering the latest advancements in weight scale technology and computer integration to keep your business ahead of the curve.</p>
+                <h3 className="text-xl font-bold mb-4 text-[#236837]">
+                  Innovation Leadership
+                </h3>
+                <p className="text-gray-600">
+                  Pioneering the latest advancements in weight scale technology
+                  and computer integration to keep your business ahead of the
+                  curve.
+                </p>
               </div>
               <div className="bg-[#236837]/10 rounded-lg p-8 text-center transition-transform hover:scale-105">
                 <div className="w-20 h-20 bg-[#236837] rounded-full flex items-center justify-center mx-auto mb-6">
                   <i className="fas fa-cogs text-white text-3xl" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-[#236837]">Technical Expertise</h3>
-                <p className="text-gray-600">Our team of certified engineers and developers brings decades of combined experience in scale technology and system integration.</p>
+                <h3 className="text-xl font-bold mb-4 text-[#236837]">
+                  Technical Expertise
+                </h3>
+                <p className="text-gray-600">
+                  Our team of certified engineers and developers brings decades
+                  of combined experience in scale technology and system
+                  integration.
+                </p>
               </div>
               <div className="bg-[#236837]/10 rounded-lg p-8 text-center transition-transform hover:scale-105">
                 <div className="w-20 h-20 bg-[#236837] rounded-full flex items-center justify-center mx-auto mb-6">
                   <i className="fas fa-headset text-white text-3xl" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-[#236837]">Customer Support</h3>
-                <p className="text-gray-600">Dedicated 24/7 support team committed to ensuring your systems run smoothly with minimal downtime and maximum efficiency.</p>
+                <h3 className="text-xl font-bold mb-4 text-[#236837]">
+                  Customer Support
+                </h3>
+                <p className="text-gray-600">
+                  Dedicated 24/7 support team committed to ensuring your systems
+                  run smoothly with minimal downtime and maximum efficiency.
+                </p>
               </div>
               <div className="bg-[#236837]/10 rounded-lg p-8 text-center transition-transform hover:scale-105">
                 <div className="w-20 h-20 bg-[#236837] rounded-full flex items-center justify-center mx-auto mb-6">
                   <i className="fas fa-chart-line text-white text-3xl" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-[#236837]">Proven Results</h3>
-                <p className="text-gray-600">Our solutions have helped hundreds of businesses achieve measurable improvements in efficiency, accuracy, and operational costs.</p>
+                <h3 className="text-xl font-bold mb-4 text-[#236837]">
+                  Proven Results
+                </h3>
+                <p className="text-gray-600">
+                  Our solutions have helped hundreds of businesses achieve
+                  measurable improvements in efficiency, accuracy, and
+                  operational costs.
+                </p>
               </div>
             </div>
           </div>
         </section>
-                <section className="py-20 bg-[#FFF9E6]">
+        <section className="py-20 bg-[#FFF9E6]">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-4 text-[#236837]">Contact Us</h2>
+              <h2 className="text-4xl font-bold mb-4 text-[#236837]">
+                Contact Us
+              </h2>
               <p className="text-xl text-[#236837] max-w-3xl mx-auto">
                 Have questions or ready to get started? Reach out to our team
                 today.
@@ -216,8 +290,7 @@ const Home = () => {
                     <div>
                       <label
                         htmlFor="contactName"
-                        className="block text-gray-700 mb-2"
-                      >
+                        className="block text-gray-700 mb-2">
                         Full Name
                       </label>
                       <input
@@ -230,8 +303,7 @@ const Home = () => {
                     <div>
                       <label
                         htmlFor="contactEmail"
-                        className="block text-gray-700 mb-2"
-                      >
+                        className="block text-gray-700 mb-2">
                         Email Address
                       </label>
                       <input
@@ -246,8 +318,7 @@ const Home = () => {
                     <div>
                       <label
                         htmlFor="contactPhone"
-                        className="block text-gray-700 mb-2"
-                      >
+                        className="block text-gray-700 mb-2">
                         Phone Number
                       </label>
                       <input
@@ -260,8 +331,7 @@ const Home = () => {
                     <div>
                       <label
                         htmlFor="contactCompany"
-                        className="block text-gray-700 mb-2"
-                      >
+                        className="block text-gray-700 mb-2">
                         Company
                       </label>
                       <input
@@ -275,8 +345,7 @@ const Home = () => {
                   <div className="mb-6">
                     <label
                       htmlFor="contactSubject"
-                      className="block text-gray-700 mb-2"
-                    >
+                      className="block text-gray-700 mb-2">
                       Subject
                     </label>
                     <input
@@ -289,16 +358,14 @@ const Home = () => {
                   <div className="mb-6">
                     <label
                       htmlFor="contactMessage"
-                      className="block text-gray-700 mb-2"
-                    >
+                      className="block text-gray-700 mb-2">
                       Message
                     </label>
                     <textarea
                       id="contactMessage"
                       rows={5}
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#236837]"
-                      placeholder="Please provide details about your inquiry..."
-                    ></textarea>
+                      placeholder="Please provide details about your inquiry..."></textarea>
                   </div>
                   <button className="w-full bg-[#236837] hover:bg-[#1a5129] text-white py-3 rounded-md transition !rounded-button whitespace-nowrap cursor-pointer">
                     Send Message
@@ -307,7 +374,9 @@ const Home = () => {
               </div>
               <div>
                 <div className="bg-[#236837]/10 rounded-lg shadow-lg p-8 h-full">
-                  <h3 className="text-2xl font-bold mb-6 text-[#236837]">Get In Touch</h3>
+                  <h3 className="text-2xl font-bold mb-6 text-[#236837]">
+                    Get In Touch
+                  </h3>
                   <div className="space-y-6">
                     <div className="flex items-start">
                       <div className="bg-[#236837] rounded-full p-3 mr-4">
@@ -375,26 +444,22 @@ const Home = () => {
                     <div className="flex space-x-4">
                       <a
                         href="#"
-                        className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition cursor-pointer"
-                      >
+                        className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition cursor-pointer">
                         <i className="fab fa-linkedin-in"></i>
                       </a>
                       <a
                         href="#"
-                        className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition cursor-pointer"
-                      >
+                        className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition cursor-pointer">
                         <i className="fab fa-twitter"></i>
                       </a>
                       <a
                         href="#"
-                        className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition cursor-pointer"
-                      >
+                        className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition cursor-pointer">
                         <i className="fab fa-facebook-f"></i>
                       </a>
                       <a
                         href="#"
-                        className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition cursor-pointer"
-                      >
+                        className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition cursor-pointer">
                         <i className="fab fa-instagram"></i>
                       </a>
                     </div>

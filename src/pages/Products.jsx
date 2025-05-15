@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Products = () => {
   const [, setCartItems] = useState(0);
@@ -10,78 +10,78 @@ const Products = () => {
   const products = [
     {
       id: 1,
-      name: 'SmartScale Pro',
+      name: "SmartScale Pro",
       description:
-        'Enterprise-grade digital scale with advanced computer integration capabilities',
-      price: 11999.,
-      category: 'Hardware',
-      imageUrl: 'images/Accessories.png',
+        "Enterprise-grade digital scale with advanced computer integration capabilities",
+      price: 11999,
+      category: "Hardware",
+      imageUrl: "images/Accessories.png",
     },
     {
       id: 2,
-      name: 'WeighConnect Software',
+      name: "WeighConnect Software",
       description:
-        'Cloud-based software solution for real-time weight data processing and analysis',
-      price: 14999.,
-      category: 'Software',
-      imageUrl: 'images/Computing.jpg',
+        "Cloud-based software solution for real-time weight data processing and analysis",
+      price: 14999,
+      category: "Software",
+      imageUrl: "images/Computing.jpg",
     },
     {
       id: 3,
-      name: 'ScaleLink Gateway',
+      name: "ScaleLink Gateway",
       description:
-        'Hardware interface for connecting legacy scales to modern computer systems',
-      price: 34999.,
-      category: 'Integration',
-      imageUrl: 'public/images/L36 printer.png',
+        "Hardware interface for connecting legacy scales to modern computer systems",
+      price: 34999,
+      category: "Integration",
+      imageUrl: "public/images/L36 printer.png",
     },
     {
       id: 4,
-      name: 'DataWeight Enterprise',
+      name: "DataWeight Enterprise",
       description:
-        'Complete weight management system for large-scale industrial applications',
-      price: 6999.,
-      category: 'Hardware',
-      imageUrl: 'images/UNIWA V710 PDA.png',
+        "Complete weight management system for large-scale industrial applications",
+      price: 6999,
+      category: "Hardware",
+      imageUrl: "images/UNIWA V710 PDA.png",
     },
     {
       id: 5,
-      name: 'ScaleSync API',
+      name: "ScaleSync API",
       description:
-        'Developer toolkit for custom integration of weight data into existing systems',
-      price: 8999.,
-      category: 'Software',
-      imageUrl: 'images/Low profile platform scale.png',
+        "Developer toolkit for custom integration of weight data into existing systems",
+      price: 8999,
+      category: "Software",
+      imageUrl: "images/Low profile platform scale.png",
     },
     {
       id: 6,
-      name: 'WeighStation Terminal',
+      name: "WeighStation Terminal",
       description:
-        'Touchscreen terminal for weight data collection and processing',
-      price: 7699.,
-      category: 'Hardware',
-      imageUrl: '/images/OCS-10A CAP 100-300KG.png',
+        "Touchscreen terminal for weight data collection and processing",
+      price: 7699,
+      category: "Hardware",
+      imageUrl: "/images/OCS-10A CAP 100-300KG.png",
     },
   ];
 
-  const [activeFilter, setActiveFilter] = useState('All');
-  const [sortOption, setSortOption] = useState('popularity');
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [sortOption, setSortOption] = useState("popularity");
 
   const filteredProducts =
-    activeFilter === 'All'
+    activeFilter === "All"
       ? products
       : products.filter((p) => p.category === activeFilter);
 
   const sortedProducts = [...filteredProducts].sort((a, b) => {
-    if (sortOption === 'price-low') return a.price - b.price;
-    if (sortOption === 'price-high') return b.price - a.price;
+    if (sortOption === "price-low") return a.price - b.price;
+    if (sortOption === "price-high") return b.price - a.price;
     return a.id - b.id;
   });
 
   return (
     <section
       className="min-h-screen py-16"
-      style={{ backgroundColor: '#FEFAEA' }} // warm cream page bg
+      style={{ backgroundColor: "#FEFAEA" }} // warm cream page bg
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -90,37 +90,38 @@ const Products = () => {
             Our Products
           </h2>
           <p className="text-base sm:text-lg max-w-2xl mx-auto text-[#1F6632]/80">
-            Discover our range of innovative solutions designed to transform how weight scales and computers work together.
+            Discover our range of innovative solutions designed to transform how
+            weight scales and computers work together.
           </p>
         </div>
 
         {/* Filters & Sort */}
         <div className="flex flex-col sm:flex-row justify-between items-center mb-8 space-y-4 sm:space-y-0">
           <div className="flex flex-wrap gap-2">
-            {['All', 'Hardware', 'Software', 'Integration'].map((cat) => (
+            {["All", "Hardware", "Software", "Integration"].map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
                 className={`px-4 py-2 rounded-full text-sm sm:text-base transition ${
                   activeFilter === cat
-                    ? 'bg-[#1F6632] text-white'
-                    : 'bg-[#FFFEFB] text-[#1F6632] hover:bg-[#FFFEEF]'
-                }`}
-              >
+                    ? "bg-[#1F6632] text-white"
+                    : "bg-[#FFFEFB] text-[#1F6632] hover:bg-[#FFFEEF]"
+                }`}>
                 {cat}
               </button>
             ))}
           </div>
           <div className="flex items-center">
-            <label htmlFor="sort" className="mr-2 text-sm sm:text-base text-[#1F6632]">
+            <label
+              htmlFor="sort"
+              className="mr-2 text-sm sm:text-base text-[#1F6632]">
               Sort by:
             </label>
             <select
               id="sort"
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value)}
-              className="border border-[#1F6632] rounded-md px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#1F6632]"
-            >
+              className="border border-[#1F6632] rounded-md px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#1F6632]">
               <option value="popularity">Popularity</option>
               <option value="price-low">Price: Low to High</option>
               <option value="price-high">Price: High to Low</option>
@@ -133,8 +134,7 @@ const Products = () => {
           {sortedProducts.map((product) => (
             <div
               key={product.id}
-              className="rounded-2xl shadow hover:shadow-lg transition overflow-hidden flex flex-col bg-[#FFFCED]"
-            >
+              className="rounded-2xl shadow hover:shadow-lg transition overflow-hidden flex flex-col bg-[#FFFCED]">
               <div className="w-full aspect-w-16 aspect-h-9">
                 <img
                   src={product.imageUrl}
@@ -160,8 +160,7 @@ const Products = () => {
                   </span>
                   <button
                     onClick={addToCart}
-                    className="bg-[#1F6632] hover:bg-[#145022] text-white px-4 py-2 rounded-lg text-sm sm:text-base transition focus:outline-none focus:ring-2 focus:ring-[#1F6632]"
-                  >
+                    className="bg-[#1F6632] hover:bg-[#145022] text-white px-4 py-2 rounded-lg text-sm sm:text-base transition focus:outline-none focus:ring-2 focus:ring-[#1F6632]">
                     Add to Cart
                   </button>
                 </div>
