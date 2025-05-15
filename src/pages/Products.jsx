@@ -13,54 +13,54 @@ const Products = () => {
       name: 'SmartScale Pro',
       description:
         'Enterprise-grade digital scale with advanced computer integration capabilities',
-      price: 1299.99,
+      price: 11999.,
       category: 'Hardware',
-      imageUrl: 'public/img/Accessories.png',
+      imageUrl: 'images/Accessories.png',
     },
     {
       id: 2,
       name: 'WeighConnect Software',
       description:
         'Cloud-based software solution for real-time weight data processing and analysis',
-      price: 499.99,
+      price: 14999.,
       category: 'Software',
-      imageUrl: 'public/img/Computing.jpg',
+      imageUrl: 'images/Computing.jpg',
     },
     {
       id: 3,
       name: 'ScaleLink Gateway',
       description:
         'Hardware interface for connecting legacy scales to modern computer systems',
-      price: 349.99,
+      price: 34999.,
       category: 'Integration',
-      imageUrl: 'public/img/L36 printer.png',
+      imageUrl: 'public/images/L36 printer.png',
     },
     {
       id: 4,
       name: 'DataWeight Enterprise',
       description:
         'Complete weight management system for large-scale industrial applications',
-      price: 2499.99,
+      price: 6999.,
       category: 'Hardware',
-      imageUrl: 'public/img/UNIWA V710 PDA.png',
+      imageUrl: 'images/UNIWA V710 PDA.png',
     },
     {
       id: 5,
       name: 'ScaleSync API',
       description:
         'Developer toolkit for custom integration of weight data into existing systems',
-      price: 799.99,
+      price: 8999.,
       category: 'Software',
-      imageUrl: 'public/img/Low profile platform scale.png',
+      imageUrl: 'images/Low profile platform scale.png',
     },
     {
       id: 6,
       name: 'WeighStation Terminal',
       description:
         'Touchscreen terminal for weight data collection and processing',
-      price: 1899.99,
+      price: 7699.,
       category: 'Hardware',
-      imageUrl: 'public/img/OCS-10A CAP 100-300KG.png',
+      imageUrl: '/images/OCS-10A CAP 100-300KG.png',
     },
   ];
 
@@ -79,14 +79,17 @@ const Products = () => {
   });
 
   return (
-    <section className="bg-gray-50 min-h-screen py-16">
+    <section
+      className="min-h-screen py-16"
+      style={{ backgroundColor: '#FEFAEA' }} // warm cream page bg
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-[#1F6632]">
             Our Products
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg max-w-2xl mx-auto text-[#1F6632]/80">
             Discover our range of innovative solutions designed to transform how weight scales and computers work together.
           </p>
         </div>
@@ -100,8 +103,8 @@ const Products = () => {
                 onClick={() => setActiveFilter(cat)}
                 className={`px-4 py-2 rounded-full text-sm sm:text-base transition ${
                   activeFilter === cat
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                    ? 'bg-[#1F6632] text-white'
+                    : 'bg-[#FFFEFB] text-[#1F6632] hover:bg-[#FFFEEF]'
                 }`}
               >
                 {cat}
@@ -109,14 +112,14 @@ const Products = () => {
             ))}
           </div>
           <div className="flex items-center">
-            <label htmlFor="sort" className="mr-2 text-sm sm:text-base text-gray-700">
+            <label htmlFor="sort" className="mr-2 text-sm sm:text-base text-[#1F6632]">
               Sort by:
             </label>
             <select
               id="sort"
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value)}
-              className="border border-gray-300 rounded-md px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-[#1F6632] rounded-md px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#1F6632]"
             >
               <option value="popularity">Popularity</option>
               <option value="price-low">Price: Low to High</option>
@@ -130,7 +133,7 @@ const Products = () => {
           {sortedProducts.map((product) => (
             <div
               key={product.id}
-              className="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden flex flex-col"
+              className="rounded-2xl shadow hover:shadow-lg transition overflow-hidden flex flex-col bg-[#FFFCED]"
             >
               <div className="w-full aspect-w-16 aspect-h-9">
                 <img
@@ -141,23 +144,23 @@ const Products = () => {
               </div>
               <div className="p-6 flex flex-col flex-grow">
                 <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-lg sm:text-xl font-semibold">
+                  <h3 className="text-lg sm:text-xl font-semibold text-[#1F6632]">
                     {product.name}
                   </h3>
-                  <span className="bg-blue-100 text-blue-800 text-xs sm:text-sm font-medium px-2 py-0.5 rounded-full">
+                  <span className="bg-[#FFFDEE] text-[#1F6632] text-xs sm:text-sm font-medium px-2 py-0.5 rounded-full">
                     {product.category}
                   </span>
                 </div>
-                <p className="text-gray-600 text-sm sm:text-base mb-4 flex-grow">
+                <p className="text-[#1F6632]/80 text-sm sm:text-base mb-4 flex-grow">
                   {product.description}
                 </p>
                 <div className="flex justify-between items-center">
-                  <span className="text-xl sm:text-2xl font-bold text-blue-700">
-                    ${product.price.toFixed(2)}
+                  <span className="text-xl sm:text-2xl font-bold text-[#1F6632]">
+                    Ksh {product.price.toFixed(2)}
                   </span>
                   <button
                     onClick={addToCart}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm sm:text-base transition focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="bg-[#1F6632] hover:bg-[#145022] text-white px-4 py-2 rounded-lg text-sm sm:text-base transition focus:outline-none focus:ring-2 focus:ring-[#1F6632]"
                   >
                     Add to Cart
                   </button>

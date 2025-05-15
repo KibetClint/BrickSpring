@@ -19,7 +19,7 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    'Home', 'Products', 'Solutions', 'Consultation', 'About Us', 'Contact'
+    'Home', 'About Us', 'Products', 'Solutions', 'Consultation',  'Contact'
   ];
   const getRoute = item => item === 'Home' ? '/' : `/${item.toLowerCase().replace(/\s+/g, '-')}`;
 
