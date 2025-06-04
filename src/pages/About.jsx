@@ -25,7 +25,7 @@ const About = () => {
       position: "Chief Executive Officer",
       paragraph:
         "Visionary leader driving our strategic direction and fostering partnerships.",
-      image: "/public/images/C.E.O.jpg",
+      image: "/images/C.E.O.jpg",
     },
     {
       id: 2,
@@ -33,7 +33,7 @@ const About = () => {
       position: "Chief Technical Officer",
       paragraph:
         "The technical challenges we solve at Brickspring are fascinating. We're constantly pushing the boundaries of what's possible in weight scale technology integration.",
-      image: "/public/images/KIBET.jpg",
+      image: "/images/KIBET.jpg",
     },
     {
       id: 3,
@@ -41,7 +41,7 @@ const About = () => {
       position: "Software Engineer",
       paragraph:
         "I'm proud to represent a company that puts customers first. The solutions we provide make a real difference in our clients' operations and efficiency.",
-      image: "/public/images/CLINT.jpg",
+      image: "/images/CLINT.jpg",
     },
     {
       id: 3,
@@ -49,15 +49,15 @@ const About = () => {
       position: "Technician",
       paragraph:
         "I'm proud to represent a company that puts customers first. The solutions we provide make a real difference in our clients' operations and efficiency.",
-      image: "/public/images/HILLARY.jpg",
+      image: "/images/HILLARY.jpg",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-800">
+    <div className="min-h-screen bg-gray-50 text-green-800">
       <main className="pt-0">
         {/* Hero Banner */}
-        <section className="relative bg-gradient-to-r from-blue-800 to-blue-600 text-white overflow-hidden">
+        <section className="relative bg-gradient-to-r  from-[#236837]/80 to-transparent text-white overflow-hidden">
           <div className="absolute inset-0 overflow-hidden">
             <img
               src="https://readdy.ai/api/search-image?query=Modern%20corporate%20office%20environment%20with%20team%20collaboration%2C%20elegant%20business%20setting%20with%20blue%20color%20scheme%2C%20professional%20workspace%20with%20subtle%20technology%20elements%2C%20clean%20minimal%20design%20with%20soft%20lighting%2C%20high%20quality%20professional%20photography&width=1440&height=500&seq=about-hero&orientation=landscape"
@@ -70,10 +70,10 @@ const About = () => {
               <a
                 href="https://readdy.ai/home/c125cf22-2be8-43c6-945e-47ccd4911098/3caed3c2-93dd-4704-9eeb-fabe4faf526e"
                 data-readdy="true"
-                className="text-blue-200 hover:text-white cursor-pointer">
+                className="text-green-200 hover:text-white cursor-pointer">
                 <i className="fas fa-home mr-2"></i>Home
               </a>
-              <i className="fas fa-chevron-right mx-2 text-blue-300 text-xs"></i>
+              <i className="fas fa-chevron-right mx-2 text-green-300 text-xs"></i>
               <span className="font-semibold">About Us</span>
             </div>
             <div className="max-w-3xl">
@@ -95,7 +95,7 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold mb-6 text-blue-700">
+                <h2 className="text-3xl font-bold mb-6 text-green-700">
                   Our Story
                 </h2>
                 <p className="text-lg text-gray-700 mb-6">
@@ -160,7 +160,7 @@ const About = () => {
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4 text-blue-700">
+              <h2 className="text-3xl font-bold mb-4 text-green-700">
                 Our Mission & Values
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -171,7 +171,7 @@ const About = () => {
 
             <div className="mb-16">
               <div className="bg-white rounded-lg shadow-lg p-8 text-center max-w-3xl mx-auto">
-                <h3 className="text-2xl font-bold mb-4 text-blue-700">
+                <h3 className="text-2xl font-bold mb-4 text-green-700">
                   Our Mission
                 </h3>
                 <p className="text-xl text-gray-700">
@@ -232,7 +232,7 @@ const About = () => {
         <section className="py-0 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4 text-blue-700">
+              <h2 className="text-3xl font-bold mb-4 text-green-700">
                 Corporate Social Responsibility
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -245,7 +245,7 @@ const About = () => {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
                   <FaLeaf className="text-green-600 text-2xl" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-geen-700">
+                <h3 className="text-xl font-bold mb-4 text-green-700">
                   Environmental Sustainability
                 </h3>
                 <p className="text-gray-700">
@@ -312,10 +312,10 @@ const About = () => {
                     />
                     <div>
                       <h3 className="font-bold text-lg">{testimonial.name}</h3>
-                      <p className="text-blue-600">{testimonial.position}</p>
+                      <p className="text-gray-600">{testimonial.position}</p>
                     </div>
                   </div>
-                  <div className="border-l-4 border-blue-500 pl-4 italic text-gray-600">
+                  <div className="border-l-4 border-green-900 pl-4 italic text-gray-600">
                     "{testimonial.paragraph}"
                   </div>
                 </div>
@@ -324,159 +324,7 @@ const About = () => {
           </div>
         </section>
         {/* Contact Section */}
-        <section className="py-16 bg-blue-700 text-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Connect With Us</h2>
-              <p className="text-xl max-w-3xl mx-auto">
-                Have questions about Brickspring Enterprises? We'd love to hear
-                from you.
-              </p>
-            </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <div>
-                <h3 className="text-2xl font-bold mb-6">Get In Touch</h3>
-                <div className="space-y-6">
-                  <div className="flex items-start">
-                    <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                      <FaEnvelope className="fas fa-envelope text-white text-xl" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-bold mb-2">Email Us</h4>
-                      <p className="text-blue-100 mb-1">
-                        General Inquiries: info@brickspring.com
-                      </p>
-                      <p className="text-blue-100 mb-1">
-                        Support: support@brickspring.com
-                      </p>
-                      <p className="text-blue-100">
-                        Careers: careers@brickspring.com
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                      <FaPhone className="fas fa-phone-alt text-white text-xl" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-bold mb-2">Call Us</h4>
-                      <p className="text-blue-100 mb-1">
-                        US: +1 (415) 555-1234
-                      </p>
-                      <p className="text-blue-100 mb-1">UK: +44 20 7123 4567</p>
-                      <p className="text-blue-100">
-                        Asia-Pacific: +65 6123 4567
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                      <FaGlobe className=" text-white text-xl" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-bold mb-2">Follow Us</h4>
-                      <div className="flex space-x-4">
-                        <a
-                          href="#"
-                          className="text-white hover:text-blue-200 transition cursor-pointer"
-                          aria-label="LinkedIn">
-                          <FaLinkedinIn className="text-2xl" />
-                        </a>
-                        <a
-                          href="#"
-                          className="text-white hover:text-blue-200 transition cursor-pointer"
-                          aria-label="Twitter">
-                          <FaSquareXTwitter className="text-2xl" />
-                        </a>
-                        <a
-                          href="#"
-                          className="text-white hover:text-blue-200 transition cursor-pointer"
-                          aria-label="Facebook">
-                          <FaFacebookF className="text-2xl" />
-                        </a>
-                        <a
-                          href="#"
-                          className="text-white hover:text-blue-200 transition cursor-pointer"
-                          aria-label="Instagram">
-                          <FaInstagram className="text-2xl" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-lg p-8 text-gray-800">
-                <h3 className="text-2xl font-bold mb-6 text-blue-700">
-                  Send Us a Message
-                </h3>
-                <form className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label
-                        htmlFor="name"
-                        className="block text-sm font-medium text-gray-700 mb-1">
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium text-gray-700 mb-1">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Your email"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="subject"
-                      className="block text-sm font-medium text-gray-700 mb-1">
-                      Subject
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                      placeholder="Message subject"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-gray-700 mb-1">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      rows={4}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                      placeholder="Your message"></textarea>
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md transition font-semibold !rounded-button whitespace-nowrap cursor-pointer">
-                    Send Message
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
     </div>
   );

@@ -132,14 +132,14 @@ export default function Consultation() {
         animate={{ ...float, transition: { ...float.transition, delay: 2 } }}
         className="absolute bottom-64 left-16 w-32 h-32 bg-[#1F6632]/5 rounded-full blur-2xl -z-10"
       />
-      <section className="relative bg-gradient-to-r from-blue-800 to-blue-600 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-r  from-[#236837]/80 to-transparent text-white overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <img
             src="/public/images/consultation.jpg"
             className="w-full h-full object-cover object-top opacity-20"
           />
         </div>
-        <div className="container mx-auto px-4 py-20 relative z-10">
+        <div className="container mx-auto px-4 py-20 relative  z-10">
           <div className="flex items-center mb-4">
             <a
               href="/"
@@ -280,7 +280,7 @@ export default function Consultation() {
           </motion.div>
 
           {/* Custom Consultation Request */}
-          <section className="py-16 bg-blue-700 text-white">
+          <section className="py-16 bg-green-900 text-white">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               <div>

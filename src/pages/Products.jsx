@@ -414,7 +414,7 @@ const Products = () => {
     <div className="min-h-screen bg-gray-50 text-gray-800">
       <main className="pt-0">
         {/* Page Header */}
-        <section className="bg-blue-700 text-white py-12">
+        <section className="bg-gradient-to-r  from-[#236837]/80 to-transparent text-white py-12">
           <div className="container mx-auto px-4">
             <div className="flex items-center mb-4">
               <a
