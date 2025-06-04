@@ -113,22 +113,21 @@ export default function Contact() {
       icon: FaMapMarkerAlt,
       label: "Address",
       lines: [
-        "Nairobi National Park Road",
-        "Karen, Nairobi",
-        "Kenya, East Africa",
+        "Parklands, Nairobi",
+        "Litein, Kericho",
       ],
       color: "text-red-500",
     },
     {
       icon: FaPhone,
       label: "Phone",
-      lines: ["+254 700 123 456", "+254 720 987 654"],
+      lines: ["+254 725 903309"],
       color: "text-green-500",
     },
     {
       icon: FaEnvelope,
       label: "Email",
-      lines: ["info@msafari-tribe.com", "bookings@msafari-tribe.com"],
+      lines: ["info@brickspring.co.ke"],
       color: "text-blue-500",
     },
     {
@@ -336,7 +335,6 @@ export default function Contact() {
                       </>
                     ) : (
                       <>
-                        <FaPaperPlane className="mr-2" />
                         Send Message
                       </>
                     )}
