@@ -62,7 +62,7 @@ function Header() {
           </div>
           <div className="flex items-center space-x-2">
             <FaEnvelope />
-            <span>contact@brickspring.com</span>
+            <span>info@brickspring.co.ke</span>
           </div>
         </div>
       </div>

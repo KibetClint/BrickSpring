@@ -9,6 +9,8 @@ import AboutUs from "./pages/About";
 import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Quote from "./pages/Quote.jsx";
+import FAQs from "./pages/Faqs.jsx";
 
 export default function App() {
   return (
@@ -22,6 +24,8 @@ export default function App() {
           <Route path="/consultation" element={<Consultation />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/quote" element={<Quote />} />
+          <Route path="/faqs" element={<FAQs/>}/>
           {/* Redirect any unknown route back to Home */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
