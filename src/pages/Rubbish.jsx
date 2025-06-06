@@ -1,596 +1,890 @@
-import React, { useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Autoplay, Pagination } from "swiper/modules";
+import React, { useState, useEffect } from "react";
+import { FaStar, FaTimes } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
-// Reused Animation Variants
-const fadeInUp = {
-  hidden: { y: 60, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { duration: 0.8, ease: "easeOut" },
-  },
-};
-
-const fadeInLeft = {
-  hidden: { x: -60, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: { duration: 0.8, ease: "easeOut" },
-  },
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const staggerItem = {
-  hidden: { y: 30, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
-
-const float = {
-  y: [-10, 10, -10],
-  transition: {
-    duration: 3,
-    repeat: Infinity,
-    ease: "easeInOut",
-  },
-};
-
-export default function Home() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -100]);
-  const headerY = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const cardY = useTransform(scrollYProgress, [0, 1], [0, -30]);
-
-  // Placeholder cart function
-  const addToCart = () => {};
-
-  // Hero slides data
-  const slides = [
-    {
-      id: 1,
-      title: "Revolutionizing Weight Scale Technology Integration",
-      subtitle: "Seamless solutions for modern business operations",
-      imgUrl: "/images/UNIWA V710 PDA.png",
-    },
-    {
-      id: 2,
-      title: "Optimize Operations with Real-Time Data",
-      subtitle: "Harness the power of instant weight analytics",
-      imgUrl: "/images/Checkered plate platform scales.png",
-    },
-    {
-      id: 3,
-      title: "Custom Integration, Maximum ROI",
-      subtitle: "Tailored solutions for your unique business needs",
-      imgUrl: "/images/Computing.jpg",
-    },
-  ];
+const Products = () => {
+  // State hooks
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedBrands, setSelectedBrands] = useState([]);
+  const [selectedRatings, setSelectedRatings] = useState([]);
+  const [sortOption, setSortOption] = useState("All");
+  const [showQuickView, setShowQuickView] = useState(null);
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   // Product data
   const products = [
     {
       id: 1,
-      name: "",
+      name: "SCS Pallet Truck Scale",
+      image: "SCS Pallet Truck Scale .webp",
       description:
-        "Enterprise-grade digital scale with advanced computer integration",
-      price: 1199,
+        "A versatile, heavy-duty solution that combines the functionality of a pallet jack with an integrated weighing system. Ideal for industries such as logistics, warehousing, manufacturing, and retail, it streamlines operations by allowing users to transport and weigh goods simultaneously.",
       category: "Hardware",
-      imageUrl: "/images/Accessories.png",
+      brand: "Brickspring",
+      features: [
+        "Integrated Weighing System",
+        "High-precision load cells",
+        "Durable steel construction",
+        "Rechargeable battery operation",
+        "User-friendly digital display",
+        "Multiple weighing units",
+        "Optional built-in printer",
+      ],
+      specifications: {
+        dimensions: '12" x 12" x 3"',
+        weight: "2,000 kg",
+        powerSupply: "AC adapter or rechargeable battery",
+        connectivity: "Wi-Fi, Bluetooth, Ethernet, USB",
+        accuracy: "±0.2% of full scale",
+        capacity: "Up to 100 kg",
+        display: "LCD with backlight",
+      },
+      compatibility: [
+        "WeighConnect Software",
+        "Most warehouse and logistics systems",
+        "ScaleSync API",
+      ],
+      releaseDate: "2024-11-15",
     },
     {
       id: 2,
-      name: "Cybersecurity Software",
-      description: "Cloud-based software for real-time weight data analysis",
-      price: 499,
-      category: "Software",
-      imageUrl: "/images/Computing.jpg",
+      name: "Checkered plate platform Scale",
+      image: "Checkered plate platform scales.png",
+      description:
+        "The Checkered Plate Platform Scale is engineered for demanding industrial environments, providing reliable and accurate weight measurements for heavy loads. Its robust construction features a durable checkered steel deck, ensuring slip resistance and longevity. Equipped with high-precision load cells and adjustable leveling feet, this scale maintains accuracy even on uneven surfaces. The powder-coated finish offers additional protection against corrosion, making it suitable for warehouses, manufacturing plants, and logistics centers. Optional ramps enhance accessibility, facilitating the weighing of wheeled containers and pallets.",
+      category: "Hardware",
+      brand: "Brickspring",
+      features: [
+        "Durable checkered steel deck",
+        "High-precision load cells",
+        "Adjustable leveling feet",
+        "Powder-coated finish",
+        "Optional ramps available",
+      ],
+      specifications: {
+        platform: "1200 mm × 1500 mm",
+        material: "Carbon steel with powder coating",
+        loadcells: "Alloy steel shear beam, IP67 rated",
+        updates: "Automatic monthly updates",
+        security: "256-bit encryption",
+        apiAccess: "REST API with documentation",
+      },
+      compatibility: [
+        "YAOHUA A12 indicator",
+        "WeighConnect Software",
+        "ScaleSync API",
+      ],
+      releaseDate: "2024-10-01",
     },
     {
       id: 3,
-      name: "ScaleLink Gateway",
-      description: "Interface for connecting legacy scales to modern systems",
-      price: 349,
+      name: "Bluetooth Printers",
+      image: "T12 BT printer.png",
+      description:
+        "Mini Bluetooth printers are designed for professionals requiring a reliable and portable printing solution. They are compact in size and lightweight build to make it ideal for on-the-go tasks such as issuing receipts, printing labels, or generating tickets. With high-speed thermal printing capabilities and broad compatibility across multiple operating systems, they ensure seamless integration into various workflows. The durable construction, coupled with a long-lasting rechargeable battery, guarantees consistent performance even in demanding environments.",
+      category: "Hardware",
+      brand: "Varies",
+      features: [
+        "Legacy system compatibility",
+        "Plug-and-play setup",
+        "Data conversion",
+        "Multiple protocol support",
+      ],
+      specifications: {
+        dimensions: "106.5 × 78 × 47 mm",
+        printingMethod: "Thermal line ",
+        printingSpeed: "Up to 62 mm/s",
+        weight: "0.370 Kg",
+        powerSupply: "USB or AC adapter",
+        connectivity: "USB, RS-232, Ethernet",
+        barcodeSupport:
+          "	1D: UPC-A, UPC-E, EAN-8, CODE39, CODE93, ITF25, CODE128; 2D: PDF417, QR CODE, DATA MATRIX",
+        dataRate: "Up to 100 samples/second",
+      },
+      compatibility: [
+        "Android and iOS devices",
+        "Windows and Linux systems",
+        "ESC/POS command set",
+        "Bluetooth 4.0 and above",
+        "Various POS and label applications",
+      ],
+      releaseDate: "2024-09-10",
+    },
+    {
+      id: 4,
+      name: "DataWeight Enterprise",
+      image: "Pallet scale.png",
+      description:
+        "Complete weight management system for large-scale industrial applications",
+      category: "Hardware",
+      brand: "Brickspring",
+      features: [
+        "Industrial-grade construction",
+        "Multi-scale management",
+        "Advanced data processing",
+        "Integration with manufacturing systems",
+      ],
+      specifications: {
+        dimensions: '18" x 14" x 6"',
+        weight: "12.5 lbs",
+        powerSupply: "AC power with backup battery",
+        connectivity: "Wi-Fi, Ethernet, Serial, USB",
+        accuracy: "±0.005%",
+        capacity: "Up to 2000 kg",
+      },
+      compatibility: [
+        "WeighConnect Software",
+        "ScaleSync API",
+        "Major MES and ERP systems",
+      ],
+      releaseDate: "2025-01-20",
+    },
+    {
+      id: 5,
+      name: "ScaleSync API",
+      image: "Pallet scale.png",
+      description:
+        "Developer toolkit for custom integration of weight data into existing systems",
+      category: "Software",
+      brand: "Brickspring",
+      features: [
+        "Comprehensive documentation",
+        "Sample code",
+        "Technical support",
+        "Regular updates",
+      ],
+      specifications: {
+        platform: "Language-agnostic REST API",
+        authentication: "OAuth 2.0",
+        rateLimit: "10,000 requests/day",
+        responseTime: "<100ms",
+        dataFormats: "JSON, XML",
+        webhooks: "Supported for real-time events",
+      },
+      compatibility: [
+        "All Brickspring hardware",
+        "Major programming languages",
+        "Cloud platforms",
+      ],
+      releaseDate: "2024-11-05",
+    },
+    {
+      id: 6,
+      name: "WeighStation Terminal",
+      image: "Pallet scale.png",
+      description:
+        "Touchscreen terminal for weight data collection and processing",
+      category: "Hardware",
+      brand: "Brickspring",
+      features: [
+        '10" touchscreen display',
+        "Barcode scanner",
+        "Receipt printer",
+        "User authentication",
+      ],
+      specifications: {
+        dimensions: '12" x 8" x 2"',
+        weight: "3.8 lbs",
+        powerSupply: "AC adapter",
+        processor: "Quad-core 2.4GHz",
+        memory: "8GB RAM, 128GB SSD",
+        operatingSystem: "Brickspring OS (Linux-based)",
+      },
+      compatibility: [
+        "WeighConnect Software",
+        "ScaleSync API",
+        "All Brickspring scales",
+      ],
+      releaseDate: "2024-12-10",
+    },
+    {
+      id: 7,
+      name: "MicroScale Portable",
+      image: "Pallet scale.png",
+      description:
+        "Compact, battery-powered scale with wireless connectivity for field operations",
+      category: "Hardware",
+      brand: "Brickspring",
+      features: [
+        "Portable design",
+        "Long battery life",
+        "Wireless data transmission",
+        "Rugged construction",
+      ],
+      specifications: {
+        dimensions: '8" x 8" x 1.5"',
+        weight: "2.1 lbs",
+        powerSupply: "Rechargeable battery (24hr operation)",
+        connectivity: "Bluetooth, Wi-Fi",
+        accuracy: "±0.05%",
+        capacity: "Up to 25 kg",
+      },
+      compatibility: ["WeighConnect Software", "Mobile apps", "ScaleSync API"],
+      releaseDate: "2024-08-15",
+    },
+    {
+      id: 8,
+      name: "WeighConnect Mobile",
+      image: "Pallet scale.png",
+      description: "Mobile application for accessing weight data on the go",
+      category: "Software",
+      brand: "Brickspring",
+      features: [
+        "Real-time data access",
+        "Push notifications",
+        "Offline mode",
+        "User-friendly interface",
+      ],
+      specifications: {
+        platform: "iOS and Android",
+        minVersion: "iOS 14+ / Android 10+",
+        size: "45MB",
+        languages: "English, Spanish, French, German, Chinese",
+        updates: "Monthly",
+        dataSync: "Automatic or manual",
+      },
+      compatibility: ["WeighConnect Software", "All Brickspring hardware"],
+      releaseDate: "2024-09-01",
+    },
+    {
+      id: 9,
+      name: "ScaleLink Pro",
+      image: "Pallet scale.png",
+      description:
+        "Advanced integration module for complex multi-scale environments",
       category: "Integration",
-      imageUrl: "/images/L36 printer.png",
+      brand: "TechWeigh",
+      features: [
+        "Multi-scale support",
+        "Advanced protocol conversion",
+        "Data aggregation",
+        "Custom mapping",
+      ],
+      specifications: {
+        dimensions: '8" x 6" x 2"',
+        weight: "1.5 lbs",
+        powerSupply: "AC adapter",
+        connectivity: "USB, RS-485, Ethernet, Wi-Fi",
+        supportedSystems: "Up to 32 scales simultaneously",
+        dataBuffering: "64MB onboard memory",
+      },
+      compatibility: [
+        "Most industrial scales",
+        "WeighConnect Software",
+        "Third-party ERP systems",
+      ],
+      releaseDate: "2024-10-20",
+    },
+    {
+      id: 10,
+      name: "WeighConnect Enterprise",
+      image: "Pallet scale.png",
+      description:
+        "Full-featured enterprise version of WeighConnect with advanced security and management features",
+      category: "Software",
+      brand: "Brickspring",
+      features: [
+        "Role-based access control",
+        "Audit logging",
+        "Enterprise reporting",
+        "White labeling",
+      ],
+      specifications: {
+        deployment: "Cloud or on-premises",
+        users: "Unlimited",
+        dataRetention: "Configurable up to 10 years",
+        sso: "SAML, OAuth support",
+        compliance: "GDPR, HIPAA, ISO 27001",
+        backup: "Automated with point-in-time recovery",
+      },
+      compatibility: [
+        "All Brickspring hardware",
+        "Major ERP and MES systems",
+        "Custom integrations",
+      ],
+      releaseDate: "2025-02-01",
+    },
+    {
+      id: 11,
+      name: "ScaleGuard Security Module",
+      image: "Pallet scale.png",
+      description:
+        "Security enhancement module for weight data protection and compliance",
+      category: "Software",
+      brand: "SecureWeigh",
+      features: [
+        "Data encryption",
+        "Tamper detection",
+        "Compliance reporting",
+        "Access control",
+      ],
+      specifications: {
+        encryption: "AES-256",
+        certification: "NIST FIPS 140-2",
+        auditTrail: "Comprehensive logging",
+        authentication: "Multi-factor",
+        alerts: "Real-time security notifications",
+        updates: "Automatic security patches",
+      },
+      compatibility: [
+        "All Brickspring hardware and software",
+        "Third-party systems via API",
+      ],
+      releaseDate: "2024-11-30",
+    },
+    {
+      id: 12,
+      name: "CalibrationMaster Kit",
+      image: "Pallet scale.png",
+      description:
+        "Professional calibration kit for maintaining scale accuracy",
+      category: "Hardware",
+      brand: "PrecisionTech",
+      features: [
+        "Certified weights",
+        "Calibration software",
+        "Documentation tools",
+        "Carrying case",
+      ],
+      specifications: {
+        weightSet: "1g to 10kg, NIST traceable",
+        software: "CalibrationMaster Pro included",
+        certificate: "Calibration certificate included",
+        recertification: "Annual recertification service available",
+        accuracy: "Class F1 weights",
+        case: "Waterproof, impact-resistant",
+      },
+      compatibility: ["All weighing equipment", "WeighConnect Software"],
+      releaseDate: "2024-07-15",
     },
   ];
 
-  const [activeFilter, setActiveFilter] = useState("All");
-  const [sortOption, setSortOption] = useState("category");
+  // Branding and category options
+  const brands = ["Brickspring", "TechWeigh", "SecureWeigh", "PrecisionTech"];
+  const categories = ["Hardware", "Software", "Services"];
 
-  const filtered =
-    activeFilter === "All"
-      ? products
-      : products.filter((p) => p.category === activeFilter);
-  const sorted = [...filtered].sort((a, b) =>
-    sortOption === "price-low"
-      ? a.price - b.price
-      : sortOption === "price-high"
-        ? b.price - a.price
-        : a.id - b.id
-  );
+  // Handlers
+  const handleCategoryChange = (category) => {
+    setSelectedCategories((prev) =>
+      prev.includes(category)
+        ? prev.filter((c) => c !== category)
+        : [...prev, category]
+    );
+  };
+
+  const handleBrandChange = (brand) => {
+    setSelectedBrands((prev) =>
+      prev.includes(brand) ? prev.filter((b) => b !== brand) : [...prev, brand]
+    );
+  };
+
+  // Filter products based on selected categories, brands, and ratings
+  const filteredProducts = products.filter((product) => {
+    const matchesCategoryFilter =
+      selectedCategories.length === 0 ||
+      selectedCategories.includes(product.category) ||
+      // Treat "Services" as matching "Integration"
+      (selectedCategories.includes("Services") &&
+        product.category === "Integration");
+
+    const matchesBrand =
+      selectedBrands.length === 0 || selectedBrands.includes(product.brand);
+
+    const matchesRating =
+      selectedRatings.length === 0 ||
+      selectedRatings.some((r) => Math.floor(product.rating || 0) === r);
+
+    return matchesCategoryFilter && matchesBrand && matchesRating;
+  });
+
+  // Further filter by sortOption (category‐based)
+  let displayedProducts = filteredProducts;
+  if (sortOption === "Hardware") {
+    displayedProducts = displayedProducts.filter(
+      (p) => p.category === "Hardware"
+    );
+  } else if (sortOption === "Software") {
+    displayedProducts = displayedProducts.filter(
+      (p) => p.category === "Software"
+    );
+  } else if (sortOption === "Services") {
+    // Treat "Integration" as "Services"
+    displayedProducts = displayedProducts.filter(
+      (p) => p.category === "Integration"
+    );
+  }
+
+  // Sort by ID ascending
+  const sortedProducts = [...displayedProducts].sort((a, b) => a.id - b.id);
+
+  useEffect(() => {
+    // no side-effects needed here
+  }, []);
 
   return (
-    <div ref={containerRef} className="relative overflow-hidden bg-[#FFF9E6]">
-      {/* Parallax Background Gradient */}
-      <motion.div
-        style={{ y: backgroundY }}
-        className="absolute inset-0 bg-gradient-to-br from-[#FFF9E6] via-[#F0F9FF] to-[#FFF9E6] -z-10"
-      />
-
-      {/* Floating Decorative Circles */}
-      <motion.div
-        animate={float}
-        className="absolute top-20 right-10 w-20 h-20 bg-[#236837]/10 rounded-full blur-xl -z-10"
-      />
-      <motion.div
-        animate={{ ...float, transition: { ...float.transition, delay: 1.5 } }}
-        className="absolute bottom-40 left-10 w-32 h-32 bg-[#236837]/5 rounded-full blur-2xl -z-10"
-      />
-
-      <main>
-        {/* Hero Slider */}
-        <section className="relative h-[60vh] sm:h-[70vh] lg:h-[80vh] overflow-hidden">
-          <Swiper
-            modules={[Autoplay, Pagination]}
-            autoplay={{ delay: 5000, disableOnInteraction: false }}
-            pagination={{ clickable: true }}
-            loop
-            className="h-full">
-            {slides.map((slide) => (
-              <SwiperSlide key={slide.id} className="relative h-full">
-                <img
-                  src={slide.imgUrl}
-                  alt={slide.title}
-                  className="absolute inset-0 w-full h-full object-cover object-top"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#236837]/80 to-transparent z-10" />
-                <div className="max-w-3xl mx-auto px-4 py-16 h-full flex items-center relative z-20">
-                  <motion.div
-                    style={{ y: headerY }}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: false, amount: 0.3 }}
-                    variants={fadeInUp}>
-                    <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight mb-4">
-                      {slide.title}
-                    </h1>
-                    <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white mb-8">
-                      {slide.subtitle}
-                    </p>
-                    <div className="flex flex-wrap gap-4">
-                      <button className="bg-[#236837] hover:bg-[#1a5129] text-white px-5 py-3 rounded-md text-sm sm:text-base md:text-lg transition">
-                        Explore Products
-                      </button>
-                      <button className="border-2 border-white hover:bg-white/20 text-white px-5 py-3 rounded-md text-sm sm:text-base md:text-lg transition">
-                        Book Consultation
-                      </button>
-                    </div>
-                  </motion.div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+    <div className="min-h-screen bg-[#fffbf0] text-[#236434]">
+      <main className="pt-0">
+        {/* Page Header */}
+        <section className="bg-gradient-to-r  from-[#236837]/100 to-transparent text-white py-12">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center mb-4">
+              <a
+                href="/"
+                className="text-blue-200 hover:text-white cursor-pointer">
+                <i className="fas fa-home mr-2"></i>Home
+              </a>
+              <i className="fas fa-chevron-right mx-2 text-blue-300 text-xs"></i>
+              <span className="font-semibold">Products</span>
+            </div>
+            <h1 className="text-4xl font-bold mb-4">
+              Our Products and Services
+            </h1>
+            <p className="text-xl max-w-3xl">
+              Explore our comprehensive range of weight scale technology
+              solutions designed for seamless integration and optimal
+              performance.
+            </p>
+          </div>
         </section>
 
         {/* Products Section */}
-        <section className="py-16 bg-transparent">
-          <div className="text-center mb-12 px-4">
-            <motion.h2
-              style={{ y: headerY }}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.3 }}
-              variants={fadeInUp}
-              className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 text-[#236837]">
-              Our Products
-            </motion.h2>
-            <motion.p
-              variants={fadeInLeft}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.3 }}
-              className="text-sm sm:text-base md:text-lg lg:text-xl text-[#236837] max-w-2xl mx-auto">
-              Discover our range of innovative solutions designed to transform
-              how weight scales and computers work together.
-            </motion.p>
-          </div>
-          <div className="max-w-7xl mx-auto px-4">
-            {/* Filters & Sort UI */}
-            <motion.div
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.3 }}
-              className="mb-8 flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-4 sm:space-y-0">
-              <div className="flex flex-wrap gap-2">
-                {["All", "Hardware", "Software", "Integration"].map((cat) => (
-                  <button
-                    key={cat}
-                    onClick={() => setActiveFilter(cat)}
-                    className={`px-3 py-1.5 rounded-full transition ${
-                      activeFilter === cat
-                        ? "bg-[#236837] text-white"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                    } text-xs sm:text-sm md:text-base`}>
-                    {cat}
-                  </button>
-                ))}
-              </div>
-              <div className="flex items-center">
-                <label
-                  htmlFor="sort"
-                  className="mr-2 text-xs sm:text-sm md:text-base text-gray-700">
-                  Sort by:
-                </label>
-                <select
-                  id="sort"
-                  value={sortOption}
-                  onChange={(e) => setSortOption(e.target.value)}
-                  className="border border-gray-300 rounded-md px-2 py-1 text-xs sm:text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#236837]">
-                  <option value="category">Category</option>
-                  <option value="price-low">Price: Low to High</option>
-                  <option value="price-high">Price: High to Low</option>
-                </select>
-              </div>
-            </motion.div>
-
-            {/* Product Grid */}
-            <motion.div
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.2 }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {sorted.map((product) => (
-                <motion.div
-                  key={product.id}
-                  style={{ y: cardY }}
-                  variants={staggerItem}
-                  whileHover={{
-                    y: -8,
-                    scale: 1.02,
-                    boxShadow: "0 20px 40px -12px rgba(0, 0, 0, 0.15)",
-                  }}
-                  className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition overflow-hidden flex flex-col border border-white/20">
-                  <div className="h-48 sm:h-56 w-full">
-                    <img
-                      src={product.imageUrl}
-                      alt={product.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-6 flex flex-col flex-grow">
-                    <div className="flex justify-between items-center mb-2">
-                      <h3 className="text-base sm:text-lg md:text-xl font-semibold text-[#236837]">
-                        {product.name}
-                      </h3>
-                      <span className="bg-[#236837]/20 text-[#236837] text-xs sm:text-sm md:text-base font-medium px-2 py-0.5 rounded-full">
-                        {product.category}
-                      </span>
-                    </div>
-                    <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-4 flex-grow">
-                      {product.description}
-                    </p>
-                    <div className="flex justify-between items-center">
-                      <span className="text-lg sm:text-xl md:text-2xl font-bold text-[#236837]">
-                        Ksh {product.price.toFixed(2)}
-                      </span>
-                      <button
-                        onClick={addToCart}
-                        className="bg-[#236837] hover:bg-[#1a5129] text-white px-4 py-2 rounded-md text-xs sm:text-sm md:text-base transition focus:outline-none focus:ring-2 focus:ring-[#236837]">
-                        Read More
-                      </button>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Why Choose Us */}
-        <section className="py-20 bg-transparent">
-          <div className="max-w-7xl mx-auto px-4 text-center mb-16">
-            <motion.h2
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.3 }}
-              className="text-4xl font-bold mb-4 text-[#236837]">
-              Why Choose Us
-            </motion.h2>
-            <motion.p
-              variants={fadeInLeft}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.3 }}
-              className="text-xl text-[#236837] max-w-3xl mx-auto">
-              At Brickspring Enterprises, we combine innovation with expertise
-              to deliver unparalleled weight scale technology solutions.
-            </motion.p>
-          </div>
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto px-4">
-            {[
-              {
-                icon: "fas fa-lightbulb",
-                title: "Innovation Leadership",
-                desc: "Pioneering the latest advancements in weight scale technology and computer integration to keep your business ahead of the curve.",
-              },
-              {
-                icon: "fas fa-cogs",
-                title: "Technical Expertise",
-                desc: "Our team of certified engineers and developers brings decades of combined experience in scale technology and system integration.",
-              },
-              {
-                icon: "fas fa-headset",
-                title: "Customer Support",
-                desc: "Dedicated 24/7 support team committed to ensuring your systems run smoothly with minimal downtime and maximum efficiency.",
-              },
-              {
-                icon: "fas fa-chart-line",
-                title: "Proven Results",
-                desc: "Our solutions have helped hundreds of businesses achieve measurable improvements in efficiency, accuracy, and operational costs.",
-              },
-            ].map((item) => (
-              <motion.div
-                key={item.title}
-                variants={staggerItem}
-                whileHover={{ scale: 1.05 }}
-                className="bg-[#236837]/10 rounded-lg p-8 text-center transition-all duration-300">
-                <div className="w-20 h-20 bg-[#236837] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <i className={`${item.icon} text-white text-3xl`} />
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-[#236837]">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600">{item.desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </section>
-
-        {/* Contact Us */}
-        <section className="py-20 bg-transparent">
-          <div className="max-w-7xl mx-auto px-4 text-center mb-16">
-            <motion.h2
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.3 }}
-              className="text-4xl font-bold mb-4 text-[#236837]">
-              Contact Us
-            </motion.h2>
-            <motion.p
-              variants={fadeInLeft}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.3 }}
-              className="text-xl text-[#236837] max-w-3xl mx-auto">
-              Have questions or ready to get started? Reach out to our team
-              today.
-            </motion.p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto px-4">
-            <motion.div
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.3 }}
-              className="bg-white rounded-lg shadow-lg p-8">
-              <form>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <label
-                      htmlFor="contactName"
-                      className="block text-gray-700 mb-2">
-                      Full Name
-                    </label>
-                    <input
-                      type="text"
-                      id="contactName"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#236837]"
-                      placeholder="John Smith"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="contactEmail"
-                      className="block text-gray-700 mb-2">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      id="contactEmail"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#236837]"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <label
-                      htmlFor="contactPhone"
-                      className="block text-gray-700 mb-2">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      id="contactPhone"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#236837]"
-                      placeholder="(123) 456-7890"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="contactCompany"
-                      className="block text-gray-700 mb-2">
-                      Company
-                    </label>
-                    <input
-                      type="text"
-                      id="contactCompany"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#236837]"
-                      placeholder="Your Company, Inc."
-                    />
-                  </div>
-                </div>
-                <div className="mb-6">
-                  <label
-                    htmlFor="contactSubject"
-                    className="block text-gray-700 mb-2">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="contactSubject"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#236837]"
-                    placeholder="How can we help you?"
-                  />
-                </div>
-                <div className="mb-6">
-                  <label
-                    htmlFor="contactMessage"
-                    className="block text-gray-700 mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="contactMessage"
-                    rows={5}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#236837]"
-                    placeholder="Please provide details about your inquiry..."></textarea>
-                </div>
-                <button className="w-full bg-[#236837] hover:bg-[#1a5129] text-white py-3 rounded-md transition focus:outline-none focus:ring-2 focus:ring-[#236837]">
-                  Send Message
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col lg:flex-row">
+              {/* Mobile Filter Toggle */}
+              <div className="lg:hidden mb-4">
+                <button
+                  onClick={() => setMobileFiltersOpen(!mobileFiltersOpen)}
+                  className="w-full bg-white border border-gray-300 px-4 py-2 rounded-md flex justify-between items-center !rounded-button whitespace-nowrap cursor-pointer">
+                  <span className="font-medium">Filters</span>
+                  <i
+                    className={`fas fa-chevron-${
+                      mobileFiltersOpen ? "up" : "down"
+                    }`}></i>
                 </button>
-              </form>
-            </motion.div>
-            <motion.div
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.3 }}
-              className="bg-[#236837]/10 rounded-lg shadow-lg p-8 h-full">
-              <h3 className="text-2xl font-bold mb-6 text-[#236837]">
-                Get In Touch
-              </h3>
-              <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="bg-[#236837] rounded-full p-3 mr-4">
-                    <i className="fas fa-map-marker-alt text-white"></i>
+              </div>
+
+              {/* Filters Sidebar */}
+              <div
+                className={`lg:w-1/4 xl:w-1/5 pr-0 lg:pr-8 ${
+                  mobileFiltersOpen ? "block" : "hidden lg:block"
+                }`}>
+                <div className="bg-white rounded-lg shadow-md p-6 mb-6 sticky top-20">
+                  <h2 className="text-xl font-bold mb-6 pb-2 border-b border-gray-200">
+                    Filters
+                  </h2>
+
+                  {/* Category Checkboxes */}
+                  <div className="mb-6">
+                    <h3 className="font-semibold mb-3">Categories</h3>
+                    <div className="space-y-2">
+                      {categories.map((category) => (
+                        <div key={category} className="flex items-center">
+                          <input
+                            type="checkbox"
+                            id={`category-${category}`}
+                            checked={selectedCategories.includes(category)}
+                            onChange={() => handleCategoryChange(category)}
+                            className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
+                          />
+                          <label
+                            htmlFor={`category-${category}`}
+                            className="ml-2 text-gray-700 cursor-pointer">
+                            {category}
+                          </label>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-gray-800">Address</h4>
-                    <p className="text-gray-600">
-                      1234 Innovation Way
-                      <br />
-                      Tech District
-                      <br />
-                      San Francisco, CA 94105
-                    </p>
+
+                  {/* Brand Checkboxes */}
+                  <div className="mb-6">
+                    <h3 className="font-semibold mb-3">Brands</h3>
+                    <div className="space-y-2">
+                      {brands.map((brand) => (
+                        <div key={brand} className="flex items-center">
+                          <input
+                            type="checkbox"
+                            id={`brand-${brand}`}
+                            checked={selectedBrands.includes(brand)}
+                            onChange={() => handleBrandChange(brand)}
+                            className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
+                          />
+                          <label
+                            htmlFor={`brand-${brand}`}
+                            className="ml-2 text-gray-700 cursor-pointer">
+                            {brand}
+                          </label>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="bg-[#236837] rounded-full p-3 mr-4">
-                    <i className="fas fa-phone text-white"></i>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-800">Phone</h4>
-                    <p className="text-gray-600">
-                      Sales: (800) 123-4567
-                      <br />
-                      Support: (800) 765-4321
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="bg-[#236837] rounded-full p-3 mr-4">
-                    <i className="fas fa-envelope text-white"></i>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-800">Email</h4>
-                    <p className="text-gray-600">
-                      Sales: sales@brickspring.com
-                      <br />
-                      Support: support@brickspring.com
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="bg-[#236837] rounded-full p-3 mr-4">
-                    <i className="fas fa-clock text-white"></i>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-800">Business Hours</h4>
-                    <p className="text-gray-600">
-                      Monday - Friday: 8:00 AM - 6:00 PM PST
-                      <br />
-                      Saturday: 9:00 AM - 1:00 PM PST
-                      <br />
-                      Sunday: Closed
-                    </p>
-                  </div>
+
+                  {/* Reset Filters Button */}
+                  <button
+                    onClick={() => {
+                      setSelectedCategories([]);
+                      setSelectedBrands([]);
+                      setSelectedRatings([]);
+                    }}
+                    className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-md transition !rounded-button whitespace-nowrap cursor-pointer">
+                    Reset Filters
+                  </button>
                 </div>
               </div>
-              <div className="mt-8">
-                <h4 className="font-bold text-gray-800 mb-4">
-                  Connect With Us
-                </h4>
-                <div className="flex space-x-4">
-                  <a
-                    href="#"
-                    className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition">
-                    <i className="fab fa-linkedin-in"></i>
-                  </a>
-                  <a
-                    href="#"
-                    className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                  <a
-                    href="#"
-                    className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition">
-                    <i className="fab fa-facebook-f"></i>
-                  </a>
-                  <a
-                    href="#"
-                    className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition">
-                    <i className="fab fa-instagram"></i>
-                  </a>
+
+              {/* Products Grid & Sort */}
+              <div className="lg:w-3/4 xl:w-4/5">
+                {/* Sort Dropdown */}
+                <div className="bg-white rounded-lg shadow-md p-4 mb-6 flex flex-col sm:flex-row justify-between items-center">
+                  <p className="text-gray-600 mb-2 sm:mb-0">
+                    Showing{" "}
+                    <span className="font-semibold">
+                      {sortedProducts.length}
+                    </span>{" "}
+                    products
+                  </p>
+                  <div className="flex items-center">
+                    <label htmlFor="sort" className="mr-2 text-gray-700">
+                      Sort by:
+                    </label>
+                    <div className="relative">
+                      <select
+                        id="sort"
+                        value={sortOption}
+                        onChange={(e) => setSortOption(e.target.value)}
+                        className="appearance-none bg-white border border-gray-300 rounded-md px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer">
+                        <option value="All">All</option>
+                        <option value="Hardware">Hardware</option>
+                        <option value="Software">Software</option>
+                        <option value="Services">Services</option>
+                      </select>
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <i className="fas fa-chevron-down text-xs"></i>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+
+                {/* Products Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {sortedProducts.map((product) => {
+                    // normalize image path
+                    const imgSrc = `/images/${product.image.replace(/^\//, "")}`;
+
+                    return (
+                      <div
+                        key={product.id}
+                        className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg">
+                        <div className="h-56 overflow-hidden relative group">
+                          <img
+                            src={imgSrc}
+                            alt={product.name}
+                            className="w-full h-full object-cover object-top transition-transform group-hover:scale-105"
+                          />
+                        </div>
+                        <div className="p-5">
+                          <div className="flex justify-between items-start mb-2">
+                            <h3 className="text-lg font-bold text-gra-800">
+                              {product.name}
+                            </h3>
+                            <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
+                              {/* Show category (treat "Integration" as "Services") */}
+                              {product.category === "Integration"
+                                ? "Services"
+                                : product.category}
+                            </span>
+                          </div>
+                          <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                            {product.description}
+                          </p>
+
+                          {/* Key Features */}
+                          <div className="mb-4">
+                            <h4 className="text-sm font-semibold text-gray-700 mb-2">
+                              Key Features:
+                            </h4>
+                            <ul className="text-xs text-gray-600 space-y-1">
+                              {product.features
+                                .slice(0, 3)
+                                .map((feature, idx) => (
+                                  <li key={idx} className="flex items-start">
+                                    <i className="fas fa-check text-green-500 mr-1 mt-0.5"></i>
+                                    <span>{feature}</span>
+                                  </li>
+                                ))}
+                            </ul>
+                          </div>
+
+                          {/* Rating */}
+                          <div className="flex items-center space-x-2">
+                            <div className="flex items-center">
+                              {Array.from({ length: 5 }).map((_, i) => (
+                                <i
+                                  key={i}
+                                  className={`fas fa-star text-sm ${
+                                    i < Math.floor(product.rating || 0)
+                                      ? "text-yellow-400"
+                                      : "text-gray-300"
+                                  }`}></i>
+                              ))}
+                              <span className="ml-1 text-sm text-gray-600">
+                                {product.rating || 0}
+                              </span>
+                            </div>
+                          </div>
+
+                          <div className="mt-4 flex items-center justify-between">
+                            <button
+                              onClick={() => setShowQuickView(product.id)}
+                              className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-md transition text-sm !rounded-button whitespace-nowrap cursor-pointer">
+                              <i className="fas fa-shopping-cart mr-1"></i> View
+                              Product
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Empty State */}
+                {sortedProducts.length === 0 && (
+                  <div className="bg-white rounded-lg shadow-md p-8 text-center">
+                    <i className="fas fa-search text-blue-200 text-5xl mb-4"></i>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">
+                      No products found
+                    </h3>
+                    <p className="text-gray-600 mb-6">
+                      We couldn't find any products matching your current
+                      filters. Try adjusting your filter criteria.
+                    </p>
+                    <button
+                      onClick={() => {
+                        setSelectedCategories([]);
+                        setSelectedBrands([]);
+                        setSelectedRatings([]);
+                      }}
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition !rounded-button whitespace-nowrap cursor-pointer">
+                      Reset Filters
+                    </button>
+                  </div>
+                )}
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
       </main>
+
+      {/* Product Quick View Modal */}
+      {showQuickView !== null && (
+        // Overlay: clicking anywhere here will close the modal
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+          onClick={() => setShowQuickView(null)}>
+          {/* Modal Content: stop propagation so clicks inside don’t close */}
+          <div
+            className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}>
+            {(() => {
+              const product = products.find((p) => p.id === showQuickView);
+              if (!product) return null;
+
+              const modalImgSrc = `/images/${product.image.replace(/^\//, "")}`;
+
+              return (
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-4">
+                    <h2 className="text-2xl font-bold text-gray-800">
+                      {product.name}
+                    </h2>
+                    <button
+                      onClick={() => setShowQuickView(null)}
+                      className="text-gray-500 hover:text-gray-700 transition cursor-pointer">
+                      <FaTimes className="fas fa-times text-xl" />
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {/* Left side: Image */}
+                    <div>
+                      <div className="bg-gray-100 rounded-lg overflow-hidden">
+                        <img
+                          src={modalImgSrc}
+                          alt={product.name}
+                          className="w-full h-full object-contain p-4"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Right side: Details */}
+                    <div>
+                      <div className="flex items-center mb-4">
+                        <span className="bg-blue-100 text-blue-800 text-sm font-semibold px-2.5 py-0.5 rounded mr-2">
+                          {product.category === "Integration"
+                            ? "Services"
+                            : product.category}
+                        </span>
+                        <span className="text-gray-600 text-sm">
+                          Brand:{" "}
+                          <span className="font-semibold">{product.brand}</span>
+                        </span>
+                      </div>
+                      <p className="text-gray-700 mb-4">
+                        {product.description}
+                      </p>
+                      <div className="flex items-center mb-4">
+                        <div className="flex items-center mr-4">
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <FaStar
+                              key={i}
+                              className={`fas fa-star ${
+                                i < Math.floor(product.rating || 4.5)
+                                  ? "text-yellow-400"
+                                  : "text-gray-300"
+                              }`}
+                            />
+                          ))}
+                          <span className="ml-1 text-gray-600">
+                            {product.rating || 0}
+                          </span>
+                        </div>
+                        <span className="text-sm text-gray-600">
+                          Stock:{" "}
+                          <span className="font-semibold">
+                            {product.stock ?? "N/A"} available
+                          </span>
+                        </span>
+                      </div>
+
+                      {/* Key Features */}
+                      <div className="mb-6">
+                        <h3 className="font-semibold text-gray-800 mb-2">
+                          Key Features:
+                        </h3>
+                        <ul className="text-gray-600 space-y-1">
+                          {product.features.map((feature, index) => (
+                            <li key={index} className="flex items-start">
+                              <FaCheck className="fas fa-check text-green-500 mr-2 mt-1" />
+                              <span>{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="mb-6">
+                        <h3 className="font-semibold text-gray-800 mb-2">
+                          Technical Specifications:
+                        </h3>
+                        <div className="bg-gray-50 rounded-lg p-4">
+                          <table className="w-full text-sm">
+                            <tbody>
+                              {Object.entries(product.specifications || {}).map(
+                                ([key, value]) => (
+                                  <tr
+                                    key={key}
+                                    className="border-b border-green-200 last:border-0">
+                                    <td className="py-2 font-medium text-gray-700 capitalize">
+                                      {key.replace(/([A-Z])/g, " $1").trim()}
+                                    </td>
+                                    <td className="py-2 text-gray-600">
+                                      {value}
+                                    </td>
+                                  </tr>
+                                )
+                              )}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                      <div className="mb-6">
+                        <h3 className="font-semibold text-gray-800 mb-2">
+                          Compatibility:
+                        </h3>
+                        <div className="flex flex-wrap gap-2">
+                          {product.compatibility.map((item, index) => (
+                            <span
+                              key={index}
+                              className="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">
+                              {item}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                        <Link
+                          to="/quote"
+                          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition whitespace-nowrap cursor-pointer flex items-center">
+                          <i className="fas fa-shopping-cart mr-2"></i>Request a
+                          Quote
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Related Products */}
+                  <div className="mt-8 pt-6 border-t border-gray-200">
+                    <h3 className="text-xl font-bold text-gray-800 mb-4">
+                      Related Products
+                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                      {products
+                        .filter(
+                          (p) =>
+                            p.id !== product.id &&
+                            ((product.category === "Integration" &&
+                              p.category === "Integration") ||
+                              p.category === product.category)
+                        )
+                        .slice(0, 3)
+                        .map((related) => {
+                          const relImgSrc = `/images/${related.image.replace(
+                            /^\//,
+                            ""
+                          )}`;
+
+                          return (
+                            <div
+                              key={related.id}
+                              className="bg-gray-50 rounded-lg p-4 flex items-center space-x-4">
+                              <div className="w-16 h-16 bg-white rounded-md overflow-hidden flex-shrink-0">
+                                <img
+                                  src={relImgSrc}
+                                  alt={related.name}
+                                  className="w-full h-full object-cover object-top"
+                                />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <h4 className="text-sm font-semibold text-gray-800 truncate">
+                                  {related.name}
+                                </h4>
+                                <div className="flex items-center mt-1">
+                                  <button
+                                    onClick={() => {
+                                      setShowQuickView(related.id);
+                                      window.scrollTo(0, 0);
+                                    }}
+                                    className="ml-auto text-xs text-blue-600 hover:text-blue-800 cursor-pointer">
+                                    View
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
+          </div>
+        </div>
+      )}
     </div>
   );
-}
+};
+
+export default Products;

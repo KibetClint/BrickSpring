@@ -13,7 +13,6 @@ const fadeInUp = {
   },
 };
 
-
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
@@ -59,7 +58,6 @@ export default function Consultation() {
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const titleY = useTransform(scrollYProgress, [0, 1], [0, -50]);
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -183,7 +181,6 @@ export default function Consultation() {
       </section>
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
           {/* Packages Grid */}
           <motion.div
             variants={staggerContainer}
@@ -281,201 +278,201 @@ export default function Consultation() {
 
           {/* Custom Consultation Request */}
           <section className="py-16 bg-green-900 text-white">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <div>
-                <h2 className="text-3xl font-bold mb-6">
-                  Ready to Transform Your Operations?
-                </h2>
-                <p className="text-xl mb-8">
-                  Schedule a consultation with our solution experts to discuss
-                  your specific challenges and discover how Brickspring's
-                  technology can optimize your processes.
-                </p>
-                <div className="space-y-6">
-                  <div className="flex items-start">
-                    <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                      <FaHeadset className="fas fa-headset text-white text-xl"/>
+            <div className="container mx-auto px-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                  <h2 className="text-3xl font-bold mb-6">
+                    Ready to Transform Your Operations?
+                  </h2>
+                  <p className="text-xl mb-8">
+                    Schedule a consultation with our solution experts to discuss
+                    your specific challenges and discover how Brickspring's
+                    technology can optimize your processes.
+                  </p>
+                  <div className="space-y-6">
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                        <FaHeadset className="fas fa-headset text-white text-xl" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold mb-2">
+                          Expert Consultation
+                        </h3>
+                        <p className="text-blue-100">
+                          Our specialists will analyze your requirements and
+                          recommend tailored solutions for your industry and
+                          specific use cases.
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-2">
-                        Expert Consultation
-                      </h3>
-                      <p className="text-blue-100">
-                        Our specialists will analyze your requirements and
-                        recommend tailored solutions for your industry and
-                        specific use cases.
-                      </p>
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                        <FaLaptop className="fas fa-headset text-white text-xl" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold mb-2">Live Demo</h3>
+                        <p className="text-blue-100">
+                          See our solutions in action with a personalized
+                          demonstration focused on your specific industry
+                          challenges.
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                    <FaLaptop className="fas fa-headset text-white text-xl"/>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-2">Live Demo</h3>
-                      <p className="text-blue-100">
-                        See our solutions in action with a personalized
-                        demonstration focused on your specific industry
-                        challenges.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                    <FaFilePdf className="fas fa-headset text-white text-xl"/>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-2">
-                        Technical Documentation
-                      </h3>
-                      <p className="text-blue-100">
-                        Access detailed specifications, integration guides, and
-                        implementation resources for our solutions.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-8">
-                  <button className="bg-white text-blue-700 px-6 py-3 rounded-md font-semibold hover:bg-blue-50 transition mr-4 !rounded-button whitespace-nowrap cursor-pointer">
-                    <i className="fas fa-download mr-2"></i>Download Brochure
-                  </button>
-                  <button className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:bg-opacity-10 transition !rounded-button whitespace-nowrap cursor-pointer">
-                    <i className="fas fa-phone-alt mr-2"></i>Contact Sales
-                  </button>
-                </div>
-              </div>
-              <div className="bg-white rounded-lg shadow-lg p-8 text-gray-800">
-                <h3 className="text-2xl font-bold mb-6 text-blue-700">
-                  Schedule a Consultation
-                </h3>
-                <form
-                  id="consultationForm"
-                  className="space-y-4 transition-all duration-300"
-                  onSubmit={handleSubmit}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label
-                        htmlFor="firstName"
-                        className="block text-sm font-medium text-gray-700 mb-1">
-                        First Name
-                      </label>
-                      <input
-                        type="text"
-                        id="firstName"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Enter first name"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="lastName"
-                        className="block text-sm font-medium text-gray-700 mb-1">
-                        Last Name
-                      </label>
-                      <input
-                        type="text"
-                        id="lastName"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Enter last name"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 mb-1">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                      placeholder="Enter email address"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="company"
-                      className="block text-sm font-medium text-gray-700 mb-1">
-                      Company
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                      placeholder="Enter company name"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="industry"
-                      className="block text-sm font-medium text-gray-700 mb-1">
-                      Industry
-                    </label>
-                    <div className="relative">
-                      <select
-                        id="industry"
-                        className="appearance-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 cursor-pointer">
-                        <option value="">Select your industry</option>
-                        <option value="retail">Retail & Commerce</option>
-                        <option value="manufacturing">
-                          Manufacturing & Production
-                        </option>
-                        <option value="logistics">
-                          Logistics & Warehousing
-                        </option>
-                        <option value="healthcare">
-                          Healthcare & Laboratory
-                        </option>
-                        <option value="other">Other</option>
-                      </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                        <i className="fas fa-chevron-down text-xs"></i>
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                        <FaFilePdf className="fas fa-headset text-white text-xl" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold mb-2">
+                          Technical Documentation
+                        </h3>
+                        <p className="text-blue-100">
+                          Access detailed specifications, integration guides,
+                          and implementation resources for our solutions.
+                        </p>
                       </div>
                     </div>
                   </div>
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-gray-700 mb-1">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      rows={4}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                      placeholder="Tell us about your specific needs or challenges"></textarea>
+                  <div className="mt-8">
+                    <button className="bg-white text-blue-700 px-6 py-3 rounded-md font-semibold hover:bg-blue-50 transition mr-4 !rounded-button whitespace-nowrap cursor-pointer">
+                      <i className="fas fa-download mr-2"></i>Download Brochure
+                    </button>
+                    <button className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:bg-opacity-10 transition !rounded-button whitespace-nowrap cursor-pointer">
+                      <i className="fas fa-phone-alt mr-2"></i>Contact Sales
+                    </button>
                   </div>
-                  <div className="flex items-start">
-                    <input
-                      type="checkbox"
-                      id="consent"
-                      className="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                    />
-                    <label
-                      htmlFor="consent"
-                      className="ml-2 block text-sm text-gray-600">
-                      I agree to receive communications from Brickspring
-                      Enterprises. See our{" "}
-                      <a
-                        href="#"
-                        className="text-blue-600 hover:underline cursor-pointer">
-                        Privacy Policy
-                      </a>
-                      .
-                    </label>
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md transition font-semibold !rounded-button whitespace-nowrap cursor-pointer">
-                    Schedule Consultation
-                  </button>
-                </form>
+                </div>
+                <div className="bg-white rounded-lg shadow-lg p-8 text-gray-800">
+                  <h3 className="text-2xl font-bold mb-6 text-blue-700">
+                    Schedule a Consultation
+                  </h3>
+                  <form
+                    id="consultationForm"
+                    className="space-y-4 transition-all duration-300"
+                    onSubmit={handleSubmit}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label
+                          htmlFor="firstName"
+                          className="block text-sm font-medium text-gray-700 mb-1">
+                          First Name
+                        </label>
+                        <input
+                          type="text"
+                          id="firstName"
+                          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                          placeholder="Enter first name"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="lastName"
+                          className="block text-sm font-medium text-gray-700 mb-1">
+                          Last Name
+                        </label>
+                        <input
+                          type="text"
+                          id="lastName"
+                          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                          placeholder="Enter last name"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-gray-700 mb-1">
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Enter email address"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="company"
+                        className="block text-sm font-medium text-gray-700 mb-1">
+                        Company
+                      </label>
+                      <input
+                        type="text"
+                        id="company"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Enter company name"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="industry"
+                        className="block text-sm font-medium text-gray-700 mb-1">
+                        Industry
+                      </label>
+                      <div className="relative">
+                        <select
+                          id="industry"
+                          className="appearance-none w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 cursor-pointer">
+                          <option value="">Select your industry</option>
+                          <option value="retail">Retail & Commerce</option>
+                          <option value="manufacturing">
+                            Manufacturing & Production
+                          </option>
+                          <option value="logistics">
+                            Logistics & Warehousing
+                          </option>
+                          <option value="healthcare">
+                            Healthcare & Laboratory
+                          </option>
+                          <option value="other">Other</option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                          <i className="fas fa-chevron-down text-xs"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="message"
+                        className="block text-sm font-medium text-gray-700 mb-1">
+                        Message
+                      </label>
+                      <textarea
+                        id="message"
+                        rows={4}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Tell us about your specific needs or challenges"></textarea>
+                    </div>
+                    <div className="flex items-start">
+                      <input
+                        type="checkbox"
+                        id="consent"
+                        className="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                      />
+                      <label
+                        htmlFor="consent"
+                        className="ml-2 block text-sm text-gray-600">
+                        I agree to receive communications from Brickspring
+                        Enterprises. See our{" "}
+                        <a
+                          href="#"
+                          className="text-blue-600 hover:underline cursor-pointer">
+                          Privacy Policy
+                        </a>
+                        .
+                      </label>
+                    </div>
+                    <button
+                      type="submit"
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md transition font-semibold !rounded-button whitespace-nowrap cursor-pointer">
+                      Schedule Consultation
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
         </div>
       </section>
     </div>

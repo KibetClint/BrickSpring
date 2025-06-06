@@ -112,10 +112,7 @@ export default function Contact() {
     {
       icon: FaMapMarkerAlt,
       label: "Address",
-      lines: [
-        "Parklands, Nairobi",
-        "Litein, Kericho",
-      ],
+      lines: ["Parklands, Nairobi", "Litein, Kericho"],
       color: "text-red-500",
     },
     {
@@ -334,9 +331,7 @@ export default function Contact() {
                         Sending...
                       </>
                     ) : (
-                      <>
-                        Send Message
-                      </>
+                      <>Send Message</>
                     )}
                   </span>
                 </button>

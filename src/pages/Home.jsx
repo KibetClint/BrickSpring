@@ -3,6 +3,20 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
+import {
+  FaChartLine,
+  FaClock,
+  FaCogs,
+  FaEnvelope,
+  FaFacebook,
+  FaHeadset,
+  FaInstagram,
+  FaLinkedin,
+  FaMapMarker,
+  FaPhone,
+  FaRegLightbulb,
+} from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Home = () => {
   // Placeholder cart function
@@ -70,8 +84,8 @@ const Home = () => {
     sortOption === "price-low"
       ? a.price - b.price
       : sortOption === "price-high"
-      ? b.price - a.price
-      : a.id - b.id
+        ? b.price - a.price
+        : a.id - b.id
   );
 
   return (
@@ -92,7 +106,7 @@ const Home = () => {
                   alt={slide.title}
                   className="absolute inset-0 w-full h-full object-cover object-top"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#236837]/80 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#236837]/100 to-transparent z-10" />
                 <div className="max-w-3xl mx-auto px-4 py-16 h-full flex items-center relative z-20">
                   <div>
                     <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight mb-4">
@@ -206,7 +220,7 @@ const Home = () => {
         </section>
 
         {/* Why Choose Us */}
-        <section className="py-20 bg-[#FFF9E6]">
+        <section className="py-2 bg-[#FFF9E6]">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold mb-4 text-[#236837]">
@@ -220,7 +234,7 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="bg-[#236837]/10 rounded-lg p-8 text-center transition-transform hover:scale-105">
                 <div className="w-20 h-20 bg-[#236837] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <i className="fas fa-lightbulb text-white text-3xl" />
+                  <FaRegLightbulb className="fas fa-lightbulb text-white text-3xl" />
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-[#236837]">
                   Innovation Leadership
@@ -233,7 +247,7 @@ const Home = () => {
               </div>
               <div className="bg-[#236837]/10 rounded-lg p-8 text-center transition-transform hover:scale-105">
                 <div className="w-20 h-20 bg-[#236837] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <i className="fas fa-cogs text-white text-3xl" />
+                  <FaCogs className="fas fa-cogs text-white text-3xl" />
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-[#236837]">
                   Technical Expertise
@@ -246,7 +260,7 @@ const Home = () => {
               </div>
               <div className="bg-[#236837]/10 rounded-lg p-8 text-center transition-transform hover:scale-105">
                 <div className="w-20 h-20 bg-[#236837] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <i className="fas fa-headset text-white text-3xl" />
+                  <FaHeadset className="fas fa-headset text-white text-3xl" />
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-[#236837]">
                   Customer Support
@@ -258,7 +272,7 @@ const Home = () => {
               </div>
               <div className="bg-[#236837]/10 rounded-lg p-8 text-center transition-transform hover:scale-105">
                 <div className="w-20 h-20 bg-[#236837] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <i className="fas fa-chart-line text-white text-3xl" />
+                  <FaChartLine className="fas fa-chart-line text-white text-3xl" />
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-[#236837]">
                   Proven Results
@@ -380,7 +394,7 @@ const Home = () => {
                   <div className="space-y-6">
                     <div className="flex items-start">
                       <div className="bg-[#236837] rounded-full p-3 mr-4">
-                        <i className="fas fa-map-marker-alt text-white"></i>
+                        <FaMapMarker className="fas fa-map-marker-alt text-white" />
                       </div>
                       <div>
                         <h4 className="font-bold text-gray-800">Address</h4>
@@ -395,7 +409,7 @@ const Home = () => {
                     </div>
                     <div className="flex items-start">
                       <div className="bg-[#236837] rounded-full p-3 mr-4">
-                        <i className="fas fa-phone text-white"></i>
+                        <FaPhone className="fas fa-phone text-white" />
                       </div>
                       <div>
                         <h4 className="font-bold text-gray-800">Phone</h4>
@@ -408,7 +422,7 @@ const Home = () => {
                     </div>
                     <div className="flex items-start">
                       <div className="bg-[#236837] rounded-full p-3 mr-4">
-                        <i className="fas fa-envelope text-white"></i>
+                        <FaEnvelope className="fas fa-envelope text-white" />
                       </div>
                       <div>
                         <h4 className="font-bold text-gray-800">Email</h4>
@@ -421,7 +435,7 @@ const Home = () => {
                     </div>
                     <div className="flex items-start">
                       <div className="bg-[#236837] rounded-full p-3 mr-4">
-                        <i className="fas fa-clock text-white"></i>
+                        <FaClock className="fas fa-clock text-white" />
                       </div>
                       <div>
                         <h4 className="font-bold text-gray-800">
@@ -445,22 +459,22 @@ const Home = () => {
                       <a
                         href="#"
                         className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition cursor-pointer">
-                        <i className="fab fa-linkedin-in"></i>
+                        <FaLinkedin className="fab fa-linkedin-in" />
                       </a>
                       <a
                         href="#"
                         className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition cursor-pointer">
-                        <i className="fab fa-twitter"></i>
+                        <FaXTwitter className="fab fa-twitter" />
                       </a>
                       <a
                         href="#"
                         className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition cursor-pointer">
-                        <i className="fab fa-facebook-f"></i>
+                        <FaFacebook className="fab fa-facebook-f" />
                       </a>
                       <a
                         href="#"
                         className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition cursor-pointer">
-                        <i className="fab fa-instagram"></i>
+                        <FaInstagram className="fab fa-instagram color-red" />
                       </a>
                     </div>
                   </div>

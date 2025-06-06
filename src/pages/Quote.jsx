@@ -41,8 +41,7 @@ const Quote = () => {
             </p>
             <button
               onClick={() => setSubmitted(false)}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition"
-            >
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
               Submit Another Request
             </button>
           </div>
@@ -52,8 +51,7 @@ const Quote = () => {
             <div className="mb-4">
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
+                className="block text-sm font-medium text-gray-700 mb-1">
                 Full Name
               </label>
               <input
@@ -72,8 +70,7 @@ const Quote = () => {
             <div className="mb-4">
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
+                className="block text-sm font-medium text-gray-700 mb-1">
                 Email Address
               </label>
               <input
@@ -92,8 +89,7 @@ const Quote = () => {
             <div className="mb-4">
               <label
                 htmlFor="company"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
+                className="block text-sm font-medium text-gray-700 mb-1">
                 Company / Organization
               </label>
               <input
@@ -111,8 +107,7 @@ const Quote = () => {
             <div className="mb-4">
               <label
                 htmlFor="phone"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
+                className="block text-sm font-medium text-gray-700 mb-1">
                 Phone Number
               </label>
               <input
@@ -130,8 +125,7 @@ const Quote = () => {
             <div className="mb-4">
               <label
                 htmlFor="product"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
+                className="block text-sm font-medium text-gray-700 mb-1">
                 Product / Service
               </label>
               <input
@@ -150,8 +144,7 @@ const Quote = () => {
             <div className="mb-4">
               <label
                 htmlFor="quantity"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
+                className="block text-sm font-medium text-gray-700 mb-1">
                 Quantity Needed
               </label>
               <input
@@ -171,8 +164,7 @@ const Quote = () => {
             <div className="mb-6">
               <label
                 htmlFor="details"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
+                className="block text-sm font-medium text-gray-700 mb-1">
                 Additional Details / Requirements
               </label>
               <textarea
@@ -190,8 +182,7 @@ const Quote = () => {
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md transition text-sm"
-              >
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md transition text-sm">
                 Submit Quote Request
               </button>
             </div>

@@ -47,22 +47,24 @@ const FAQs = () => {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold text-center mb-10">Frequently Asked Questions</h1>
+      <h1 className="text-3xl font-bold text-center mb-10">
+        Frequently Asked Questions
+      </h1>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="border border-gray-200 rounded-xl shadow-sm overflow-hidden"
-          >
+            className="border border-gray-200 rounded-xl shadow-sm overflow-hidden">
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full px-6 py-4 flex justify-between items-center bg-gray-50 hover:bg-gray-100 text-left"
-            >
+              className="w-full px-6 py-4 flex justify-between items-center bg-gray-50 hover:bg-gray-100 text-left">
               <span className="text-lg font-medium">{faq.question}</span>
               <span className="text-xl">{openIndex === index ? "−" : "+"}</span>
             </button>
             {openIndex === index && (
-              <div className="px-6 py-4 text-gray-700 bg-white">{faq.answer}</div>
+              <div className="px-6 py-4 text-gray-700 bg-white">
+                {faq.answer}
+              </div>
             )}
           </div>
         ))}

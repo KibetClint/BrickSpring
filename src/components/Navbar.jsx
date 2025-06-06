@@ -8,8 +8,10 @@ import {
   FaTwitter,
   FaInstagram,
   FaEnvelope,
+  FaPhone,
 } from "react-icons/fa";
 import { throttle } from "lodash";
+import { FaSquareXTwitter } from "react-icons/fa6";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -24,7 +26,6 @@ function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Define your nav links
   const navLinks = [
     "Home",
     "About",
@@ -34,46 +35,51 @@ function Header() {
     "Contact",
     "FAQs",
   ];
-  // Helper function to get the correct route for each item
+
   const getRoute = (item) => {
     if (item === "Home") return "/";
-
     return `/${item.toLowerCase()}`;
   };
 
   return (
     <>
-      {/* Top Section - Merges with Header on Scroll */}
+      {/* Top Bar */}
       <div
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? "hidden" : "bg-green-700"
+          scrolled ? "hidden" : "bg-[#236434]"
         }`}>
-        <div className="container mx-auto flex justify-between items-center px-6 py-3 text-sm text-gray-700">
+        <div className="container mx-auto flex justify-between items-center px-6 py-3 text-sm text-gray-100">
           <div className="flex space-x-4">
-            <a href="#" className="hover:text-blue-500">
+            <a href="#" className=" text-blue-500 hover:text-blue-500">
               <FaFacebook />
             </a>
-            <a href="#" className="hover:text-blue-400">
-              <FaTwitter />
+            <a href="#" className="text-blue-500 hover:text-blue-400">
+              <FaSquareXTwitter />
             </a>
-            <a href="#" className="hover:text-pink-500">
+            <a href="#" className="text-pink-500 hover:text-pink-500">
               <FaInstagram />
             </a>
           </div>
-          <div className="flex items-center space-x-2">
-            <FaEnvelope />
-            <span>info@brickspring.co.ke</span>
+
+          <div className="flex items-center space-x-6">
+            <div className=" text-black flex items-center space-x-2">
+              <FaEnvelope />
+              <span>info@birckspring.co.ke</span>
+            </div>
+            <div className=" text-black flex items-center space-x-2">
+              <FaPhone />
+              <span>+254 725 903309</span>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Fixed Header - Moves Up on Scroll */}
+      {/* Main Header */}
       <header
         className={`fixed left-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? "top-0 bg-green-900 shadow-md" : "top-[40px] bg-green-900"
+          scrolled ? "top-0 bg-[#236434] shadow-md" : "top-[40px] bg-[#236434]"
         }`}>
         <div className="container mx-auto flex items-center justify-between px-4 py-2">
-          {/* Logo links to Home */}
           <Link to="/" className="flex items-center">
             <img
               src={logo}
@@ -83,7 +89,6 @@ function Header() {
             <span className="text-xl font-bold text-white">Brickspring</span>
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-6">
             {navLinks.map((item) => (
               <Link
@@ -94,8 +99,6 @@ function Header() {
               </Link>
             ))}
           </nav>
-
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden text-xl text-white focus:outline-none">
@@ -105,7 +108,7 @@ function Header() {
 
         {/* Mobile Navigation */}
         <div
-          className={`fixed top-0 right-0 w-40 bg-green-900 text-white transform transition-transform duration-300 z-50 ${
+          className={`fixed top-0 right-0 w-40 bg-[#236434] text-white transform transition-transform duration-300 z-50 ${
             menuOpen ? "translate-x-0" : "translate-x-full"
           }`}>
           <button
@@ -127,8 +130,8 @@ function Header() {
         </div>
       </header>
 
-      {/* Removes Extra Space When Scrolled */}
-      <div className={scrolled ? "h-[72px]" : "h-[112px]"}></div>
+      {/* Spacer to Avoid Overlap */}
+      <div className={scrolled ? "h-[72px]" : "h-[112px] bg-[#fffbf0]"}></div>
     </>
   );
 }

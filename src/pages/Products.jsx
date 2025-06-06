@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { FaStar, FaTimes } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const Products = () => {
@@ -12,339 +14,333 @@ const Products = () => {
 
   // Product data
   const products = [
+    // Existing hardware and software entries...
+
     {
       id: 1,
-      name: "SmartScale Pro",
-      image: "OCS SB1.png",
+      name: "Weighspring",
+      image: "cctv-weighspring.png",
       description:
-        "Enterprise-grade digital scale with advanced computer integration capabilities",
-      category: "Hardware",
+        "Advanced weighbridge management software with integrated camera functionality for real-time vehicle monitoring and transaction verification.",
+      category: "Software",
       brand: "Brickspring",
       features: [
-        "High precision sensors",
-        "Touchscreen interface",
-        "Wireless connectivity",
-        "Cloud data storage",
+        "Real-time weight data capture",
+        "Integrated camera support",
+        "Automated ticket generation",
+        "Comprehensive reporting tools",
       ],
       specifications: {
-        dimensions: '12" x 12" x 3"',
-        weight: "5.2 lbs",
-        powerSupply: "AC adapter or rechargeable battery",
-        connectivity: "Wi-Fi, Bluetooth, Ethernet",
-        accuracy: "±0.01%",
-        capacity: "Up to 100 kg",
+        platform: "Windows",
+        database: "SQL Server",
+        cameraIntegration: true,
+        reporting: "Customizable reports and dashboards",
       },
       compatibility: [
-        "WeighConnect Software",
-        "ScaleSync API",
-        "Major ERP systems",
+        "Brickspring hardware",
+        "Third-party weighbridge systems",
       ],
-      releaseDate: "2024-11-15",
+      releaseDate: "2025-03-15",
     },
     {
       id: 2,
-      name: "WeighConnect Software",
-      image: "Pallet scale.png",
+      name: "Timespring",
+      image: "TimeSpringMockup.jpg",
       description:
-        "Cloud-based software solution for real-time weight data processing and analysis",
+        "Time-released messaging application enabling users to schedule messages for future delivery, enhancing communication planning.",
       category: "Software",
       brand: "Brickspring",
       features: [
-        "Real-time data processing",
-        "Advanced analytics",
-        "Custom reporting",
-        "Multi-user access",
+        "Scheduled message delivery",
+        "User-friendly interface",
+        "Cross-platform support",
+        "Secure data handling",
       ],
       specifications: {
-        platform: "Cloud-based, Web interface",
-        devices: "Windows, macOS, iOS, Android",
-        dataStorage: "Unlimited",
-        updates: "Automatic monthly updates",
-        security: "256-bit encryption",
-        apiAccess: "REST API with documentation",
+        platform: "iOS, Android",
+        messageTypes: "Text, Images, Videos",
+        encryption: "End-to-end encryption",
+        scheduling: "Flexible date and time settings",
       },
-      compatibility: [
-        "SmartScale Pro",
-        "ScaleLink Gateway",
-        "DataWeight Enterprise",
-      ],
-      releaseDate: "2024-10-01",
+      compatibility: ["Mobile devices", "Web browsers"],
+      releaseDate: "2025-04-10",
     },
     {
       id: 3,
-      name: "ScaleLink Gateway",
-      image: "Pallet scale.png",
+      name: "Payrollspring",
+      image: "payrollspring.png",
       description:
-        "Hardware interface for connecting legacy scales to modern computer systems",
-      category: "Integration",
+        "Comprehensive payroll processing software designed to automate salary calculations, tax deductions, and employee payments.",
+      category: "Software",
       brand: "Brickspring",
       features: [
-        "Legacy system compatibility",
-        "Plug-and-play setup",
-        "Data conversion",
-        "Multiple protocol support",
+        "Automated payroll calculations",
+        "Tax compliance management",
+        "Employee self-service portal",
+        "Integration with accounting systems",
       ],
       specifications: {
-        dimensions: '6" x 4" x 1.5"',
-        weight: "0.8 lbs",
-        powerSupply: "USB or AC adapter",
-        connectivity: "USB, RS-232, Ethernet",
-        supportedProtocols: "Modbus, Profibus, DeviceNet",
-        dataRate: "Up to 100 samples/second",
+        platform: "Web-based",
+        compliance: "Local tax regulations",
+        reporting: "Detailed payroll reports",
+        userAccess: "Role-based permissions",
       },
-      compatibility: [
-        "Most analog scales",
-        "WeighConnect Software",
-        "ScaleSync API",
-      ],
-      releaseDate: "2024-09-10",
+      compatibility: ["Accounting software", "HR management systems"],
+      releaseDate: "2025-05-05",
     },
     {
       id: 4,
-      name: "DataWeight Enterprise",
-      image: "Pallet scale.png",
+      name: "Secuspring",
+      image: "secuspring.jpeg",
       description:
-        "Complete weight management system for large-scale industrial applications",
-      category: "Hardware",
+        "Robust security module offering data encryption, access control, and compliance reporting to safeguard organizational information.",
+      category: "Software",
       brand: "Brickspring",
       features: [
-        "Industrial-grade construction",
-        "Multi-scale management",
-        "Advanced data processing",
-        "Integration with manufacturing systems",
+        "Advanced data encryption",
+        "Multi-factor authentication",
+        "Real-time threat detection",
+        "Compliance reporting tools",
       ],
       specifications: {
-        dimensions: '18" x 14" x 6"',
-        weight: "12.5 lbs",
-        powerSupply: "AC power with backup battery",
-        connectivity: "Wi-Fi, Ethernet, Serial, USB",
-        accuracy: "±0.005%",
-        capacity: "Up to 2000 kg",
+        platform: "Cross-platform",
+        encryptionStandards: "AES-256",
+        authentication: "Biometric, OTP",
+        compliance: "GDPR, HIPAA",
       },
-      compatibility: [
-        "WeighConnect Software",
-        "ScaleSync API",
-        "Major MES and ERP systems",
-      ],
-      releaseDate: "2025-01-20",
+      compatibility: ["Brickspring software", "Third-party applications"],
+      releaseDate: "2025-06-01",
     },
     {
       id: 5,
-      name: "ScaleSync API",
-      image: "Pallet scale.png",
+      name: "Safetyspring",
+      image: "safestyspring.png",
       description:
-        "Developer toolkit for custom integration of weight data into existing systems",
+        "Safety management software facilitating incident reporting, hazard analysis, and compliance tracking to promote workplace safety.",
       category: "Software",
       brand: "Brickspring",
       features: [
-        "Comprehensive documentation",
-        "Sample code",
-        "Technical support",
-        "Regular updates",
+        "Incident reporting system",
+        "Risk assessment tools",
+        "Safety training modules",
+        "Regulatory compliance tracking",
       ],
       specifications: {
-        platform: "Language-agnostic REST API",
-        authentication: "OAuth 2.0",
-        rateLimit: "10,000 requests/day",
-        responseTime: "<100ms",
-        dataFormats: "JSON, XML",
-        webhooks: "Supported for real-time events",
+        platform: "Web-based",
+        reporting: "Customizable safety reports",
+        alerts: "Real-time notifications",
+        training: "Interactive e-learning modules",
       },
-      compatibility: [
-        "All Brickspring hardware",
-        "Major programming languages",
-        "Cloud platforms",
-      ],
-      releaseDate: "2024-11-05",
+      compatibility: ["HR systems", "Compliance databases"],
+      releaseDate: "2025-06-20",
     },
     {
       id: 6,
-      name: "WeighStation Terminal",
-      image: "Pallet scale.png",
+      name: "Parkspring",
+      image: "parking-system.jpeg",
       description:
-        "Touchscreen terminal for weight data collection and processing",
-      category: "Hardware",
+        "Park management software offering tools for facility booking, maintenance scheduling, and visitor analytics to enhance park operations.",
+      category: "Software",
       brand: "Brickspring",
       features: [
-        '10" touchscreen display',
-        "Barcode scanner",
-        "Receipt printer",
-        "User authentication",
+        "Facility reservation system",
+        "Maintenance tracking",
+        "Visitor analytics dashboard",
+        "Mobile access for staff",
       ],
       specifications: {
-        dimensions: '12" x 8" x 2"',
-        weight: "3.8 lbs",
-        powerSupply: "AC adapter",
-        processor: "Quad-core 2.4GHz",
-        memory: "8GB RAM, 128GB SSD",
-        operatingSystem: "Brickspring OS (Linux-based)",
+        platform: "Web and mobile",
+        bookingSystem: "Real-time availability",
+        analytics: "Visitor trends and reports",
+        maintenance: "Automated scheduling",
       },
-      compatibility: [
-        "WeighConnect Software",
-        "ScaleSync API",
-        "All Brickspring scales",
-      ],
-      releaseDate: "2024-12-10",
+      compatibility: ["Municipal systems", "Payment gateways"],
+      releaseDate: "2025-07-10",
     },
     {
       id: 7,
-      name: "MicroScale Portable",
-      image: "Pallet scale.png",
+      name: "OCS SB1 Hanging Scale",
+      image: "OCS SB1 Hanging Scale.jpg",
       description:
-        "Compact, battery-powered scale with wireless connectivity for field operations",
+        "Durable and compact crane scale ideal for industrial weight lifting and shipping applications.",
       category: "Hardware",
       brand: "Brickspring",
       features: [
-        "Portable design",
-        "Long battery life",
-        "Wireless data transmission",
-        "Rugged construction",
+        "LCD display",
+        "Wireless remote control",
+        "High-capacity load cell",
+        "Overload protection",
       ],
       specifications: {
-        dimensions: '8" x 8" x 1.5"',
-        weight: "2.1 lbs",
-        powerSupply: "Rechargeable battery (24hr operation)",
-        connectivity: "Bluetooth, Wi-Fi",
-        accuracy: "±0.05%",
-        capacity: "Up to 25 kg",
+        capacity: "100kg to 1,000kg",
+        display: "LED / LCD",
+        battery: "Rechargeable",
+        material: "Aluminum die-cast housing",
       },
-      compatibility: ["WeighConnect Software", "Mobile apps", "ScaleSync API"],
-      releaseDate: "2024-08-15",
+      releaseDate: "2024-10-01",
     },
     {
       id: 8,
-      name: "WeighConnect Mobile",
-      image: "Pallet scale.png",
-      description: "Mobile application for accessing weight data on the go",
-      category: "Software",
+      name: "SS Indicator with Bluetooth",
+      image: "SS Indicator.png",
+      description:
+        "Stainless steel indicator with Bluetooth support for smart data transmission and analysis.",
+      category: "Hardware",
       brand: "Brickspring",
       features: [
-        "Real-time data access",
-        "Push notifications",
-        "Offline mode",
-        "User-friendly interface",
+        "Bluetooth data sync",
+        "Bright LED screen",
+        "Waterproof design",
       ],
       specifications: {
-        platform: "iOS and Android",
-        minVersion: "iOS 14+ / Android 10+",
-        size: "45MB",
-        languages: "English, Spanish, French, German, Chinese",
-        updates: "Monthly",
-        dataSync: "Automatic or manual",
+        casing: "Stainless steel",
+        output: "RS232 / Bluetooth",
+        compatibility: "WeighConnect, Android App",
       },
-      compatibility: ["WeighConnect Software", "All Brickspring hardware"],
-      releaseDate: "2024-09-01",
+      releaseDate: "2024-10-15",
     },
     {
       id: 9,
-      name: "ScaleLink Pro",
-      image: "Pallet scale.png",
+      name: "SCS Pallet Truck Scale",
+      image: "SCS Pallet Truck Scale .webp",
       description:
-        "Advanced integration module for complex multi-scale environments",
-      category: "Integration",
-      brand: "TechWeigh",
+        "Combines the utility of a pallet jack with accurate weighing for efficient logistics.",
+      category: "Hardware",
+      brand: "Brickspring",
       features: [
-        "Multi-scale support",
-        "Advanced protocol conversion",
-        "Data aggregation",
-        "Custom mapping",
+        "Integrated Weighing System",
+        "High-precision Load Cells",
+        "Rugged Construction",
+        "User-friendly Interface",
       ],
       specifications: {
-        dimensions: '8" x 6" x 2"',
-        weight: "1.5 lbs",
-        powerSupply: "AC adapter",
-        connectivity: "USB, RS-485, Ethernet, Wi-Fi",
-        supportedSystems: "Up to 32 scales simultaneously",
-        dataBuffering: "64MB onboard memory",
+        capacity: "2000 kg",
+        platform: "Standard Pallet Size",
+        material: "Steel",
+        display: "LCD",
+        accuracy: "±0.1%",
+        power: "Rechargeable Battery",
       },
-      compatibility: [
-        "Most industrial scales",
-        "WeighConnect Software",
-        "Third-party ERP systems",
-      ],
-      releaseDate: "2024-10-20",
+      compatibility: ["WeighConnect", "Brickspring API", "Timespring"],
+      releaseDate: "2024-09-01",
     },
     {
       id: 10,
-      name: "WeighConnect Enterprise",
-      image: "Pallet scale.png",
+      name: "Checkered Plate Platform Scale",
+      image: "Checker-Plate-Platform-Floor-Weight-Scale.png",
       description:
-        "Full-featured enterprise version of WeighConnect with advanced security and management features",
-      category: "Software",
+        "Heavy-duty industrial weighing scale with anti-slip checkered plate surface.",
+      category: "Hardware",
       brand: "Brickspring",
       features: [
-        "Role-based access control",
-        "Audit logging",
-        "Enterprise reporting",
-        "White labeling",
+        "Slip-resistant Platform",
+        "Robust Build",
+        "Load Cell Technology",
+        "Customizable Dimensions",
       ],
       specifications: {
-        deployment: "Cloud or on-premises",
-        users: "Unlimited",
-        dataRetention: "Configurable up to 10 years",
-        sso: "SAML, OAuth support",
-        compliance: "GDPR, HIPAA, ISO 27001",
-        backup: "Automated with point-in-time recovery",
+        capacity: "5000 kg",
+        platform: "Up to 2000 x 3000 mm",
+        material: "Checkered Steel",
+        accuracy: "±0.2%",
+        power: "AC + Battery",
       },
-      compatibility: [
-        "All Brickspring hardware",
-        "Major ERP and MES systems",
-        "Custom integrations",
-      ],
-      releaseDate: "2025-02-01",
+      compatibility: ["WeighConnect", "ScaleSync API", "ERP Systems"],
+      releaseDate: "2024-08-20",
     },
     {
       id: 11,
-      name: "ScaleGuard Security Module",
-      image: "Pallet scale.png",
+      name: "Mini Bluetooth Thermal Printer",
+      image: "Bt Printer.jpg",
       description:
-        "Security enhancement module for weight data protection and compliance",
-      category: "Software",
-      brand: "SecureWeigh",
+        "Portable Bluetooth printer for receipts and weight tickets, optimized for field use.",
+      category: "Hardware",
+      brand: "Brickspring",
       features: [
-        "Data encryption",
-        "Tamper detection",
-        "Compliance reporting",
-        "Access control",
+        "Bluetooth Connectivity",
+        "High-speed Thermal Printing",
+        "Rechargeable Battery",
+        "Compact Design",
       ],
       specifications: {
-        encryption: "AES-256",
-        certification: "NIST FIPS 140-2",
-        auditTrail: "Comprehensive logging",
-        authentication: "Multi-factor",
-        alerts: "Real-time security notifications",
-        updates: "Automatic security patches",
+        dimensions: "106.5 × 78 × 47 mm",
+        printingSpeed: "62 mm/s",
+        weight: "0.37 kg",
+        connection: "Bluetooth/USB",
+        paperWidth: "58 mm",
+        battery: "Rechargeable Lithium",
       },
-      compatibility: [
-        "All Brickspring hardware and software",
-        "Third-party systems via API",
-      ],
-      releaseDate: "2024-11-30",
+      compatibility: ["Android", "iOS", "Weighspring", "Mobile POS Apps"],
+      releaseDate: "2024-07-15",
     },
     {
       id: 12,
-      name: "CalibrationMaster Kit",
-      image: "Pallet scale.png",
+      name: "Bench Scale",
+      image: "Table Scale.jpg",
       description:
-        "Professional calibration kit for maintaining scale accuracy",
+        "Precision bench scale designed for manufacturing, packaging, and laboratory environments.",
       category: "Hardware",
-      brand: "PrecisionTech",
+      brand: "Brickspring",
       features: [
-        "Certified weights",
-        "Calibration software",
-        "Documentation tools",
-        "Carrying case",
+        "High Precision",
+        "Compact Size",
+        "Stainless Steel Platter",
+        "Digital Indicator",
       ],
       specifications: {
-        weightSet: "1g to 10kg, NIST traceable",
-        software: "CalibrationMaster Pro included",
-        certificate: "Calibration certificate included",
-        recertification: "Annual recertification service available",
-        accuracy: "Class F1 weights",
-        case: "Waterproof, impact-resistant",
+        capacity: "Up to 150 kg",
+        accuracy: "±0.05%",
+        display: "LED",
+        connectivity: "USB, RS-232",
       },
-      compatibility: ["All weighing equipment", "WeighConnect Software"],
-      releaseDate: "2024-07-15",
+      compatibility: ["WeighConnect", "PayrollSpring", "QA Systems"],
+      releaseDate: "2024-10-01",
+    },
+    {
+      id: 13,
+      name: "Electronic Platform Scale",
+      image: "Electronic Platform Scale.webp",
+      description:
+        "Durable electronic scale for large weight ranges, ideal for warehouse and shipping docks.",
+      category: "Hardware",
+      brand: "Brickspring",
+      features: [
+        "Large Weighing Area",
+        "Digital Indicator",
+        "Robust Load Cells",
+        "High Weight Capacity",
+      ],
+      specifications: {
+        capacity: "Up to 3000 kg",
+        material: "Carbon Steel",
+        accuracy: "±0.1%",
+        platformSize: "Up to 1500 x 2000 mm",
+      },
+      compatibility: ["WeighConnect", "ERP/MRP Systems", "DataSpring"],
+      releaseDate: "2024-09-25",
+    },
+    {
+      id: 14,
+      name: "Pallet Weighing Scale",
+      image: "Pallet scale.png",
+      description:
+        "Heavy-duty scale integrated with pallet platform for efficient material handling and weighing.",
+      category: "Hardware",
+      brand: "Brickspring",
+      features: [
+        "Easy Pallet Loading",
+        "Industrial-grade Sensors",
+        "LCD Display",
+        "Weather-resistant Coating",
+      ],
+      specifications: {
+        capacity: "Up to 2500 kg",
+        platform: "Fits Euro & Standard Pallets",
+        accuracy: "±0.1%",
+        material: "Mild Steel with Powder Coating",
+      },
+      compatibility: ["WeighConnect", "Parkspring", "Logistics Software"],
+      releaseDate: "2024-10-10",
     },
   ];
 
@@ -411,16 +407,15 @@ const Products = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-800">
+    <div className="min-h-screen bg-[#fffbf0] text-[#236434]">
       <main className="pt-0">
         {/* Page Header */}
-        <section className="bg-gradient-to-r  from-[#236837]/80 to-transparent text-white py-12">
+        <section className="bg-gradient-to-r  from-[#236837]/100 to-transparent text-white py-12">
           <div className="container mx-auto px-4">
             <div className="flex items-center mb-4">
               <a
                 href="/"
-                className="text-blue-200 hover:text-white cursor-pointer"
-              >
+                className="text-blue-200 hover:text-white cursor-pointer">
                 <i className="fas fa-home mr-2"></i>Home
               </a>
               <i className="fas fa-chevron-right mx-2 text-blue-300 text-xs"></i>
@@ -430,8 +425,9 @@ const Products = () => {
               Our Products and Services
             </h1>
             <p className="text-xl max-w-3xl">
-              Explore our comprehensive range of weight scale technology solutions
-              designed for seamless integration and optimal performance.
+              Explore our comprehensive range of weight scale technology
+              solutions designed for seamless integration and optimal
+              performance.
             </p>
           </div>
         </section>
@@ -444,14 +440,12 @@ const Products = () => {
               <div className="lg:hidden mb-4">
                 <button
                   onClick={() => setMobileFiltersOpen(!mobileFiltersOpen)}
-                  className="w-full bg-white border border-gray-300 px-4 py-2 rounded-md flex justify-between items-center !rounded-button whitespace-nowrap cursor-pointer"
-                >
+                  className="w-full bg-white border border-gray-300 px-4 py-2 rounded-md flex justify-between items-center !rounded-button whitespace-nowrap cursor-pointer">
                   <span className="font-medium">Filters</span>
                   <i
                     className={`fas fa-chevron-${
                       mobileFiltersOpen ? "up" : "down"
-                    }`}
-                  ></i>
+                    }`}></i>
                 </button>
               </div>
 
@@ -459,8 +453,7 @@ const Products = () => {
               <div
                 className={`lg:w-1/4 xl:w-1/5 pr-0 lg:pr-8 ${
                   mobileFiltersOpen ? "block" : "hidden lg:block"
-                }`}
-              >
+                }`}>
                 <div className="bg-white rounded-lg shadow-md p-6 mb-6 sticky top-20">
                   <h2 className="text-xl font-bold mb-6 pb-2 border-b border-gray-200">
                     Filters
@@ -481,8 +474,7 @@ const Products = () => {
                           />
                           <label
                             htmlFor={`category-${category}`}
-                            className="ml-2 text-gray-700 cursor-pointer"
-                          >
+                            className="ml-2 text-gray-700 cursor-pointer">
                             {category}
                           </label>
                         </div>
@@ -505,8 +497,7 @@ const Products = () => {
                           />
                           <label
                             htmlFor={`brand-${brand}`}
-                            className="ml-2 text-gray-700 cursor-pointer"
-                          >
+                            className="ml-2 text-gray-700 cursor-pointer">
                             {brand}
                           </label>
                         </div>
@@ -521,8 +512,7 @@ const Products = () => {
                       setSelectedBrands([]);
                       setSelectedRatings([]);
                     }}
-                    className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-md transition !rounded-button whitespace-nowrap cursor-pointer"
-                  >
+                    className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-md transition !rounded-button whitespace-nowrap cursor-pointer">
                     Reset Filters
                   </button>
                 </div>
@@ -548,8 +538,7 @@ const Products = () => {
                         id="sort"
                         value={sortOption}
                         onChange={(e) => setSortOption(e.target.value)}
-                        className="appearance-none bg-white border border-gray-300 rounded-md px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
-                      >
+                        className="appearance-none bg-white border border-gray-300 rounded-md px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer">
                         <option value="All">All</option>
                         <option value="Hardware">Hardware</option>
                         <option value="Software">Software</option>
@@ -571,8 +560,7 @@ const Products = () => {
                     return (
                       <div
                         key={product.id}
-                        className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg"
-                      >
+                        className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg">
                         <div className="h-56 overflow-hidden relative group">
                           <img
                             src={imgSrc}
@@ -582,7 +570,7 @@ const Products = () => {
                         </div>
                         <div className="p-5">
                           <div className="flex justify-between items-start mb-2">
-                            <h3 className="text-lg font-bold text-gray-800">
+                            <h3 className="text-lg font-bold text-gra-800">
                               {product.name}
                             </h3>
                             <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
@@ -602,17 +590,19 @@ const Products = () => {
                               Key Features:
                             </h4>
                             <ul className="text-xs text-gray-600 space-y-1">
-                              {product.features.slice(0, 3).map((feature, idx) => (
-                                <li key={idx} className="flex items-start">
-                                  <i className="fas fa-check text-green-500 mr-1 mt-0.5"></i>
-                                  <span>{feature}</span>
-                                </li>
-                              ))}
+                              {product.features
+                                .slice(0, 3)
+                                .map((feature, idx) => (
+                                  <li key={idx} className="flex items-start">
+                                    <FaCheck className="fas fa-check text-green-900 mr-1 mt-0.5" />
+                                    <span>{feature}</span>
+                                  </li>
+                                ))}
                             </ul>
                           </div>
 
                           {/* Rating */}
-                          <div className="flex items-center space-x-2">
+                          {/* <div className="flex items-center space-x-2">
                             <div className="flex items-center">
                               {Array.from({ length: 5 }).map((_, i) => (
                                 <i
@@ -621,20 +611,18 @@ const Products = () => {
                                     i < Math.floor(product.rating || 0)
                                       ? "text-yellow-400"
                                       : "text-gray-300"
-                                  }`}
-                                ></i>
+                                  }`}></i>
                               ))}
                               <span className="ml-1 text-sm text-gray-600">
-                                {product.rating || 0}
+                                {product.rating || 4.5}
                               </span>
                             </div>
-                          </div>
+                          </div> */}
 
                           <div className="mt-4 flex items-center justify-between">
                             <button
                               onClick={() => setShowQuickView(product.id)}
-                              className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-md transition text-sm !rounded-button whitespace-nowrap cursor-pointer"
-                            >
+                              className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-md transition text-sm !rounded-button whitespace-nowrap cursor-pointer">
                               <i className="fas fa-shopping-cart mr-1"></i> View
                               Product
                             </button>
@@ -662,8 +650,7 @@ const Products = () => {
                         setSelectedBrands([]);
                         setSelectedRatings([]);
                       }}
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition !rounded-button whitespace-nowrap cursor-pointer"
-                    >
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition !rounded-button whitespace-nowrap cursor-pointer">
                       Reset Filters
                     </button>
                   </div>
@@ -679,13 +666,11 @@ const Products = () => {
         // Overlay: clicking anywhere here will close the modal
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
-          onClick={() => setShowQuickView(null)}
-        >
+          onClick={() => setShowQuickView(null)}>
           {/* Modal Content: stop propagation so clicks inside don’t close */}
           <div
             className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
+            onClick={(e) => e.stopPropagation()}>
             {(() => {
               const product = products.find((p) => p.id === showQuickView);
               if (!product) return null;
@@ -700,9 +685,8 @@ const Products = () => {
                     </h2>
                     <button
                       onClick={() => setShowQuickView(null)}
-                      className="text-gray-500 hover:text-gray-700 transition cursor-pointer"
-                    >
-                      <i className="fas fa-times text-xl"></i>
+                      className="text-gray-500 hover:text-gray-700 transition cursor-pointer">
+                      <FaTimes className="fas fa-times text-xl" />
                     </button>
                   </div>
 
@@ -731,27 +715,29 @@ const Products = () => {
                           <span className="font-semibold">{product.brand}</span>
                         </span>
                       </div>
-                      <p className="text-gray-700 mb-4">{product.description}</p>
+                      <p className="text-gray-700 mb-4">
+                        {product.description}
+                      </p>
                       <div className="flex items-center mb-4">
                         <div className="flex items-center mr-4">
                           {Array.from({ length: 5 }).map((_, i) => (
-                            <i
+                            <FaStar
                               key={i}
                               className={`fas fa-star ${
-                                i < Math.floor(product.rating || 0)
+                                i < Math.floor(product.rating || 4.5)
                                   ? "text-yellow-400"
                                   : "text-gray-300"
                               }`}
-                            ></i>
+                            />
                           ))}
-                          <span className="ml-1 text-gray-600">
+                          {/* <span className="ml-1 text-gray-600">
                             {product.rating || 0}
-                          </span>
+                          </span> */}
                         </div>
                         <span className="text-sm text-gray-600">
-                          Stock:{" "}
+                          Stock:{""}
                           <span className="font-semibold">
-                            {product.stock ?? "N/A"} available
+                            {product.stock ?? ""} available
                           </span>
                         </span>
                       </div>
@@ -764,7 +750,7 @@ const Products = () => {
                         <ul className="text-gray-600 space-y-1">
                           {product.features.map((feature, index) => (
                             <li key={index} className="flex items-start">
-                              <i className="fas fa-check text-green-500 mr-2 mt-1"></i>
+                              <FaCheck className="fas fa-check text-green-900 mr-2 mt-1" />
                               <span>{feature}</span>
                             </li>
                           ))}
@@ -778,19 +764,20 @@ const Products = () => {
                         <div className="bg-gray-50 rounded-lg p-4">
                           <table className="w-full text-sm">
                             <tbody>
-                              {Object.entries(
-                                product.specifications || {}
-                              ).map(([key, value]) => (
-                                <tr
-                                  key={key}
-                                  className="border-b border-gray-200 last:border-0"
-                                >
-                                  <td className="py-2 font-medium text-gray-700 capitalize">
-                                    {key.replace(/([A-Z])/g, " $1").trim()}
-                                  </td>
-                                  <td className="py-2 text-gray-600">{value}</td>
-                                </tr>
-                              ))}
+                              {Object.entries(product.specifications || {}).map(
+                                ([key, value]) => (
+                                  <tr
+                                    key={key}
+                                    className="border-b border-green-200 last:border-0">
+                                    <td className="py-2 font-medium text-gray-700 capitalize">
+                                      {key.replace(/([A-Z])/g, " $1").trim()}
+                                    </td>
+                                    <td className="py-2 text-gray-600">
+                                      {value}
+                                    </td>
+                                  </tr>
+                                )
+                              )}
                             </tbody>
                           </table>
                         </div>
@@ -804,8 +791,7 @@ const Products = () => {
                           {product.compatibility.map((item, index) => (
                             <span
                               key={index}
-                              className="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded"
-                            >
+                              className="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">
                               {item}
                             </span>
                           ))}
@@ -815,8 +801,7 @@ const Products = () => {
                       <div className="flex items-center justify-between pt-4 border-t border-gray-200">
                         <Link
                           to="/quote"
-                          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition whitespace-nowrap cursor-pointer flex items-center"
-                        >
+                          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition whitespace-nowrap cursor-pointer flex items-center">
                           <i className="fas fa-shopping-cart mr-2"></i>Request a
                           Quote
                         </Link>
@@ -848,8 +833,7 @@ const Products = () => {
                           return (
                             <div
                               key={related.id}
-                              className="bg-gray-50 rounded-lg p-4 flex items-center space-x-4"
-                            >
+                              className="bg-gray-50 rounded-lg p-4 flex items-center space-x-4">
                               <div className="w-16 h-16 bg-white rounded-md overflow-hidden flex-shrink-0">
                                 <img
                                   src={relImgSrc}
@@ -867,8 +851,7 @@ const Products = () => {
                                       setShowQuickView(related.id);
                                       window.scrollTo(0, 0);
                                     }}
-                                    className="ml-auto text-xs text-blue-600 hover:text-blue-800 cursor-pointer"
-                                  >
+                                    className="ml-auto text-xs text-blue-600 hover:text-blue-800 cursor-pointer">
                                     View
                                   </button>
                                 </div>
