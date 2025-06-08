@@ -68,11 +68,11 @@ function Header() {
           </div>
           <div className="flex items-center space-x-4 text-xs sm:text-sm">
             <div className="flex items-center space-x-1">
-              <FaEnvelope size={14} />
+              <FaEnvelope size={16} />
               <span>info@brickspring.co.ke</span>
             </div>
             <div className="flex items-center space-x-1">
-              <FaPhone size={14} />
+              <FaPhone size={16} />
               <span>+254 725 903309</span>
             </div>
           </div>
@@ -82,9 +82,9 @@ function Header() {
       {/* Main Header */}
       <header
         className={`fixed left-0 w-full z-40 transition-all duration-300 bg-[#236434] shadow-md ${
-          scrolled ? "top-0" : "top-2"
+          scrolled ? "top-0" : "top-4"
         }`}>
-        <div className="container mx-auto flex items-center justify-between px-4 py-2 sm:py-4">
+        <div className="container mx-auto flex items-center justify-between px-2 py-2 sm:py-4">
           <Link to="/" className="flex items-center space-x-2">
             <img
               src={logo}
@@ -116,9 +116,9 @@ function Header() {
 
         {/* Mobile Navigation: reduced height on small screens */}
         <div
-          className={`fixed top-0 right-0 w-64 bg-[#236434] text-white transform transition-transform duration-300 z-50 
+          className={`fixed top-2 right-0 w-34 bg-[#236434] text-white transform transition-transform duration-300 z-50 
             ${menuOpen ? "translate-x-0" : "translate-x-full"} 
-            h-[75vh] sm:h-full
+            h-[70vh] sm:h-full
           `}>
           <button
             onClick={() => setMenuOpen(false)}

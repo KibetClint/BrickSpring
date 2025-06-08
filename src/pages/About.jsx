@@ -56,7 +56,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-[#fffbf0] text-[#236434]">
       <main>
-        <section className="relative bg-gradient-to-r from-[#236837]/80 to-transparent text-white overflow-hidden">
+        <section className="relative bg-gradient-to-r from-[#236837]/80 to-transparent text-white h-[60vh] sm:h-[50vh] lg:h-[80vh] overflow-hidden">
           <div className="absolute inset-0 overflow-hidden">
             <img
               src="/images/consultation.jpg"

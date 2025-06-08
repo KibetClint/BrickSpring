@@ -59,7 +59,7 @@ const Home = () => {
     <div className="bg-[#FFF9E6] text-gray-800">
       <main>
         {/* Hero Slider */}
-        <section className="relative h-[60vh] sm:h-[70vh] lg:h-[80vh] overflow-hidden">
+        <section className="relative h-[60vh] sm:h-[50vh] lg:h-[80vh] overflow-hidden">
           <Swiper
             modules={[Autoplay, Pagination]}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
