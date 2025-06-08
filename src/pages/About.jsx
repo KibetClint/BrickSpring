@@ -1,6 +1,3 @@
-// Tailwind styling adjusted to reflect Brickspring's brand colors (#236434) and white text where suitable
-// Font styles remain semantically clear and consistent
-
 import React from "react";
 import {
   FaBalanceScale,
@@ -56,200 +53,200 @@ const About = () => {
   return (
     <div className="min-h-screen bg-[#fffbf0] text-[#236434]">
       <main>
-        <section className="relative bg-gradient-to-r from-[#236837]/80 to-transparent text-white h-[60vh] sm:h-[50vh] lg:h-[80vh] overflow-hidden">
+        {/* Hero Banner */}
+        <section className="relative h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[80vh] overflow-hidden bg-gradient-to-r from-[#236837]/80 to-transparent text-white">
           <div className="absolute inset-0 overflow-hidden">
             <img
               src="/images/consultation.jpg"
+              alt="About background"
               className="w-full h-full object-cover object-top opacity-20"
-              alt="Consultation background"
             />
           </div>
-          <div className="container mx-auto px-4 py-20 relative z-10">
-            <div className="flex items-center mb-4">
-              <a
-                href="/"
-                className="text-blue-200 hover:text-white cursor-pointer">
-                <i className="fas fa-home mr-2"></i>Home
+          <div className="container mx-auto px-4 py-20 relative z-10 text-center">
+            <div className="flex justify-center items-center mb-4 text-xs sm:text-sm">
+              <a href="/" className="text-blue-200 hover:text-white">
+                Home
               </a>
-              <i className="fas fa-chevron-right mx-2 text-blue-300 text-xs"></i>
+              <FaChevronRight className="mx-2 text-blue-300" />
               <span className="font-semibold">About Us</span>
             </div>
-            <div className="text-center mb-16">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-[#1F6632] leading-tight">
-                Who We{" "}
-                <span className="inline-block bg-gradient-to-r from-[#1F6632] to-[#4CAF50] bg-clip-text text-transparent">
-                  Are
-                </span>
-              </h1>
-              <div className="w-32 h-1 bg-gradient-to-r from-[#1F6632] to-[#4CAF50] mx-auto rounded-full mb-6" />
-              <p className="text-lg sm:text-xl md:text-2xl max-w-4xl mx-auto text-[#1F6632]/80 leading-relaxed">
-                We're on a mission to transform industries through innovative
-                weight scale technology. Since 2023, we've been pioneering
-                solutions that connect precision measurement with intelligent
-                data systems.
-              </p>
-            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-[#1F6632] leading-tight">
+              Who We{" "}
+              <span className="inline-block bg-gradient-to-r from-[#1F6632] to-[#4CAF50] bg-clip-text text-transparent">
+                Are
+              </span>
+            </h1>
+            <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-[#1F6632] to-[#4CAF50] mx-auto rounded-full mb-4 sm:mb-6" />
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto text-[#1F6632]/80 leading-relaxed">
+              We're on a mission to transform industries through innovative
+              weight scale technology. Since 2023, we've pioneered solutions
+              that connect precision measurement with intelligent data systems.
+            </p>
           </div>
         </section>
 
-        <section className="py-16">
+        {/* Our Story */}
+        <section className="py-12 sm:py-16 lg:py-20">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div>
-                <h2 className="text-3xl font-bold mb-6">Our Story</h2>
-                <p className="text-lg mb-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                  Our Story
+                </h2>
+                <p className="text-base sm:text-lg mb-4">
                   Brickspring Enterprises began with a vision: to unify weighing
                   technology and computing systems for smarter business
                   solutions.
                 </p>
-                <p className="text-lg mb-6">
-                  From Nairobi to the world, we now support clients in
-                  construction, logistics, retail, and manufacturing by
-                  providing integrated systems that improve data accuracy and
-                  operational efficiency.
+                <p className="text-base sm:text-lg mb-4">
+                  From Nairobi to the world, we support clients in construction,
+                  logistics, retail, and manufacturing by providing integrated
+                  systems that improve data accuracy and operational efficiency.
                 </p>
-                <p className="text-lg mb-6">
+                <p className="text-base sm:text-lg">
                   We're proud of our roots and excited for the future as we
                   expand our innovation and impact.
                 </p>
-                {/* <button className="bg-[#236434] hover:bg-[#1a5129] text-white px-6 py-3 rounded-md mt-4 transition">
-                  Learn More About Our Journey
-                </button> */}
               </div>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="bg-white text-center p-6 shadow-md rounded-md">
-                  <div className="text-4xl font-bold mb-2">2023</div>
-                  <div className="text-sm font-medium">Year Founded</div>
-                </div>
-                <div className="bg-white text-center p-6 shadow-md rounded-md">
-                  <div className="text-4xl font-bold mb-2">10+</div>
-                  <div className="text-sm font-medium">Sectors Served</div>
-                </div>
-                <div className="bg-white text-center p-6 shadow-md rounded-md">
-                  <div className="text-4xl font-bold mb-2">4</div>
-                  <div className="text-sm font-medium">Core Services</div>
-                </div>
-                <div className="bg-white text-center p-6 shadow-md rounded-md">
-                  <div className="text-4xl font-bold mb-2">100%</div>
-                  <div className="text-sm font-medium">
-                    Client-Centric Focus
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { label: "Year Founded", value: "2023" },
+                  { label: "Sectors Served", value: "10+" },
+                  { label: "Core Services", value: "4" },
+                  { label: "Client Focus", value: "100%" },
+                ].map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-white p-6 shadow rounded-lg text-center">
+                    <div className="text-3xl sm:text-4xl font-bold mb-1">
+                      {item.value}
+                    </div>
+                    <div className="text-sm font-medium text-gray-600">
+                      {item.label}
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-2">
+        {/* Mission & Values */}
+        <section className="py-12 bg-[#fffbf0]">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-6">
-              <h2 className="text-3xl font-bold mb-4">Our Mission & Values</h2>
-              <p className="text-xl max-w-3xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
+                Our Mission & Values
+              </h2>
+              <p className="text-base sm:text-lg max-w-3xl mx-auto">
                 We aim to simplify data collection and decision-making through
                 technology that's accurate, adaptable, and empowering.
               </p>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-lg shadow p-6 text-center transition-transform hover:scale-105">
-                <FaLightbulb className="text-3xl mx-auto mb-4" />
-                <h3 className="text-xl font-bold mb-2">Innovation</h3>
-                <p>
-                  We constantly explore and create technologies that redefine
-                  efficiency and usability in our industry.
-                </p>
-              </div>
-              <div className="bg-white rounded-lg shadow p-6 text-center transition-transform hover:scale-105">
-                <FaBalanceScale className="text-3xl mx-auto mb-4" />
-                <h3 className="text-xl font-bold mb-2">Precision</h3>
-                <p>
-                  Our systems prioritize accuracy, from weighing to analytics
-                  and beyond.
-                </p>
-              </div>
-              <div className="bg-white rounded-lg shadow p-6 text-center transition-transform hover:scale-105">
-                <FaUsers className="text-3xl mx-auto mb-4" />
-                <h3 className="text-xl font-bold mb-2">Collaboration</h3>
-                <p>
-                  Partnership and client engagement fuel our tailored solutions
-                  and service quality.
-                </p>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  icon: FaLightbulb,
+                  title: "Innovation",
+                  desc: "Exploring and creating technologies that redefine efficiency.",
+                },
+                {
+                  icon: FaBalanceScale,
+                  title: "Precision",
+                  desc: "Ensuring accuracy from weighing to analytics.",
+                },
+                {
+                  icon: FaUsers,
+                  title: "Collaboration",
+                  desc: "Partnering closely with clients for tailored solutions.",
+                },
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white p-6 shadow rounded-lg text-center hover:scale-105 transition-transform">
+                  <item.icon className="text-3xl text-[#236837] mx-auto mb-3" />
+                  <h3 className="text-xl font-semibold mb-1 text-[#236837]">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-600">{item.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        <section className="py-8">
+        {/* CSR Section */}
+        <section className="py-12">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
                 Corporate Social Responsibility
               </h2>
-              <p className="text-xl max-w-3xl mx-auto">
-                Brickspring is committed to sustainable operations, ethical
-                practices, and inclusive growth. Our work contributes to better
-                environmental outcomes and long-term community benefit.
+              <p className="text-base sm:text-lg max-w-3xl mx-auto">
+                Committed to sustainable operations, ethical practices, and
+                inclusive growth for long-term community benefit.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-lg shadow p-6 text-center transition-transform hover:scale-105">
-                <FaLeaf className="text-3xl mx-auto mb-4" />
-                <h3 className="text-xl font-bold mb-2">Environmental Focus</h3>
-                <p>
-                  We promote digital solutions that reduce paper waste and
-                  improve energy efficiency for our clients and infrastructure.
-                </p>
-              </div>
-              <div className="bg-white rounded-lg shadow p-6 text-center transition-transform hover:scale-105">
-                <FaGraduationCap className="text-3xl mx-auto mb-4" />
-                <h3 className="text-xl font-bold mb-2">Knowledge Sharing</h3>
-                <p>
-                  We support education and training initiatives that empower
-                  young professionals and raise awareness about emerging tech.
-                </p>
-              </div>
-              <div className="bg-white rounded-lg shadow p-6 text-center transition-transform hover:scale-105">
-                <FaUsers className="text-3xl mx-auto mb-4" />
-                <h3 className="text-xl font-bold mb-2">
-                  Community Involvement
-                </h3>
-                <p>
-                  Through partnerships and local engagement, we strive to build
-                  lasting impact across regions where we operate.
-                </p>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  icon: FaLeaf,
+                  title: "Environmental Focus",
+                  desc: "Promoting digital solutions that reduce waste and improve efficiency.",
+                },
+                {
+                  icon: FaGraduationCap,
+                  title: "Knowledge Sharing",
+                  desc: "Supporting education and training initiatives in tech.",
+                },
+                {
+                  icon: FaUsers,
+                  title: "Community Involvement",
+                  desc: "Building lasting impact through partnerships.",
+                },
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white p-6 shadow rounded-lg text-center hover:scale-105 transition-transform">
+                  <item.icon className="text-3xl text-[#236837] mx-auto mb-3" />
+                  <h3 className="text-xl font-semibold mb-1 text-[#236837]">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-600">{item.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        <section className="py-8">
+        {/* Meet Our Team */}
+        <section className="py-12 bg-[#fffbf0]">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Meet Our Team</h2>
-              <p className="text-xl max-w-3xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
+                Meet Our Team
+              </h2>
+              <p className="text-base sm:text-lg max-w-3xl mx-auto">
                 A dedicated team leading Brickspring into a smarter future.
               </p>
             </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
               {team.map((member) => (
                 <div
                   key={member.id}
-                  className="bg-white rounded-lg shadow p-6 text-center transform transition duration-300 hover:-translate-y-2 hover:shadow-xl hover:bg-[#f7fdf9]">
+                  className="bg-white p-6 shadow rounded-lg text-center hover:-translate-y-1 hover:shadow-lg transition-transform">
                   <img
                     src={member.image}
                     alt={member.name}
                     className="w-24 h-24 mx-auto rounded-full object-cover mb-4"
                   />
-                  <h3 className="font-bold text-lg text-[#236837]">
+                  <h3 className="text-lg font-semibold text-[#236837] mb-1">
                     {member.name}
                   </h3>
-                  <p className="text-sm italic text-gray-700">
+                  <p className="text-sm italic text-gray-700 mb-2">
                     {member.position}
                   </p>
-                  <p className="mt-2 text-sm text-gray-600">
-                    "{member.paragraph}"
-                  </p>
+                  <p className="text-sm text-gray-600">"{member.paragraph}"</p>
                 </div>
               ))}
             </div>

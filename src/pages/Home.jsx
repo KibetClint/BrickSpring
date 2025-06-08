@@ -26,7 +26,7 @@ const Home = () => {
       id: 1,
       title: "Revolutionizing Weight Scale Technology Integration",
       subtitle: "Seamless solutions for modern business operations",
-      imgUrl: "images/UNIWA V710 PDA.png",
+      imgUrl: "/images/UNIWA V710 PDA.png",
       link: "/products",
       pageName: "Explore Products",
     },
@@ -34,7 +34,7 @@ const Home = () => {
       id: 2,
       title: "Optimize Operations with Real-Time Data",
       subtitle: "Harness the power of instant weight analytics",
-      imgUrl: "images/payrollspring.png",
+      imgUrl: "/images/payrollspring.png",
       link: "/consultation",
       pageName: "Get a Consultation",
     },
@@ -42,7 +42,7 @@ const Home = () => {
       id: 3,
       title: "Custom Integration, Maximum ROI",
       subtitle: "Tailored solutions for your unique business needs",
-      imgUrl: "images/cybersecurity.webp",
+      imgUrl: "/images/cybersecurity.webp",
       link: "/solutions",
       pageName: "Custom Solutions",
     },
@@ -105,7 +105,7 @@ const Home = () => {
           </div>
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex flex-wrap justify-center gap-2 mb-8">
-              {[ "Hardware", "Software", "Services"].map((cat) => (
+              {["All", "Hardware", "Software", "Services"].map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActiveFilter(cat)}
@@ -168,264 +168,156 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="py-2 bg-[#FFF9E6]">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-4 text-[#236837]">
+        {/* Why Choose Us Section - responsive */}
+        <section className="py-8 bg-[#FFF9E6]">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-[#236837]">
                 Why Choose Us
               </h2>
-              <p className="text-xl text-[#236837] max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl text-[#236837] max-w-3xl mx-auto">
                 At Brickspring Enterprises, we combine innovation with expertise
                 to deliver unparalleled weight scale technology solutions.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="bg-[#236837]/10 rounded-lg p-8 text-center transition-transform hover:scale-105">
-                <div className="w-20 h-20 bg-[#236837] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <FaRegLightbulb className="fas fa-lightbulb text-white text-3xl" />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  icon: FaRegLightbulb,
+                  title: "Innovation Leadership",
+                  desc: "Pioneering the latest advancements in weight scale technology and computer integration.",
+                },
+                {
+                  icon: FaCogs,
+                  title: "Technical Expertise",
+                  desc: "Our certified engineers bring decades of experience in scale technology and system integration.",
+                },
+                {
+                  icon: FaHeadset,
+                  title: "Customer Support",
+                  desc: "Dedicated 24/7 support ensuring minimal downtime and maximum efficiency.",
+                },
+                {
+                  icon: FaChartLine,
+                  title: "Proven Results",
+                  desc: "Helping hundreds of businesses achieve measurable improvements.",
+                },
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="bg-[#236837]/10 rounded-lg p-6 text-center hover:scale-105 transition-transform">
+                  <div className="w-16 h-16 bg-[#236837] rounded-full flex items-center justify-center mx-auto mb-4">
+                    <item.icon className="text-white text-3xl" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 text-[#236837]">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm sm:text-base">
+                    {item.desc}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-[#236837]">
-                  Innovation Leadership
-                </h3>
-                <p className="text-gray-600">
-                  Pioneering the latest advancements in weight scale technology
-                  and computer integration to keep your business ahead of the
-                  curve.
-                </p>
-              </div>
-              <div className="bg-[#236837]/10 rounded-lg p-8 text-center transition-transform hover:scale-105">
-                <div className="w-20 h-20 bg-[#236837] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <FaCogs className="fas fa-cogs text-white text-3xl" />
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-[#236837]">
-                  Technical Expertise
-                </h3>
-                <p className="text-gray-600">
-                  Our team of certified engineers and developers brings decades
-                  of combined experience in scale technology and system
-                  integration.
-                </p>
-              </div>
-              <div className="bg-[#236837]/10 rounded-lg p-8 text-center transition-transform hover:scale-105">
-                <div className="w-20 h-20 bg-[#236837] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <FaHeadset className="fas fa-headset text-white text-3xl" />
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-[#236837]">
-                  Customer Support
-                </h3>
-                <p className="text-gray-600">
-                  Dedicated 24/7 support team committed to ensuring your systems
-                  run smoothly with minimal downtime and maximum efficiency.
-                </p>
-              </div>
-              <div className="bg-[#236837]/10 rounded-lg p-8 text-center transition-transform hover:scale-105">
-                <div className="w-20 h-20 bg-[#236837] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <FaChartLine className="fas fa-chart-line text-white text-3xl" />
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-[#236837]">
-                  Proven Results
-                </h3>
-                <p className="text-gray-600">
-                  Our solutions have helped hundreds of businesses achieve
-                  measurable improvements in efficiency, accuracy, and
-                  operational costs.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </section>
-        <section className="py-8 bg-[#FFF9E6]">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-4 text-[#236837]">
+
+        {/* Contact Section */}
+        <section className="py-8 bg-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-[#236837]">
                 Let's Connect
               </h2>
-              <p className="text-xl text-[#236837] max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl text-[#236837] max-w-3xl mx-auto">
                 Have questions or ready to get started? Reach out to our team
                 today.
               </p>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <div>
-                <form className="bg-white rounded-lg shadow-lg p-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                      <label
-                        htmlFor="contactName"
-                        className="block text-gray-700 mb-2">
-                        Full Name
-                      </label>
-                      <input
-                        type="text"
-                        id="contactName"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#236837]"
-                        placeholder="John Smith"
-                      />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <form className="bg-[#FFF9E6] rounded-lg shadow-lg p-6 space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    placeholder="Full Name"
+                    className="w-full px-3 py-2 border rounded focus:ring-[#236837] focus:outline-none"
+                  />
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    className="w-full px-3 py-2 border rounded focus:ring-[#236837] focus:outline-none"
+                  />
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <input
+                    type="tel"
+                    placeholder="Phone Number"
+                    className="w-full px-3 py-2 border rounded focus:ring-[#236837] focus:outline-none"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Company"
+                    className="w-full px-3 py-2 border rounded focus:ring-[#236837] focus:outline-none"
+                  />
+                </div>
+                <input
+                  type="text"
+                  placeholder="Subject"
+                  className="w-full px-3 py-2 border rounded focus:ring-[#236837] focus:outline-none"
+                />
+                <textarea
+                  rows={4}
+                  placeholder="Your Message"
+                  className="w-full px-3 py-2 border rounded focus:ring-[#236837] focus:outline-none"></textarea>
+                <button className="w-full bg-[#236837] hover:bg-[#1a5129] text-white py-2 rounded transition">
+                  Send Message
+                </button>
+              </form>
+              <div className="space-y-6">
+                {[
+                  {
+                    icon: FaMapMarker,
+                    title: "Address",
+                    info: "1234 Innovation Way, Tech District, SF, CA 94105",
+                  },
+                  {
+                    icon: FaPhone,
+                    title: "Phone",
+                    info: "Sales: (800) 123-4567 | Support: (800) 765-4321",
+                  },
+                  {
+                    icon: FaEnvelope,
+                    title: "Email",
+                    info: "sales@brickspring.com | support@brickspring.com",
+                  },
+                  {
+                    icon: FaClock,
+                    title: "Hours",
+                    info: "Mon-Fri: 8am-6pm, Sat: 9am-1pm",
+                  },
+                ].map((contact, idx) => (
+                  <div key={idx} className="flex items-start">
+                    <div className="bg-[#236837] text-white p-3 rounded-full mr-4">
+                      <contact.icon />
                     </div>
                     <div>
-                      <label
-                        htmlFor="contactEmail"
-                        className="block text-gray-700 mb-2">
-                        Email Address
-                      </label>
-                      <input
-                        type="email"
-                        id="contactEmail"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#236837]"
-                        placeholder="john@example.com"
-                      />
+                      <h4 className="font-semibold text-[#236837] mb-1">
+                        {contact.title}
+                      </h4>
+                      <p className="text-gray-600 text-sm">{contact.info}</p>
                     </div>
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                      <label
-                        htmlFor="contactPhone"
-                        className="block text-gray-700 mb-2">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        id="contactPhone"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#236837]"
-                        placeholder="(123) 456-7890"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="contactCompany"
-                        className="block text-gray-700 mb-2">
-                        Company
-                      </label>
-                      <input
-                        type="text"
-                        id="contactCompany"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#236837]"
-                        placeholder="Your Company, Inc."
-                      />
-                    </div>
-                  </div>
-                  <div className="mb-6">
-                    <label
-                      htmlFor="contactSubject"
-                      className="block text-gray-700 mb-2">
-                      Subject
-                    </label>
-                    <input
-                      type="text"
-                      id="contactSubject"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#236837]"
-                      placeholder="How can we help you?"
-                    />
-                  </div>
-                  <div className="mb-6">
-                    <label
-                      htmlFor="contactMessage"
-                      className="block text-gray-700 mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      id="contactMessage"
-                      rows={5}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#236837]"
-                      placeholder="Please provide details about your inquiry..."></textarea>
-                  </div>
-                  <button className="w-full bg-[#236837] hover:bg-[#1a5129] text-white py-3 rounded-md transition !rounded-button whitespace-nowrap cursor-pointer">
-                    Send Message
-                  </button>
-                </form>
-              </div>
-              <div>
-                <div className="bg-[#236837]/10 rounded-lg shadow-lg p-8 h-full">
-                  <h3 className="text-2xl font-bold mb-6 text-[#236837]">
-                    Get In Touch
-                  </h3>
-                  <div className="space-y-6">
-                    <div className="flex items-start">
-                      <div className="bg-[#236837] rounded-full p-3 mr-4">
-                        <FaMapMarker className="fas fa-map-marker-alt text-white" />
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-gray-800">Address</h4>
-                        <p className="text-gray-600">
-                          1234 Innovation Way
-                          <br />
-                          Tech District
-                          <br />
-                          San Francisco, CA 94105
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="bg-[#236837] rounded-full p-3 mr-4">
-                        <FaPhone className="fas fa-phone text-white" />
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-gray-800">Phone</h4>
-                        <p className="text-gray-600">
-                          Sales: (800) 123-4567
-                          <br />
-                          Support: (800) 765-4321
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="bg-[#236837] rounded-full p-3 mr-4">
-                        <FaEnvelope className="fas fa-envelope text-white" />
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-gray-800">Email</h4>
-                        <p className="text-gray-600">
-                          Sales: sales@brickspring.com
-                          <br />
-                          Support: support@brickspring.com
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="bg-[#236837] rounded-full p-3 mr-4">
-                        <FaClock className="fas fa-clock text-white" />
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-gray-800">
-                          Business Hours
-                        </h4>
-                        <p className="text-gray-600">
-                          Monday - Friday: 8:00 AM - 6:00 PM PST
-                          <br />
-                          Saturday: 9:00 AM - 1:00 PM PST
-                          <br />
-                          Sunday: Closed
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mt-8">
-                    <h4 className="font-bold text-gray-800 mb-4">
-                      Connect With Us
-                    </h4>
-                    <div className="flex space-x-4">
+                ))}
+                <div className="flex space-x-4 mt-4">
+                  {[FaFacebook, FaTwitter, FaInstagram, FaLinkedin].map(
+                    (Icon, idx) => (
                       <a
+                        key={idx}
                         href="#"
-                        className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition cursor-pointer">
-                        <FaLinkedin className="fab fa-linkedin-in" />
+                        className="bg-[#236837] text-white p-3 rounded-full hover:bg-[#1a5129] transition">
+                        <Icon />
                       </a>
-                      <a
-                        href="#"
-                        className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition cursor-pointer">
-                        <FaTwitter className="fab fa-twitter" />
-                      </a>
-                      <a
-                        href="#"
-                        className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition cursor-pointer">
-                        <FaFacebook className="fab fa-facebook-f" />
-                      </a>
-                      <a
-                        href="#"
-                        className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition cursor-pointer">
-                        <FaInstagram className="fab fa-instagram color-red" />
-                      </a>
-                    </div>
-                  </div>
+                    )
+                  )}
                 </div>
               </div>
             </div>
