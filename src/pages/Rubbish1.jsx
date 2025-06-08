@@ -56,33 +56,25 @@ const About = () => {
   return (
     <div className="min-h-screen bg-[#fffbf0] text-[#236434]">
       <main>
-        <section className="relative bg-gradient-to-r from-[#236837]/80 to-transparent text-white overflow-hidden">
-          <div className="absolute inset-0 overflow-hidden">
+        <section className="relative bg-gradient-to-r from-[#236434]/100 to-transparent text-white">
+          <div className="absolute inset-0">
             <img
-              src="/images/consultation.jpg"
-              className="w-full h-full object-cover object-top opacity-20"
-              alt="Consultation background"
+              src="/images/About.jpeg"
+              alt="About Brickspring Enterprises"
+              className="w-full h-full object-cover opacity-20"
             />
           </div>
           <div className="container mx-auto px-4 py-20 relative z-10">
-            <div className="flex items-center mb-4">
-              <a
-                href="/"
-                className="text-blue-200 hover:text-white cursor-pointer">
-                <i className="fas fa-home mr-2"></i>Home
-              </a>
-              <i className="fas fa-chevron-right mx-2 text-blue-300 text-xs"></i>
+            <div className="flex items-center mb-4 text-sm">
+              <a className="text-white cursor-pointer">Home</a>
+              <FaChevronRight className="mx-2 text-white text-xs" />
               <span className="font-semibold">About Us</span>
             </div>
-            <div className="text-center mb-16">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-[#1F6632] leading-tight">
-                Who We{" "}
-                <span className="inline-block bg-gradient-to-r from-[#1F6632] to-[#4CAF50] bg-clip-text text-transparent">
-                  Are
-                </span>
+            <div className="max-w-3xl">
+              <h1 className="text-5xl font-bold mb-6">
+                About Brickspring Enterprises
               </h1>
-              <div className="w-32 h-1 bg-gradient-to-r from-[#1F6632] to-[#4CAF50] mx-auto rounded-full mb-6" />
-              <p className="text-lg sm:text-xl md:text-2xl max-w-4xl mx-auto text-[#1F6632]/80 leading-relaxed">
+              <p className="text-xl mb-8">
                 We're on a mission to transform industries through innovative
                 weight scale technology. Since 2023, we've been pioneering
                 solutions that connect precision measurement with intelligent

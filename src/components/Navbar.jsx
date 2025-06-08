@@ -5,7 +5,6 @@ import {
   FaBars,
   FaTimes,
   FaFacebook,
-  FaTwitter,
   FaInstagram,
   FaEnvelope,
   FaPhone,
@@ -17,6 +16,7 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Hide top bar on scroll
   useEffect(() => {
     const handleScroll = throttle(() => {
       setScrolled(window.scrollY > 50);
@@ -25,6 +25,13 @@ function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Auto-close mobile menu after 5s
+  useEffect(() => {
+    if (!menuOpen) return;
+    const timer = setTimeout(() => setMenuOpen(false), 5000);
+    return () => clearTimeout(timer);
+  }, [menuOpen]);
 
   const navLinks = [
     "Home",
@@ -37,37 +44,35 @@ function Header() {
   ];
 
   const getRoute = (item) => {
-    if (item === "Home") return "/";
-    return `/${item.toLowerCase()}`;
+    return item === "Home" ? "/" : `/${item.toLowerCase()}`;
   };
 
   return (
     <>
       {/* Top Bar */}
       <div
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? "hidden" : "bg-[#236434]"
+        className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 bg-[#116452] ${
+          scrolled ? "-translate-y-full" : "translate-y-0"
         }`}>
-        <div className="container mx-auto flex justify-between items-center px-6 py-3 text-sm text-gray-100">
-          <div className="flex space-x-4">
-            <a href="#" className=" text-blue-500 hover:text-blue-500">
-              <FaFacebook />
+        <div className="container mx-auto flex justify-between items-center px-4 py-1 text-xs sm:text-sm text-white">
+          <div className="flex items-center space-x-3">
+            <a href="#" className="hover:text-blue-300">
+              <FaFacebook size={16} />
             </a>
-            <a href="#" className="text-blue-500 hover:text-blue-400">
-              <FaSquareXTwitter />
+            <a href="#" className="hover:text-blue-300">
+              <FaSquareXTwitter size={16} />
             </a>
-            <a href="#" className="text-pink-500 hover:text-pink-500">
-              <FaInstagram />
+            <a href="#" className="hover:text-pink-300">
+              <FaInstagram size={16} />
             </a>
           </div>
-
-          <div className="flex items-center space-x-6">
-            <div className=" text-black flex items-center space-x-2">
-              <FaEnvelope />
-              <span>info@birckspring.co.ke</span>
+          <div className="flex items-center space-x-4 text-xs sm:text-sm">
+            <div className="flex items-center space-x-1">
+              <FaEnvelope size={14} />
+              <span>info@brickspring.co.ke</span>
             </div>
-            <div className=" text-black flex items-center space-x-2">
-              <FaPhone />
+            <div className="flex items-center space-x-1">
+              <FaPhone size={14} />
               <span>+254 725 903309</span>
             </div>
           </div>
@@ -76,47 +81,51 @@ function Header() {
 
       {/* Main Header */}
       <header
-        className={`fixed left-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? "top-0 bg-[#236434] shadow-md" : "top-[40px] bg-[#236434]"
+        className={`fixed left-0 w-full z-40 transition-all duration-300 bg-[#236434] shadow-md ${
+          scrolled ? "top-0" : "top-2"
         }`}>
-        <div className="container mx-auto flex items-center justify-between px-4 py-2">
-          <Link to="/" className="flex items-center">
+        <div className="container mx-auto flex items-center justify-between px-4 py-2 sm:py-4">
+          <Link to="/" className="flex items-center space-x-2">
             <img
               src={logo}
               alt="Logo"
-              className="h-14 w-14 mr-3 rounded-full"
+              className="h-8 w-8 sm:h-10 sm:w-10 rounded-full"
             />
-            <span className="text-xl font-bold text-white">Brickspring</span>
+            <span className="text-lg sm:text-xl font-bold text-white">
+              Brickspring
+            </span>
           </Link>
 
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden md:flex items-center space-x-4 text-sm lg:space-x-6">
             {navLinks.map((item) => (
               <Link
                 key={item}
                 to={getRoute(item)}
-                className="text-white hover:text-blue-300 transition duration-300 text-sm">
+                className="text-white hover:text-blue-300 transition duration-300">
                 {item}
               </Link>
             ))}
           </nav>
+
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden text-xl text-white focus:outline-none">
+            className="md:hidden text-white text-2xl p-2 focus:outline-none">
             {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation: reduced height on small screens */}
         <div
-          className={`fixed top-0 right-0 w-40 bg-[#236434] text-white transform transition-transform duration-300 z-50 ${
-            menuOpen ? "translate-x-0" : "translate-x-full"
-          }`}>
+          className={`fixed top-0 right-0 w-64 bg-[#236434] text-white transform transition-transform duration-300 z-50 
+            ${menuOpen ? "translate-x-0" : "translate-x-full"} 
+            h-[75vh] sm:h-full
+          `}>
           <button
             onClick={() => setMenuOpen(false)}
-            className="text-white text-xl absolute top-6 left-6 focus:outline-none">
+            className="absolute top-4 right-4 text-white text-xl focus:outline-none">
             <FaTimes />
           </button>
-          <nav className="mt-16 px-4 space-y-3 pb-6 text-sm">
+          <nav className="mt-12 px-4 space-y-3 text-base">
             {navLinks.map((item) => (
               <Link
                 key={item}
@@ -130,8 +139,8 @@ function Header() {
         </div>
       </header>
 
-      {/* Spacer to Avoid Overlap */}
-      <div className={scrolled ? "h-[72px]" : "h-[112px] bg-[#fffbf0]"}></div>
+      {/* Spacer */}
+      <div className="h-16 sm:h-20" />
     </>
   );
 }

@@ -1,46 +1,6 @@
-import React, { useState, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React, { useState } from "react";
 import { FaHeadset } from "react-icons/fa6";
-import { FaFilePdf, FaLaptop } from "react-icons/fa";
-
-// Animation Variants
-const fadeInUp = {
-  hidden: { y: 60, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { duration: 0.8, ease: "easeOut" },
-  },
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const staggerItem = {
-  hidden: { y: 30, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
-
-const float = {
-  y: [-8, 8, -8],
-  transition: {
-    duration: 4,
-    repeat: Infinity,
-    ease: "easeInOut",
-  },
-};
+import { FaFilePdf, FaLaptop, FaPhone } from "react-icons/fa";
 
 export default function Consultation() {
   const [formData] = useState({
@@ -49,15 +9,6 @@ export default function Consultation() {
     company: "",
     needs: "",
   });
-
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -100]);
-  const titleY = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -114,30 +65,23 @@ export default function Consultation() {
   ];
 
   return (
-    <div ref={containerRef} className="relative overflow-hidden">
-      {/* Animated Background */}
-      <motion.div
-        style={{ y: backgroundY }}
-        className="absolute inset-0 bg-gradient-to-br from-[#FEFAEA] via-[#FFF9E6] to-[#FEFAEA] -z-10"
-      />
+    <div className="relative overflow-hidden">
+      {/* Static Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#FEFAEA] via-[#FFF9E6] to-[#FEFAEA] -z-10" />
 
-      {/* Floating decorative elements */}
-      <motion.div
-        animate={float}
-        className="absolute top-32 right-16 w-24 h-24 bg-[#1F6632]/10 rounded-full blur-xl -z-10"
-      />
-      <motion.div
-        animate={{ ...float, transition: { ...float.transition, delay: 2 } }}
-        className="absolute bottom-64 left-16 w-32 h-32 bg-[#1F6632]/5 rounded-full blur-2xl -z-10"
-      />
-      <section className="relative bg-gradient-to-r  from-[#236837]/80 to-transparent text-white overflow-hidden">
+      {/* Decorative static elements */}
+      <div className="absolute top-32 right-16 w-24 h-24 bg-[#1F6632]/10 rounded-full blur-xl -z-10" />
+      <div className="absolute bottom-64 left-16 w-32 h-32 bg-[#1F6632]/5 rounded-full blur-2xl -z-10" />
+
+      <section className="relative bg-gradient-to-r from-[#236837]/80 to-transparent text-white overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src="/public/images/consultation.jpg"
+            src="/images/consultation.jpg"
             className="w-full h-full object-cover object-top opacity-20"
+            alt="Consultation background"
           />
         </div>
-        <div className="container mx-auto px-4 py-20 relative  z-10">
+        <div className="container mx-auto px-4 py-20 relative z-10">
           <div className="flex items-center mb-4">
             <a
               href="/"
@@ -147,56 +91,30 @@ export default function Consultation() {
             <i className="fas fa-chevron-right mx-2 text-blue-300 text-xs"></i>
             <span className="font-semibold">Consultation</span>
           </div>
-          <motion.div
-            style={{ y: titleY }}
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
-            className="text-center mb-16">
-            <motion.h1
-              variants={fadeInUp}
-              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-[#1F6632] leading-tight">
+          <div className="text-center mb-16">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-[#1F6632] leading-tight">
               Consultation{" "}
-              <motion.span
-                className="inline-block bg-gradient-to-r from-[#1F6632] to-[#4CAF50] bg-clip-text text-transparent"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300 }}>
+              <span className="inline-block bg-gradient-to-r from-[#1F6632] to-[#4CAF50] bg-clip-text text-transparent">
                 Services
-              </motion.span>
-            </motion.h1>
-            <motion.div
-              variants={fadeInUp}
-              className="w-32 h-1 bg-gradient-to-r from-[#1F6632] to-[#4CAF50] mx-auto rounded-full mb-6"
-            />
-            <motion.p
-              variants={fadeInUp}
-              className="text-lg sm:text-xl md:text-2xl max-w-4xl mx-auto text-[#1F6632]/80 leading-relaxed">
+              </span>
+            </h1>
+            <div className="w-32 h-1 bg-gradient-to-r from-[#1F6632] to-[#4CAF50] mx-auto rounded-full mb-6" />
+            <p className="text-lg sm:text-xl md:text-2xl max-w-4xl mx-auto text-[#1F6632]/80 leading-relaxed">
               Our expert team provides tailored consultation services to help
               you implement the perfect weight scale integration solution for
               your business.
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
         </div>
       </section>
+
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Packages Grid */}
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
             {packages.map((pkg) => (
-              <motion.div
+              <div
                 key={pkg.name}
-                variants={staggerItem}
-                whileHover={{
-                  y: -15,
-                  scale: 1.02,
-                  boxShadow: "0 25px 50px -12px rgba(31, 102, 50, 0.25)",
-                }}
                 className={`relative flex flex-col bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden border-2 transition-all duration-300 ${
                   pkg.popular
                     ? "border-[#1F6632] transform scale-105"
@@ -204,77 +122,57 @@ export default function Consultation() {
                 }`}>
                 {/* Popular Badge */}
                 {pkg.popular && (
-                  <motion.div
-                    initial={{ scale: 0, rotate: -12 }}
-                    animate={{ scale: 1, rotate: 12 }}
-                    transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
-                    className="absolute -top-2 -right-2 z-10">
+                  <div className="absolute -top-2 -right-2 z-10">
                     <div className="bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-[#1F6632] text-xs font-bold px-4 py-2 rounded-full shadow-lg">
                       POPULAR
                     </div>
-                  </motion.div>
+                  </div>
                 )}
 
                 {/* Header */}
-                <motion.div
+                <div
                   className="p-8 text-center text-white relative overflow-hidden"
                   style={{ backgroundColor: pkg.color }}>
-                  <motion.div
-                    animate={float}
-                    className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"
-                  />
-                  <motion.h3 className="text-2xl sm:text-3xl font-bold mb-2 relative z-10">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
+                  <h3 className="text-2xl sm:text-3xl font-bold mb-2 relative z-10">
                     {pkg.name}
-                  </motion.h3>
-                  <motion.p
-                    className="text-4xl sm:text-5xl font-bold mb-2 relative z-10"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 300 }}>
+                  </h3>
+                  <p className="text-4xl sm:text-5xl font-bold mb-2 relative z-10">
                     {pkg.price}
-                  </motion.p>
-                  <motion.p className="text-sm opacity-90 relative z-10">
+                  </p>
+                  <p className="text-sm opacity-90 relative z-10">
                     {pkg.subtitle}
-                  </motion.p>
-                </motion.div>
+                  </p>
+                </div>
 
                 {/* Features */}
                 <div className="p-8 flex flex-col flex-grow">
-                  <motion.ul
-                    variants={staggerContainer}
-                    className="space-y-4 flex-grow mb-8">
+                  <ul className="space-y-4 flex-grow mb-8">
                     {pkg.features.map((feature, i) => (
-                      <motion.li
+                      <li
                         key={i}
-                        variants={staggerItem}
                         className={`flex items-center transition-colors duration-200 ${
                           feature.included ? "text-[#1F6632]" : "text-gray-400"
                         }`}>
-                        <motion.span
-                          className="mr-3 text-lg"
-                          whileHover={{ scale: 1.2 }}>
+                        <span className="mr-3 text-lg">
                           {feature.included ? "✅" : "❌"}
-                        </motion.span>
+                        </span>
                         <span className="text-sm sm:text-base">
                           {feature.text}
                         </span>
-                      </motion.li>
+                      </li>
                     ))}
-                  </motion.ul>
+                  </ul>
 
-                  <motion.button
-                    whileHover={{
-                      scale: 1.05,
-                      boxShadow: "0 20px 40px -12px rgba(31, 102, 50, 0.4)",
-                    }}
-                    whileTap={{ scale: 0.95 }}
+                  <button
                     className="w-full py-4 rounded-2xl text-white font-semibold text-lg transition-all duration-300 shadow-lg"
                     style={{ backgroundColor: pkg.color }}>
                     Book Now
-                  </motion.button>
+                  </button>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
 
           {/* Custom Consultation Request */}
           <section className="py-16 bg-green-900 text-white">
@@ -291,7 +189,7 @@ export default function Consultation() {
                   </p>
                   <div className="space-y-6">
                     <div className="flex items-start">
-                      <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                      <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                         <FaHeadset className="fas fa-headset text-white text-xl" />
                       </div>
                       <div>
@@ -306,7 +204,7 @@ export default function Consultation() {
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                      <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                         <FaLaptop className="fas fa-headset text-white text-xl" />
                       </div>
                       <div>
@@ -319,7 +217,7 @@ export default function Consultation() {
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                      <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                         <FaFilePdf className="fas fa-headset text-white text-xl" />
                       </div>
                       <div>
@@ -334,21 +232,22 @@ export default function Consultation() {
                     </div>
                   </div>
                   <div className="mt-8">
-                    <button className="bg-white text-blue-700 px-6 py-3 rounded-md font-semibold hover:bg-blue-50 transition mr-4 !rounded-button whitespace-nowrap cursor-pointer">
+                    <button className="bg-green-600 text-white-700 px-6 py-3 rounded-md font-semibold hover:bg-blue-500 transition mr-4 whitespace-nowrap cursor-pointer">
                       <i className="fas fa-download mr-2"></i>Download Brochure
                     </button>
-                    <button className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:bg-opacity-10 transition !rounded-button whitespace-nowrap cursor-pointer">
-                      <i className="fas fa-phone-alt mr-2"></i>Contact Sales
+                    <button className="bg-green-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-500 hover:bg-opacity-10 transition whitespace-nowrap cursor-pointer">
+                      <i className="fas fa-phone-alt mr-2"></i>
+                      Contact Sales
                     </button>
                   </div>
                 </div>
                 <div className="bg-white rounded-lg shadow-lg p-8 text-gray-800">
-                  <h3 className="text-2xl font-bold mb-6 text-blue-700">
+                  <h3 className="text-2xl font-bold mb-6 text-green-800">
                     Schedule a Consultation
                   </h3>
                   <form
                     id="consultationForm"
-                    className="space-y-4 transition-all duration-300"
+                    className="space-y-4"
                     onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
@@ -442,7 +341,8 @@ export default function Consultation() {
                         id="message"
                         rows={4}
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Tell us about your specific needs or challenges"></textarea>
+                        placeholder="Tell us about your specific needs or challenges"
+                      />
                     </div>
                     <div className="flex items-start">
                       <input
@@ -455,9 +355,7 @@ export default function Consultation() {
                         className="ml-2 block text-sm text-gray-600">
                         I agree to receive communications from Brickspring
                         Enterprises. See our{" "}
-                        <a
-                          href="#"
-                          className="text-blue-600 hover:underline cursor-pointer">
+                        <a href="#" className="text-blue-600 hover:underline">
                           Privacy Policy
                         </a>
                         .
@@ -465,7 +363,7 @@ export default function Consultation() {
                     </div>
                     <button
                       type="submit"
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md transition font-semibold !rounded-button whitespace-nowrap cursor-pointer">
+                      className="w-full bg-green-800 hover:bg-blue-700 text-white py-3 rounded-md transition font-semibold whitespace-nowrap">
                       Schedule Consultation
                     </button>
                   </form>

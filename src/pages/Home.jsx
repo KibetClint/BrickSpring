@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
+import { Link } from "react-router-dom";
 import {
   FaChartLine,
   FaClock,
@@ -15,78 +16,44 @@ import {
   FaMapMarker,
   FaPhone,
   FaRegLightbulb,
+  FaTwitter,
 } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { productsData } from "../components/ProductsCard";
 
 const Home = () => {
-  // Placeholder cart function
-  const addToCart = () => {};
-
-  // Hero slides data
   const slides = [
     {
       id: 1,
       title: "Revolutionizing Weight Scale Technology Integration",
       subtitle: "Seamless solutions for modern business operations",
-      imgUrl: "/images/UNIWA V710 PDA.png",
+      imgUrl: "images/UNIWA V710 PDA.png",
+      link: "/products",
+      pageName: "Explore Products",
     },
     {
       id: 2,
       title: "Optimize Operations with Real-Time Data",
       subtitle: "Harness the power of instant weight analytics",
-      imgUrl: "/images/Checkered plate platform scales.png",
+      imgUrl: "images/payrollspring.png",
+      link: "/consultation",
+      pageName: "Get a Consultation",
     },
     {
       id: 3,
       title: "Custom Integration, Maximum ROI",
       subtitle: "Tailored solutions for your unique business needs",
-      imgUrl: "/images/Computing.jpg",
-    },
-  ];
-
-  // Product data
-  const products = [
-    {
-      id: 1,
-      name: "",
-      description:
-        "Enterprise-grade digital scale with advanced computer integration",
-      price: 1199,
-      category: "Hardware",
-      imageUrl: "/images/Accessories.png",
-    },
-    {
-      id: 2,
-      name: "Cyberseurity Software",
-      description: "Cloud-based software for real-time weight data analysis",
-      price: 499,
-      category: "Software",
-      imageUrl: "/images/Computing.jpg",
-    },
-    {
-      id: 3,
-      name: "ScaleLink Gateway",
-      description: "Interface for connecting legacy scales to modern systems",
-      price: 349,
-      category: "Integration",
-      imageUrl: "/images/L36 printer.png",
+      imgUrl: "images/cybersecurity.webp",
+      link: "/solutions",
+      pageName: "Custom Solutions",
     },
   ];
 
   const [activeFilter, setActiveFilter] = useState("All");
-  const [sortOption, setSortOption] = useState("category");
 
   const filtered =
     activeFilter === "All"
-      ? products
-      : products.filter((p) => p.category === activeFilter);
-  const sorted = [...filtered].sort((a, b) =>
-    sortOption === "price-low"
-      ? a.price - b.price
-      : sortOption === "price-high"
-        ? b.price - a.price
-        : a.id - b.id
-  );
+      ? productsData.slice(0, 4)
+      : productsData.filter((p) => p.category === activeFilter).slice(0, 4);
 
   return (
     <div className="bg-[#FFF9E6] text-gray-800">
@@ -107,23 +74,18 @@ const Home = () => {
                   className="absolute inset-0 w-full h-full object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#236837]/100 to-transparent z-10" />
-                <div className="max-w-3xl mx-auto px-4 py-16 h-full flex items-center relative z-20">
-                  <div>
-                    <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight mb-4">
-                      {slide.title}
-                    </h1>
-                    <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white mb-8">
-                      {slide.subtitle}
-                    </p>
-                    <div className="flex flex-wrap gap-4">
-                      <button className="bg-[#236837] hover:bg-[#1a5129] text-white px-5 py-3 rounded-md text-sm sm:text-base md:text-lg transition">
-                        Explore Products
-                      </button>
-                      <button className="border-2 border-white hover:bg-white/20 text-white px-5 py-3 rounded-md text-sm sm:text-base md:text-lg transition">
-                        Book Consultation
-                      </button>
-                    </div>
-                  </div>
+                <div className="max-w-3xl mx-auto px-4 py-16 h-full flex flex-col justify-center items-center relative z-20 text-center">
+                  <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight mb-4">
+                    {slide.title}
+                  </h1>
+                  <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white mb-8">
+                    {slide.subtitle}
+                  </p>
+                  <Link
+                    to={slide.link}
+                    className="block mx-auto bg-[#236837] hover:bg-[#1a5129] text-white px-5 py-3 rounded-md text-sm sm:text-base md:text-lg transition">
+                    {slide.pageName}
+                  </Link>
                 </div>
               </SwiperSlide>
             ))}
@@ -131,7 +93,7 @@ const Home = () => {
         </section>
 
         {/* Products Section */}
-        <section className="py-16 bg-[#FFF9E6]">
+        <section className="py-6 bg-[#FFF9E6]">
           <div className="text-center mb-12 px-4">
             <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 text-[#236837]">
               Our Products
@@ -142,10 +104,9 @@ const Home = () => {
             </p>
           </div>
           <div className="max-w-7xl mx-auto px-4">
-            {/* Filters & Sort UI */}
             <div className="mb-8 flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-4 sm:space-y-0">
               <div className="flex flex-wrap gap-2">
-                {["All", "Hardware", "Software", "Integration"].map((cat) => (
+                {["Hardware", "Software", "Services"].map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setActiveFilter(cat)}
@@ -158,34 +119,15 @@ const Home = () => {
                   </button>
                 ))}
               </div>
-              <div className="flex items-center">
-                <label
-                  htmlFor="sort"
-                  className="mr-2 text-xs sm:text-sm md:text-base text-gray-700">
-                  Sort by:
-                </label>
-                <select
-                  id="sort"
-                  value={sortOption}
-                  onChange={(e) => setSortOption(e.target.value)}
-                  className="border border-gray-300 rounded-md px-2 py-1 text-xs sm:text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#236837]">
-                  <option value="category">Category</option>
-                  <option value="price-low">Price: Low to High</option>
-                  <option value="price-high">Price: High to Low</option>
-                </select>
-              </div>
             </div>
-
-            {/* Product Grid */}
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {sorted.map((product) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {filtered.map((product) => (
                 <div
                   key={product.id}
                   className="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden flex flex-col">
                   <div className="h-48 sm:h-56 w-full">
                     <img
-                      src={product.imageUrl}
+                      src={`/images/${product.image}`}
                       alt={product.name}
                       className="w-full h-full object-cover"
                     />
@@ -202,24 +144,32 @@ const Home = () => {
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-4 flex-grow">
                       {product.description}
                     </p>
-                    <div className="flex justify-between items-center">
-                      <span className="text-lg sm:text-xl md:text-2xl font-bold text-[#236837]">
-                        Ksh {product.price.toFixed(2)}
-                      </span>
-                      <button
-                        onClick={addToCart}
-                        className="bg-[#236837] hover:bg-[#1a5129] text-white px-4 py-2 rounded-md text-xs sm:text-sm md:text-base transition focus:outline-none focus:ring-2 focus:ring-[#236837]">
-                        Read More
-                      </button>
-                    </div>
                   </div>
                 </div>
               ))}
             </div>
+            <div className="flex justify-center mt-8">
+              <a
+                href="/products"
+                className="bg-[#236837] hover:bg-[#1a5129] text-white px-9 py-1 rounded-md text-sm sm:text-base md:text-lg transition focus:outline-none focus:ring-2 focus:ring-[#236837] flex items-center gap-2">
+                More Products
+                <svg
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
         </section>
 
-        {/* Why Choose Us */}
         <section className="py-2 bg-[#FFF9E6]">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
@@ -286,11 +236,11 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section className="py-20 bg-[#FFF9E6]">
+        <section className="py-8 bg-[#FFF9E6]">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold mb-4 text-[#236837]">
-                Contact Us
+                Let's Connect
               </h2>
               <p className="text-xl text-[#236837] max-w-3xl mx-auto">
                 Have questions or ready to get started? Reach out to our team
@@ -464,7 +414,7 @@ const Home = () => {
                       <a
                         href="#"
                         className="bg-[#236837] hover:bg-[#1a5129] text-white rounded-full w-10 h-10 flex items-center justify-center transition cursor-pointer">
-                        <FaXTwitter className="fab fa-twitter" />
+                        <FaTwitter className="fab fa-twitter" />
                       </a>
                       <a
                         href="#"

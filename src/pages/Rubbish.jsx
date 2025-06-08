@@ -14,349 +14,483 @@ const Products = () => {
 
   // Product data
   const products = [
+    // Existing hardware and software entries...
+
     {
       id: 1,
+      name: "Weighspring",
+      image: "cctv-weighspring.png",
+      description:
+        "Advanced weighbridge management software with integrated camera functionality for real-time vehicle monitoring and transaction verification.",
+      category: "Software",
+      brand: "Brickspring",
+      features: [
+        "Real-time weight data capture",
+        "Integrated camera support",
+        "Automated ticket generation",
+        "Comprehensive reporting tools",
+      ],
+      specifications: {
+        platform: "Windows",
+        database: "SQL Server",
+        cameraIntegration: true,
+        reporting: "Customizable reports and dashboards",
+      },
+      compatibility: [
+        "Brickspring hardware",
+        "Third-party weighbridge systems",
+      ],
+      releaseDate: "2025-03-15",
+    },
+    {
+      id: 2,
+      name: "Timespring",
+      image: "TimeSpringMockup.jpg",
+      description:
+        "Time-released messaging application enabling users to schedule messages for future delivery, enhancing communication planning.",
+      category: "Software",
+      brand: "Brickspring",
+      features: [
+        "Scheduled message delivery",
+        "User-friendly interface",
+        "Cross-platform support",
+        "Secure data handling",
+      ],
+      specifications: {
+        platform: "iOS, Android",
+        messageTypes: "Text, Images, Videos",
+        encryption: "End-to-end encryption",
+        scheduling: "Flexible date and time settings",
+      },
+      compatibility: ["Mobile devices", "Web browsers"],
+      releaseDate: "2025-04-10",
+    },
+    {
+      id: 3,
+      name: "Payrollspring",
+      image: "payrollspring.png",
+      description:
+        "Comprehensive payroll processing software designed to automate salary calculations, tax deductions, and employee payments.",
+      category: "Software",
+      brand: "Brickspring",
+      features: [
+        "Automated payroll calculations",
+        "Tax compliance management",
+        "Employee self-service portal",
+        "Integration with accounting systems",
+      ],
+      specifications: {
+        platform: "Web-based",
+        compliance: "Local tax regulations",
+        reporting: "Detailed payroll reports",
+        userAccess: "Role-based permissions",
+      },
+      compatibility: ["Accounting software", "HR management systems"],
+      releaseDate: "2025-05-05",
+    },
+    {
+      id: 4,
+      name: "Secuspring",
+      image: "secuspring.jpeg",
+      description:
+        "Robust security module offering data encryption, access control, and compliance reporting to safeguard organizational information.",
+      category: "Software",
+      brand: "Brickspring",
+      features: [
+        "Advanced data encryption",
+        "Multi-factor authentication",
+        "Real-time threat detection",
+        "Compliance reporting tools",
+      ],
+      specifications: {
+        platform: "Cross-platform",
+        encryptionStandards: "AES-256",
+        authentication: "Biometric, OTP",
+        compliance: "GDPR, HIPAA",
+      },
+      compatibility: ["Brickspring software", "Third-party applications"],
+      releaseDate: "2025-06-01",
+    },
+    {
+      id: 5,
+      name: "Safetyspring",
+      image: "safestyspring.png",
+      description:
+        "Safety management software facilitating incident reporting, hazard analysis, and compliance tracking to promote workplace safety.",
+      category: "Software",
+      brand: "Brickspring",
+      features: [
+        "Incident reporting system",
+        "Risk assessment tools",
+        "Safety training modules",
+        "Regulatory compliance tracking",
+      ],
+      specifications: {
+        platform: "Web-based",
+        reporting: "Customizable safety reports",
+        alerts: "Real-time notifications",
+        training: "Interactive e-learning modules",
+      },
+      compatibility: ["HR systems", "Compliance databases"],
+      releaseDate: "2025-06-20",
+    },
+    {
+      id: 6,
+      name: "Parkspring",
+      image: "parking-system.jpeg",
+      description:
+        "Park management software offering tools for facility booking, maintenance scheduling, and visitor analytics to enhance park operations.",
+      category: "Software",
+      brand: "Brickspring",
+      features: [
+        "Facility reservation system",
+        "Maintenance tracking",
+        "Visitor analytics dashboard",
+        "Mobile access for staff",
+      ],
+      specifications: {
+        platform: "Web and mobile",
+        bookingSystem: "Real-time availability",
+        analytics: "Visitor trends and reports",
+        maintenance: "Automated scheduling",
+      },
+      compatibility: ["Municipal systems", "Payment gateways"],
+      releaseDate: "2025-07-10",
+    },
+    {
+      id: 7,
+      name: "OCS SB1 Hanging Scale",
+      image: "OCS SB1 Hanging Scale.jpg",
+      description:
+        "Durable and compact crane scale ideal for industrial weight lifting and shipping applications.",
+      category: "Hardware",
+      brand: "Brickspring",
+      features: [
+        "LCD display",
+        "Wireless remote control",
+        "High-capacity load cell",
+        "Overload protection",
+      ],
+      specifications: {
+        capacity: "100kg to 1,000kg",
+        display: "LED / LCD",
+        battery: "Rechargeable",
+        material: "Aluminum die-cast housing",
+      },
+      releaseDate: "2024-10-01",
+    },
+    {
+      id: 8,
+      name: "SS Indicator with Bluetooth",
+      image: "SS Indicator.png",
+      description:
+        "Stainless steel indicator with Bluetooth support for smart data transmission and analysis.",
+      category: "Hardware",
+      brand: "Brickspring",
+      features: [
+        "Bluetooth data sync",
+        "Bright LED screen",
+        "Waterproof design",
+      ],
+      specifications: {
+        casing: "Stainless steel",
+        output: "RS232 / Bluetooth",
+        compatibility: "WeighConnect, Android App",
+      },
+      releaseDate: "2024-10-15",
+    },
+    {
+      id: 9,
       name: "SCS Pallet Truck Scale",
       image: "SCS Pallet Truck Scale .webp",
       description:
-        "A versatile, heavy-duty solution that combines the functionality of a pallet jack with an integrated weighing system. Ideal for industries such as logistics, warehousing, manufacturing, and retail, it streamlines operations by allowing users to transport and weigh goods simultaneously.",
+        "Combines the utility of a pallet jack with accurate weighing for efficient logistics.",
       category: "Hardware",
       brand: "Brickspring",
       features: [
         "Integrated Weighing System",
-        "High-precision load cells",
-        "Durable steel construction",
-        "Rechargeable battery operation",
-        "User-friendly digital display",
-        "Multiple weighing units",
-        "Optional built-in printer",
+        "High-precision Load Cells",
+        "Rugged Construction",
+        "User-friendly Interface",
       ],
       specifications: {
-        dimensions: '12" x 12" x 3"',
-        weight: "2,000 kg",
-        powerSupply: "AC adapter or rechargeable battery",
-        connectivity: "Wi-Fi, Bluetooth, Ethernet, USB",
-        accuracy: "±0.2% of full scale",
-        capacity: "Up to 100 kg",
-        display: "LCD with backlight",
+        capacity: "2000 kg",
+        platform: "Standard Pallet Size",
+        material: "Steel",
+        display: "LCD",
+        accuracy: "±0.1%",
+        power: "Rechargeable Battery",
       },
-      compatibility: [
-        "WeighConnect Software",
-        "Most warehouse and logistics systems",
-        "ScaleSync API",
-      ],
-      releaseDate: "2024-11-15",
-    },
-    {
-      id: 2,
-      name: "Checkered plate platform Scale",
-      image: "Checkered plate platform scales.png",
-      description:
-        "The Checkered Plate Platform Scale is engineered for demanding industrial environments, providing reliable and accurate weight measurements for heavy loads. Its robust construction features a durable checkered steel deck, ensuring slip resistance and longevity. Equipped with high-precision load cells and adjustable leveling feet, this scale maintains accuracy even on uneven surfaces. The powder-coated finish offers additional protection against corrosion, making it suitable for warehouses, manufacturing plants, and logistics centers. Optional ramps enhance accessibility, facilitating the weighing of wheeled containers and pallets.",
-      category: "Hardware",
-      brand: "Brickspring",
-      features: [
-        "Durable checkered steel deck",
-        "High-precision load cells",
-        "Adjustable leveling feet",
-        "Powder-coated finish",
-        "Optional ramps available",
-      ],
-      specifications: {
-        platform: "1200 mm × 1500 mm",
-        material: "Carbon steel with powder coating",
-        loadcells: "Alloy steel shear beam, IP67 rated",
-        updates: "Automatic monthly updates",
-        security: "256-bit encryption",
-        apiAccess: "REST API with documentation",
-      },
-      compatibility: [
-        "YAOHUA A12 indicator",
-        "WeighConnect Software",
-        "ScaleSync API",
-      ],
-      releaseDate: "2024-10-01",
-    },
-    {
-      id: 3,
-      name: "Bluetooth Printers",
-      image: "T12 BT printer.png",
-      description:
-        "Mini Bluetooth printers are designed for professionals requiring a reliable and portable printing solution. They are compact in size and lightweight build to make it ideal for on-the-go tasks such as issuing receipts, printing labels, or generating tickets. With high-speed thermal printing capabilities and broad compatibility across multiple operating systems, they ensure seamless integration into various workflows. The durable construction, coupled with a long-lasting rechargeable battery, guarantees consistent performance even in demanding environments.",
-      category: "Hardware",
-      brand: "Varies",
-      features: [
-        "Legacy system compatibility",
-        "Plug-and-play setup",
-        "Data conversion",
-        "Multiple protocol support",
-      ],
-      specifications: {
-        dimensions: "106.5 × 78 × 47 mm",
-        printingMethod: "Thermal line ",
-        printingSpeed: "Up to 62 mm/s",
-        weight: "0.370 Kg",
-        powerSupply: "USB or AC adapter",
-        connectivity: "USB, RS-232, Ethernet",
-        barcodeSupport:
-          "	1D: UPC-A, UPC-E, EAN-8, CODE39, CODE93, ITF25, CODE128; 2D: PDF417, QR CODE, DATA MATRIX",
-        dataRate: "Up to 100 samples/second",
-      },
-      compatibility: [
-        "Android and iOS devices",
-        "Windows and Linux systems",
-        "ESC/POS command set",
-        "Bluetooth 4.0 and above",
-        "Various POS and label applications",
-      ],
-      releaseDate: "2024-09-10",
-    },
-    {
-      id: 4,
-      name: "DataWeight Enterprise",
-      image: "Pallet scale.png",
-      description:
-        "Complete weight management system for large-scale industrial applications",
-      category: "Hardware",
-      brand: "Brickspring",
-      features: [
-        "Industrial-grade construction",
-        "Multi-scale management",
-        "Advanced data processing",
-        "Integration with manufacturing systems",
-      ],
-      specifications: {
-        dimensions: '18" x 14" x 6"',
-        weight: "12.5 lbs",
-        powerSupply: "AC power with backup battery",
-        connectivity: "Wi-Fi, Ethernet, Serial, USB",
-        accuracy: "±0.005%",
-        capacity: "Up to 2000 kg",
-      },
-      compatibility: [
-        "WeighConnect Software",
-        "ScaleSync API",
-        "Major MES and ERP systems",
-      ],
-      releaseDate: "2025-01-20",
-    },
-    {
-      id: 5,
-      name: "ScaleSync API",
-      image: "Pallet scale.png",
-      description:
-        "Developer toolkit for custom integration of weight data into existing systems",
-      category: "Software",
-      brand: "Brickspring",
-      features: [
-        "Comprehensive documentation",
-        "Sample code",
-        "Technical support",
-        "Regular updates",
-      ],
-      specifications: {
-        platform: "Language-agnostic REST API",
-        authentication: "OAuth 2.0",
-        rateLimit: "10,000 requests/day",
-        responseTime: "<100ms",
-        dataFormats: "JSON, XML",
-        webhooks: "Supported for real-time events",
-      },
-      compatibility: [
-        "All Brickspring hardware",
-        "Major programming languages",
-        "Cloud platforms",
-      ],
-      releaseDate: "2024-11-05",
-    },
-    {
-      id: 6,
-      name: "WeighStation Terminal",
-      image: "Pallet scale.png",
-      description:
-        "Touchscreen terminal for weight data collection and processing",
-      category: "Hardware",
-      brand: "Brickspring",
-      features: [
-        '10" touchscreen display',
-        "Barcode scanner",
-        "Receipt printer",
-        "User authentication",
-      ],
-      specifications: {
-        dimensions: '12" x 8" x 2"',
-        weight: "3.8 lbs",
-        powerSupply: "AC adapter",
-        processor: "Quad-core 2.4GHz",
-        memory: "8GB RAM, 128GB SSD",
-        operatingSystem: "Brickspring OS (Linux-based)",
-      },
-      compatibility: [
-        "WeighConnect Software",
-        "ScaleSync API",
-        "All Brickspring scales",
-      ],
-      releaseDate: "2024-12-10",
-    },
-    {
-      id: 7,
-      name: "MicroScale Portable",
-      image: "Pallet scale.png",
-      description:
-        "Compact, battery-powered scale with wireless connectivity for field operations",
-      category: "Hardware",
-      brand: "Brickspring",
-      features: [
-        "Portable design",
-        "Long battery life",
-        "Wireless data transmission",
-        "Rugged construction",
-      ],
-      specifications: {
-        dimensions: '8" x 8" x 1.5"',
-        weight: "2.1 lbs",
-        powerSupply: "Rechargeable battery (24hr operation)",
-        connectivity: "Bluetooth, Wi-Fi",
-        accuracy: "±0.05%",
-        capacity: "Up to 25 kg",
-      },
-      compatibility: ["WeighConnect Software", "Mobile apps", "ScaleSync API"],
-      releaseDate: "2024-08-15",
-    },
-    {
-      id: 8,
-      name: "WeighConnect Mobile",
-      image: "Pallet scale.png",
-      description: "Mobile application for accessing weight data on the go",
-      category: "Software",
-      brand: "Brickspring",
-      features: [
-        "Real-time data access",
-        "Push notifications",
-        "Offline mode",
-        "User-friendly interface",
-      ],
-      specifications: {
-        platform: "iOS and Android",
-        minVersion: "iOS 14+ / Android 10+",
-        size: "45MB",
-        languages: "English, Spanish, French, German, Chinese",
-        updates: "Monthly",
-        dataSync: "Automatic or manual",
-      },
-      compatibility: ["WeighConnect Software", "All Brickspring hardware"],
+      compatibility: ["WeighConnect", "Brickspring API", "Timespring"],
       releaseDate: "2024-09-01",
     },
     {
-      id: 9,
-      name: "ScaleLink Pro",
-      image: "Pallet scale.png",
-      description:
-        "Advanced integration module for complex multi-scale environments",
-      category: "Integration",
-      brand: "TechWeigh",
-      features: [
-        "Multi-scale support",
-        "Advanced protocol conversion",
-        "Data aggregation",
-        "Custom mapping",
-      ],
-      specifications: {
-        dimensions: '8" x 6" x 2"',
-        weight: "1.5 lbs",
-        powerSupply: "AC adapter",
-        connectivity: "USB, RS-485, Ethernet, Wi-Fi",
-        supportedSystems: "Up to 32 scales simultaneously",
-        dataBuffering: "64MB onboard memory",
-      },
-      compatibility: [
-        "Most industrial scales",
-        "WeighConnect Software",
-        "Third-party ERP systems",
-      ],
-      releaseDate: "2024-10-20",
-    },
-    {
       id: 10,
-      name: "WeighConnect Enterprise",
-      image: "Pallet scale.png",
+      name: "Checkered Plate Platform Scale",
+      image: "Checker-Plate-Platform-Floor-Weight-Scale.png",
       description:
-        "Full-featured enterprise version of WeighConnect with advanced security and management features",
-      category: "Software",
+        "Heavy-duty industrial weighing scale with anti-slip checkered plate surface.",
+      category: "Hardware",
       brand: "Brickspring",
       features: [
-        "Role-based access control",
-        "Audit logging",
-        "Enterprise reporting",
-        "White labeling",
+        "Slip-resistant Platform",
+        "Robust Build",
+        "Load Cell Technology",
+        "Customizable Dimensions",
       ],
       specifications: {
-        deployment: "Cloud or on-premises",
-        users: "Unlimited",
-        dataRetention: "Configurable up to 10 years",
-        sso: "SAML, OAuth support",
-        compliance: "GDPR, HIPAA, ISO 27001",
-        backup: "Automated with point-in-time recovery",
+        capacity: "5000 kg",
+        platform: "Up to 2000 x 3000 mm",
+        material: "Checkered Steel",
+        accuracy: "±0.2%",
+        power: "AC + Battery",
       },
-      compatibility: [
-        "All Brickspring hardware",
-        "Major ERP and MES systems",
-        "Custom integrations",
-      ],
-      releaseDate: "2025-02-01",
+      compatibility: ["WeighConnect", "ScaleSync API", "ERP Systems"],
+      releaseDate: "2024-08-20",
     },
     {
       id: 11,
-      name: "ScaleGuard Security Module",
-      image: "Pallet scale.png",
+      name: "Mini Bluetooth Thermal Printers",
+      image: "Bt Printer.jpg",
       description:
-        "Security enhancement module for weight data protection and compliance",
-      category: "Software",
-      brand: "SecureWeigh",
+        "Portable Bluetooth printer for receipts and weight tickets, optimized for field use.",
+      category: "Hardware",
+      brand: "Brickspring",
       features: [
-        "Data encryption",
-        "Tamper detection",
-        "Compliance reporting",
-        "Access control",
+        "Bluetooth Connectivity",
+        "High-speed Thermal Printing",
+        "Rechargeable Battery",
+        "Compact Design",
       ],
       specifications: {
-        encryption: "AES-256",
-        certification: "NIST FIPS 140-2",
-        auditTrail: "Comprehensive logging",
-        authentication: "Multi-factor",
-        alerts: "Real-time security notifications",
-        updates: "Automatic security patches",
+        dimensions: "106.5 × 78 × 47 mm",
+        printingSpeed: "62 mm/s",
+        weight: "0.37 kg",
+        connection: "Bluetooth/USB",
+        paperWidth: "58 mm",
+        battery: "Rechargeable Lithium",
       },
-      compatibility: [
-        "All Brickspring hardware and software",
-        "Third-party systems via API",
-      ],
-      releaseDate: "2024-11-30",
+      compatibility: ["Android", "iOS", "Weighspring", "Mobile POS Apps"],
+      releaseDate: "2024-07-15",
     },
     {
       id: 12,
-      name: "CalibrationMaster Kit",
-      image: "Pallet scale.png",
+      name: "Bench Scale",
+      image: "Table Scale.jpg",
       description:
-        "Professional calibration kit for maintaining scale accuracy",
+        "Precision bench scale designed for manufacturing, packaging, and laboratory environments.",
       category: "Hardware",
-      brand: "PrecisionTech",
+      brand: "Brickspring",
       features: [
-        "Certified weights",
-        "Calibration software",
-        "Documentation tools",
-        "Carrying case",
+        "High Precision",
+        "Compact Size",
+        "Stainless Steel Platter",
+        "Digital Indicator",
       ],
       specifications: {
-        weightSet: "1g to 10kg, NIST traceable",
-        software: "CalibrationMaster Pro included",
-        certificate: "Calibration certificate included",
-        recertification: "Annual recertification service available",
-        accuracy: "Class F1 weights",
-        case: "Waterproof, impact-resistant",
+        capacity: "Up to 150 kg",
+        accuracy: "±0.05%",
+        display: "LED",
+        connectivity: "USB, RS-232",
       },
-      compatibility: ["All weighing equipment", "WeighConnect Software"],
-      releaseDate: "2024-07-15",
+      compatibility: ["WeighConnect", "PayrollSpring", "QA Systems"],
+      releaseDate: "2024-10-01",
+    },
+    {
+      id: 13,
+      name: "Electronic Platform Scale",
+      image: "Electronic Platform Scale.webp",
+      description:
+        "Durable electronic scale for large weight ranges, ideal for warehouse and shipping docks.",
+      category: "Hardware",
+      brand: "Brickspring",
+      features: [
+        "Large Weighing Area",
+        "Digital Indicator",
+        "Robust Load Cells",
+        "High Weight Capacity",
+      ],
+      specifications: {
+        capacity: "Up to 3000 kg",
+        material: "Carbon Steel",
+        accuracy: "±0.1%",
+        platformSize: "Up to 1500 x 2000 mm",
+      },
+      compatibility: ["WeighConnect", "ERP/MRP Systems", "DataSpring"],
+      releaseDate: "2024-09-25",
+    },
+    {
+      id: 14,
+      name: "Pallet Weighing Scale",
+      image: "Pallet scale.png",
+      description:
+        "Heavy-duty scale integrated with pallet platform for efficient material handling and weighing.",
+      category: "Hardware",
+      brand: "Brickspring",
+      features: [
+        "Easy Pallet Loading",
+        "Industrial-grade Sensors",
+        "LCD Display",
+        "Weather-resistant Coating",
+      ],
+      specifications: {
+        capacity: "Up to 2500 kg",
+        platform: "Fits Euro & Standard Pallets",
+        accuracy: "±0.1%",
+        material: "Mild Steel with Powder Coating",
+      },
+      compatibility: ["WeighConnect", "Parkspring", "Logistics Software"],
+      releaseDate: "2024-10-10",
+    },
+    {
+      id: 15,
+      name: "Cybersecurity & Penetration Testing",
+      image: "cybersecurity.webp",
+      description:
+        "Comprehensive security assessments to identify vulnerabilities, ensure data protection, and maintain regulatory compliance. Our expert team simulates real-world cyberattacks to strengthen your infrastructure.",
+      category: "Services",
+      features: [
+        "Vulnerability scanning",
+        "Penetration testing (black-box, white-box, grey-box)",
+        "Compliance auditing (GDPR, HIPAA, ISO 27001)",
+        "Security awareness training",
+        "Incident response planning",
+      ],
+
+      compatibility: ["Client systems", "Network infrastructure"],
+      brand: "Brickspring",
+    },
+    {
+      id: 16,
+      name: "Web & App Development",
+      description:
+        "Custom web and mobile applications tailored to your business needs. From UI/UX design to full-stack development, we deliver performant and scalable digital solutions.",
+      category: "Services",
+      image: "web.jpg",
+      features: [
+        "Responsive website development",
+        "Mobile app development (Android/iOS)",
+        "UI/UX design",
+        "API integration and cloud deployment",
+        "E-commerce and CMS platforms",
+      ],
+      compatibility: ["Client systems", "Network infrastructure"],
+    },
+    {
+      id: 17,
+      name: "Integration Services",
+      image: "integration.jpeg",
+      description:
+        "Our Integration Services are designed to seamlessly connect disparate systems, applications, and data sources within your organization. By ensuring smooth communication between various platforms, we help eliminate data silos, enhance operational efficiency, and provide a unified view of your business processes.",
+      category: "Services",
+      brand: "Brickspring",
+      features: [
+        "System Integration: Linking various IT systems and software applications to act as a coordinated whole.",
+        "Data Integration: Combining data from different sources to provide a unified view, facilitating better decision-making.",
+        "API Development and Management: Creating and managing APIs to enable applications to communicate effectively.",
+        "Middleware Solutions: Implementing middleware to allow communication and data management between different systems.",
+        "Real-time Data Synchronization: Ensuring that data across all systems is updated in real-time, maintaining consistency and accuracy.",
+        "Custom Integration Solutions: Tailoring integration strategies to meet specific business needs and objectives.",
+      ],
+      specifications: {
+        integrationTypes: [
+          "System Integration",
+          "Data Integration",
+          "API Development",
+          "Middleware Solutions",
+          "Real-time Synchronization",
+          "Custom Solutions",
+        ],
+        supportedPlatforms: ["On-premises", "Cloud-based", "Hybrid"],
+        complianceStandards: ["GDPR", "HIPAA", "ISO 27001"],
+        toolsAndTechnologies: [
+          "REST APIs",
+          "SOAP",
+          "GraphQL",
+          "Apache Camel",
+          "Microsoft BizTalk Server",
+          "Boomi",
+        ],
+      },
+      compatibility: [
+        "CRM Systems",
+        "ERP Systems",
+        "HR Management Systems",
+        "E-commerce Platforms",
+        "Legacy Systems",
+      ],
+      releaseDate: "2025-06-15",
+    },
+
+    {
+      id: 18,
+      name: "Laptops and Desktops ",
+      image: "pc-and-laptops.png",
+      description: "A versatile laptop suitable for both work and play.",
+      category: "Hardware",
+      brand: "HP",
+      features: [
+        "Intel Core i5 Processor",
+        "8GB RAM",
+        "512GB SSD",
+        "15.6-inch Full HD Display",
+      ],
+      specifications: {
+        processor: "Intel Core i5-1135G7",
+        memory: "8GB DDR4",
+        storage: "512GB SSD",
+        display: "15.6-inch Full HD",
+        operatingSystem: "Latest OS",
+      },
+      compatibility: ["Windows 10", "Linux"],
+      releaseDate: "2024-11-01",
+    },
+
+    // Mobile Phones
+    {
+      id: 19,
+      name: "Smartphones",
+      image: "Mobile-Phones.png",
+      description: "A mid-range smartphone with impressive features.",
+      category: "Hardware",
+      brand: "Samsung",
+      features: [
+        "6.5-inch Super AMOLED Display",
+        "64MP Quad Camera",
+        "4500mAh Battery",
+        "5G Connectivity",
+      ],
+      specifications: {
+        processor: "Snapdragon 750G",
+        memory: "6GB RAM",
+        storage: "128GB",
+        battery: "4500mAh",
+        operatingSystem: "Android 11",
+      },
+      compatibility: ["Android Apps", "5G Networks"],
+      releaseDate: "2024-10-15",
+    },
+    {
+      id: 20,
+      name: "Accessories",
+      image: "Accessories.jpg",
+      description: "Compact and powerful portable charger.",
+      category: "Hardware",
+      brand: "Anker",
+      features: [
+        "10000mAh Capacity",
+        "High-Speed Charging",
+        "Compact Design",
+        "MultiProtect Safety System",
+      ],
+      specifications: {
+        capacity: "10000mAh",
+        input: "5V/2A",
+        output: "5V/2.4A",
+        weight: "180g",
+      },
+      compatibility: ["Smartphones", "Tablets", "USB Devices"],
+      releaseDate: "2024-09-20",
     },
   ];
 
@@ -610,7 +744,7 @@ const Products = () => {
                                 .slice(0, 3)
                                 .map((feature, idx) => (
                                   <li key={idx} className="flex items-start">
-                                    <i className="fas fa-check text-green-500 mr-1 mt-0.5"></i>
+                                    <FaCheck className="fas fa-check text-green-900 mr-1 mt-0.5" />
                                     <span>{feature}</span>
                                   </li>
                                 ))}
@@ -618,7 +752,7 @@ const Products = () => {
                           </div>
 
                           {/* Rating */}
-                          <div className="flex items-center space-x-2">
+                          {/* <div className="flex items-center space-x-2">
                             <div className="flex items-center">
                               {Array.from({ length: 5 }).map((_, i) => (
                                 <i
@@ -630,10 +764,10 @@ const Products = () => {
                                   }`}></i>
                               ))}
                               <span className="ml-1 text-sm text-gray-600">
-                                {product.rating || 0}
+                                {product.rating || 4.5}
                               </span>
                             </div>
-                          </div>
+                          </div> */}
 
                           <div className="mt-4 flex items-center justify-between">
                             <button
@@ -746,14 +880,14 @@ const Products = () => {
                               }`}
                             />
                           ))}
-                          <span className="ml-1 text-gray-600">
+                          {/* <span className="ml-1 text-gray-600">
                             {product.rating || 0}
-                          </span>
+                          </span> */}
                         </div>
                         <span className="text-sm text-gray-600">
-                          Stock:{" "}
+                          Stock:{""}
                           <span className="font-semibold">
-                            {product.stock ?? "N/A"} available
+                            {product.stock ?? ""} available
                           </span>
                         </span>
                       </div>
@@ -766,7 +900,7 @@ const Products = () => {
                         <ul className="text-gray-600 space-y-1">
                           {product.features.map((feature, index) => (
                             <li key={index} className="flex items-start">
-                              <FaCheck className="fas fa-check text-green-500 mr-2 mt-1" />
+                              <FaCheck className="fas fa-check text-green-900 mr-2 mt-1" />
                               <span>{feature}</span>
                             </li>
                           ))}

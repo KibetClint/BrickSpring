@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import {
   FaMapMarkerAlt,
   FaPhone,
@@ -24,27 +24,10 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [focusedField, setFocusedField] = useState(null);
-  const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
-  // Intersection Observer for scroll animations
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
+  // Intersection Observer for scroll animations (removed)
+  // Intersection Observer for scroll animations (removed)
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -151,24 +134,19 @@ export default function Contact() {
       ref={sectionRef}
       className="py-20 relative overflow-hidden"
       style={{ backgroundColor: "#FEFAEA" }}>
-      {/* Animated Background Elements */}
+      {/* Background Elements (no animation) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-green-200/20 rounded-full blur-3xl animate-pulse"></div>
-        <div
-          className="absolute bottom-10 right-10 w-96 h-96 bg-yellow-200/20 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: "2s" }}></div>
+        <div className="absolute top-10 left-10 w-72 h-72 bg-green-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-yellow-200/20 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header Section */}
-        <div
-          className={`text-center mb-16 transition-all duration-1000 transform ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}>
+        <div className={`text-center mb-16`}>
           <div className="inline-block">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#1F6632] relative">
               Contact Us
-              <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#1F6632] to-green-400 transform scale-x-0 animate-expand-width"></div>
+              <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#1F6632] to-green-400"></div>
             </h2>
           </div>
           <p className="text-xl max-w-3xl mx-auto text-[#1F6632]/80 leading-relaxed">
@@ -178,24 +156,19 @@ export default function Contact() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Enhanced Form */}
-          <div
-            className={`transition-all duration-1000 delay-300 transform ${
-              isVisible
-                ? "translate-x-0 opacity-100"
-                : "-translate-x-10 opacity-0"
-            }`}>
+          {/* Form */}
+          <div>
             <form
               onSubmit={handleSubmit}
               className="rounded-2xl shadow-xl p-8 relative overflow-hidden group hover:shadow-2xl transition-all duration-500"
               style={{ backgroundColor: "#FFFEFB" }}>
-              {/* Form Background Animation */}
+              {/* Form Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-green-50/50 to-yellow-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
               <div className="relative z-10">
                 {/* Success Message */}
                 {submitSuccess && (
-                  <div className="mb-6 p-4 bg-green-100 border border-green-300 rounded-lg flex items-center animate-bounce-in">
+                  <div className="mb-6 p-4 bg-green-100 border border-green-300 rounded-lg flex items-center">
                     <FaCheckCircle className="text-green-600 mr-3 text-xl" />
                     <span className="text-green-800 font-medium">
                       Message sent successfully! We'll get back to you soon.
@@ -233,11 +206,13 @@ export default function Contact() {
                                 : "none",
                           }}
                         />
-                        {/* Animated border */}
+                        {/* Animated border removed */}
                         <div
-                          className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#16a085] to-green-400 transition-all duration-300 ${
-                            focusedField === field.id ? "w-full" : "w-0"
-                          }`}></div>
+                          className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#16a085] to-green-400`}
+                          style={{
+                            width: focusedField === field.id ? "100%" : "0",
+                            transition: "width 0.3s",
+                          }}></div>
                       </div>
                     </div>
                   ))}
@@ -273,9 +248,11 @@ export default function Contact() {
                       }}
                     />
                     <div
-                      className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#16a085] to-green-400 transition-all duration-300 ${
-                        focusedField === "subject" ? "w-full" : "w-0"
-                      }`}></div>
+                      className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#16a085] to-green-400`}
+                      style={{
+                        width: focusedField === "subject" ? "100%" : "0",
+                        transition: "width 0.3s",
+                      }}></div>
                   </div>
                 </div>
 
@@ -309,9 +286,11 @@ export default function Contact() {
                       }}
                     />
                     <div
-                      className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#16a085] to-green-400 transition-all duration-300 ${
-                        focusedField === "message" ? "w-full" : "w-0"
-                      }`}></div>
+                      className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#16a085] to-green-400`}
+                      style={{
+                        width: focusedField === "message" ? "100%" : "0",
+                        transition: "width 0.3s",
+                      }}></div>
                   </div>
                 </div>
 
@@ -321,13 +300,13 @@ export default function Contact() {
                   disabled={isSubmitting}
                   className="w-full py-4 rounded-lg text-white font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center space-x-2 relative overflow-hidden group disabled:opacity-70"
                   style={{ backgroundColor: "#1F6632" }}>
-                  {/* Button background animation */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-green-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                  {/* Button background */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-green-700"></div>
 
                   <span className="relative z-10">
                     {isSubmitting ? (
                       <>
-                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                        <div className="rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
                         Sending...
                       </>
                     ) : (
@@ -339,17 +318,12 @@ export default function Contact() {
             </form>
           </div>
 
-          {/* Enhanced Contact Info */}
-          <div
-            className={`transition-all duration-1000 delay-500 transform ${
-              isVisible
-                ? "translate-x-0 opacity-100"
-                : "translate-x-10 opacity-0"
-            }`}>
+          {/* Contact Info */}
+          <div>
             <div
               className="rounded-2xl shadow-xl p-8 h-full relative overflow-hidden group hover:shadow-2xl transition-all duration-500"
               style={{ backgroundColor: "#FFFCED" }}>
-              {/* Background Animation */}
+              {/* Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/50 to-green-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
               <div className="relative z-10">
@@ -359,11 +333,10 @@ export default function Contact() {
                 </h3>
 
                 <div className="space-y-8">
-                  {contactInfo.map((info, index) => (
+                  {contactInfo.map((info) => (
                     <div
                       key={info.label}
-                      className="flex items-start group/item hover:transform hover:scale-105 transition-all duration-300"
-                      style={{ animationDelay: `${index * 200}ms` }}>
+                      className="flex items-start group/item hover:transform hover:scale-105 transition-all duration-300">
                       <div
                         className="rounded-full p-4 mr-6 flex-shrink-0 transition-all duration-300 group-hover/item:scale-110 shadow-lg"
                         style={{ backgroundColor: "#1F6632" }}>
@@ -396,14 +369,13 @@ export default function Contact() {
                     Connect With Us
                   </h4>
                   <div className="flex flex-wrap gap-4">
-                    {socialLinks.map((social, index) => (
+                    {socialLinks.map((social) => (
                       <a
                         key={social.name}
                         href="#"
                         className={`rounded-full w-12 h-12 flex items-center justify-center transition-all duration-300 transform hover:scale-125 hover:-translate-y-1 shadow-lg group ${social.color}`}
                         style={{
                           backgroundColor: "#1F6632",
-                          animationDelay: `${index * 100}ms`,
                         }}
                         title={social.name}>
                         <social.icon className="text-white text-lg group-hover:rotate-12 transition-transform duration-300" />
@@ -428,42 +400,8 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* Custom Styles */}
+      {/* Custom Styles (animation code removed) */}
       <style jsx>{`
-        @keyframes expand-width {
-          from {
-            transform: scaleX(0);
-          }
-          to {
-            transform: scaleX(1);
-          }
-        }
-
-        @keyframes bounce-in {
-          0% {
-            transform: scale(0.3);
-            opacity: 0;
-          }
-          50% {
-            transform: scale(1.05);
-          }
-          70% {
-            transform: scale(0.9);
-          }
-          100% {
-            transform: scale(1);
-            opacity: 1;
-          }
-        }
-
-        .animate-expand-width {
-          animation: expand-width 1s ease-out 0.5s forwards;
-        }
-
-        .animate-bounce-in {
-          animation: bounce-in 0.6s ease-out;
-        }
-
         /* Enhanced hover effects */
         .group:hover .group-hover\\:scale-110 {
           transform: scale(1.1);
