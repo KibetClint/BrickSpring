@@ -58,8 +58,8 @@ const Home = () => {
   return (
     <div className="bg-[#FFF9E6] text-gray-800">
       <main>
-        {/* Hero Slider */}
-        <section className="relative h-[60vh] sm:h-[50vh] lg:h-[80vh] overflow-hidden">
+        {/* Hero Slider - responsive heights */}
+        <section className="relative h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[80vh] overflow-hidden">
           <Swiper
             modules={[Autoplay, Pagination]}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
@@ -74,16 +74,16 @@ const Home = () => {
                   className="absolute inset-0 w-full h-full object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#236837]/100 to-transparent z-10" />
-                <div className="max-w-3xl mx-auto px-4 py-16 h-full flex flex-col justify-center items-center relative z-20 text-center">
-                  <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight mb-4">
+                <div className="max-w-3xl mx-auto px-4 h-full flex flex-col justify-center items-center relative z-20 text-center">
+                  <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight mb-2 sm:mb-4">
                     {slide.title}
                   </h1>
-                  <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white mb-8">
+                  <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white mb-4 sm:mb-6">
                     {slide.subtitle}
                   </p>
                   <Link
                     to={slide.link}
-                    className="block mx-auto bg-[#236837] hover:bg-[#1a5129] text-white px-5 py-3 rounded-md text-sm sm:text-base md:text-lg transition">
+                    className="block mx-auto bg-[#236837] hover:bg-[#1a5129] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md text-xs sm:text-sm md:text-base transition">
                     {slide.pageName}
                   </Link>
                 </div>
@@ -95,66 +95,64 @@ const Home = () => {
         {/* Products Section */}
         <section className="py-6 bg-[#FFF9E6]">
           <div className="text-center mb-12 px-4">
-            <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 text-[#236837]">
+            <h2 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-4 text-[#236837]">
               Our Products
             </h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#236837] max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#236837] max-w-2xl mx-auto">
               Discover our range of innovative solutions designed to transform
               how weight scales and computers work together.
             </p>
           </div>
           <div className="max-w-7xl mx-auto px-4">
-            <div className="mb-8 flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-4 sm:space-y-0">
-              <div className="flex flex-wrap gap-2">
-                {["Hardware", "Software", "Services"].map((cat) => (
-                  <button
-                    key={cat}
-                    onClick={() => setActiveFilter(cat)}
-                    className={`px-3 py-1.5 rounded-full transition ${
-                      activeFilter === cat
-                        ? "bg-[#236837] text-white"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                    } text-xs sm:text-sm md:text-base`}>
-                    {cat}
-                  </button>
-                ))}
-              </div>
+            <div className="flex flex-wrap justify-center gap-2 mb-8">
+              {[ "Hardware", "Software", "Services"].map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveFilter(cat)}
+                  className={`px-3 py-1.5 rounded-full text-xs sm:text-sm md:text-base transition ${
+                    activeFilter === cat
+                      ? "bg-[#236837] text-white"
+                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                  }`}>
+                  {cat}
+                </button>
+              ))}
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {filtered.map((product) => (
                 <div
                   key={product.id}
-                  className="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden flex flex-col">
-                  <div className="h-48 sm:h-56 w-full">
+                  className="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col">
+                  <div className="w-full h-40 sm:h-48 md:h-56 overflow-hidden">
                     <img
                       src={`/images/${product.image}`}
                       alt={product.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="p-6 flex flex-col flex-grow">
-                    <div className="flex justify-between items-center mb-2">
-                      <h3 className="text-base sm:text-lg md:text-xl font-semibold text-[#236837]">
+                  <div className="p-4 flex flex-col flex-grow">
+                    <div className="flex justify-between items-center mb-1">
+                      <h3 className="text-sm sm:text-base md:text-lg font-semibold text-[#236837]">
                         {product.name}
                       </h3>
-                      <span className="bg-[#236837]/20 text-[#236837] text-xs sm:text-sm md:text-base font-medium px-2 py-0.5 rounded-full">
+                      <span className="bg-[#236837]/20 text-[#236837] text-xs sm:text-sm font-medium px-2 py-0.5 rounded-full">
                         {product.category}
                       </span>
                     </div>
-                    <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-4 flex-grow">
+                    <p className="text-xs sm:text-sm md:text-base text-gray-600 flex-grow">
                       {product.description}
                     </p>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="flex justify-center mt-8">
-              <a
-                href="/products"
-                className="bg-[#236837] hover:bg-[#1a5129] text-white px-9 py-1 rounded-md text-sm sm:text-base md:text-lg transition focus:outline-none focus:ring-2 focus:ring-[#236837] flex items-center gap-2">
+            <div className="flex justify-center mt-6">
+              <Link
+                to="/products"
+                className="bg-[#236837] hover:bg-[#1a5129] text-white px-6 py-2 rounded-md text-sm sm:text-base md:text-lg transition inline-flex items-center gap-1">
                 More Products
                 <svg
-                  className="h-5 w-5"
+                  className="h-4 w-4 sm:h-5 sm:w-5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor">
@@ -165,7 +163,7 @@ const Home = () => {
                     d="M9 5l7 7-7 7"
                   />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </section>
