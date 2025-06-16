@@ -47,7 +47,7 @@ const FAQs = () => {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold text-center mb-10">
+      <h1 className="text-3xl font-bold text-center mb-10 text-black sm:text-gray-900">
         Frequently Asked Questions
       </h1>
       <div className="space-y-4">
@@ -58,11 +58,15 @@ const FAQs = () => {
             <button
               onClick={() => toggleFAQ(index)}
               className="w-full px-6 py-4 flex justify-between items-center bg-gray-50 hover:bg-gray-100 text-left">
-              <span className="text-lg font-medium">{faq.question}</span>
-              <span className="text-xl">{openIndex === index ? "−" : "+"}</span>
+              <span className="text-lg font-medium text-black sm:text-gray-900">
+                {faq.question}
+              </span>
+              <span className="text-xl text-black sm:text-gray-700">
+                {openIndex === index ? "−" : "+"}
+              </span>
             </button>
             {openIndex === index && (
-              <div className="px-6 py-4 text-gray-700 bg-white">
+              <div className="px-6 py-4 text-black sm:text-gray-700 bg-white">
                 {faq.answer}
               </div>
             )}
