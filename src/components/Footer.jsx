@@ -52,7 +52,7 @@ function Footer() {
               <a
                 href="mailto:hello@brickspace.com"
                 className="hover:text-gray-300">
-                hello@brickspace.com
+                info@brickspring.co.ke
               </a>
             </li>
             <li>
@@ -63,7 +63,9 @@ function Footer() {
             </li>
             <li>
               Address:{" "}
-              <span className="hover:text-gray-300">Neema Avenue, Nairobi</span>
+              <span className="hover:text-gray-300">
+                373-20210 - Litein, Ke r icho
+              </span>
             </li>
           </ul>
         </div>
