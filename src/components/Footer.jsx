@@ -64,7 +64,7 @@ function Footer() {
             <li>
               Address:{" "}
               <span className="hover:text-gray-300">
-                373-20210 - Litein, Ke r icho
+                373-20210 - Litein, Kericho
               </span>
             </li>
           </ul>

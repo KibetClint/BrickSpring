@@ -25,7 +25,7 @@ export default function App() {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/quote" element={<Quote />} />
-          <Route path="/faqs" element={<FAQs/>}/>
+          <Route path="/faqs" element={<FAQs />} />
           {/* Redirect any unknown route back to Home */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
