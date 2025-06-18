@@ -16,9 +16,11 @@ import {
   FaMapMarker,
   FaPhone,
   FaRegLightbulb,
+  FaTiktok,
   FaTwitter,
 } from "react-icons/fa";
 import { productsData } from "../components/ProductsCard";
+import { FaSquareXTwitter } from "react-icons/fa6";
 
 const Home = () => {
   const slides = [
@@ -58,7 +60,7 @@ const Home = () => {
   return (
     <div className="bg-[#FFF9E6] text-gray-800">
       <main>
-        {/* Hero Slider - responsive heights */}
+        {/* Hero Slider */}
         <section className="relative h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[80vh] overflow-hidden">
           <Swiper
             modules={[Autoplay, Pagination]}
@@ -75,15 +77,15 @@ const Home = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#236837]/100 to-transparent z-10" />
                 <div className="max-w-3xl mx-auto px-4 h-full flex flex-col justify-center items-center relative z-20 text-center">
-                  <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight mb-2 sm:mb-4">
+                  <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight mb-4">
                     {slide.title}
                   </h1>
-                  <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white mb-4 sm:mb-6">
+                  <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white mb-6">
                     {slide.subtitle}
                   </p>
                   <Link
                     to={slide.link}
-                    className="block mx-auto bg-[#236837] hover:bg-[#1a5129] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md text-xs sm:text-sm md:text-base transition">
+                    className="block mx-auto bg-[#236837] hover:bg-[#1a5129] text-white px-6 py-3 rounded-md text-sm transition">
                     {slide.pageName}
                   </Link>
                 </div>
@@ -93,12 +95,12 @@ const Home = () => {
         </section>
 
         {/* Products Section */}
-        <section className="py-6 bg-[#FFF9E6]">
+        <section className="py-6">
           <div className="text-center mb-12 px-4">
-            <h2 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-4 text-[#236837]">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-[#236837]">
               Our Products
             </h2>
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#236837] max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg text-[#236837] max-w-2xl mx-auto">
               Discover our range of innovative solutions designed to transform
               how weight scales and computers work together.
             </p>
@@ -118,7 +120,8 @@ const Home = () => {
                 </button>
               ))}
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {filtered.map((product) => (
                 <div
                   key={product.id}
@@ -132,27 +135,28 @@ const Home = () => {
                   </div>
                   <div className="p-4 flex flex-col flex-grow">
                     <div className="flex justify-between items-center mb-1">
-                      <h3 className="text-sm sm:text-base md:text-lg font-semibold text-[#236837]">
+                      <h3 className="text-base font-semibold text-[#236837]">
                         {product.name}
                       </h3>
-                      <span className="bg-[#236837]/20 text-[#236837] text-xs sm:text-sm font-medium px-2 py-0.5 rounded-full">
+                      <span className="bg-[#236837]/20 text-[#236837] text-xs font-medium px-2 py-0.5 rounded-full">
                         {product.category}
                       </span>
                     </div>
-                    <p className="text-xs sm:text-sm md:text-base text-gray-600 flex-grow">
+                    <p className="text-sm text-gray-600 flex-grow">
                       {product.description}
                     </p>
                   </div>
                 </div>
               ))}
             </div>
+
             <div className="flex justify-center mt-6">
               <Link
                 to="/products"
-                className="bg-[#236837] hover:bg-[#1a5129] text-white px-6 py-2 rounded-md text-sm sm:text-base md:text-lg transition inline-flex items-center gap-1">
+                className="bg-[#236837] hover:bg-[#1a5129] text-white px-6 py-2 rounded-md text-base transition inline-flex items-center gap-1">
                 More Products
                 <svg
-                  className="h-4 w-4 sm:h-5 sm:w-5"
+                  className="h-5 w-5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor">
@@ -168,14 +172,14 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Why Choose Us Section - responsive */}
-        <section className="py-8 bg-[#FFF9E6]">
+        {/* Why Choose Us */}
+        <section className="py-8">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-[#236837]">
+              <h2 className="text-3xl font-bold mb-4 text-[#236837]">
                 Why Choose Us
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-[#236837] max-w-3xl mx-auto">
+              <p className="text-lg text-[#236837] max-w-3xl mx-auto">
                 At Brickspring Enterprises, we combine innovation with expertise
                 to deliver unparalleled weight scale technology solutions.
               </p>
@@ -212,9 +216,7 @@ const Home = () => {
                   <h3 className="text-xl font-bold mb-2 text-[#236837]">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 text-sm sm:text-base">
-                    {item.desc}
-                  </p>
+                  <p className="text-base text-gray-600">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -222,13 +224,13 @@ const Home = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="py-8 bg-white">
+        <section className="py-8 bg-[#FFF9E6]">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-[#236837]">
+              <h2 className="text-3xl font-bold mb-4 text-[#236837]">
                 Let's Connect
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-[#236837] max-w-3xl mx-auto">
+              <p className="text-lg text-[#236837] max-w-3xl mx-auto">
                 Have questions or ready to get started? Reach out to our team
                 today.
               </p>
@@ -272,22 +274,23 @@ const Home = () => {
                   Send Message
                 </button>
               </form>
+
               <div className="space-y-6">
                 {[
                   {
                     icon: FaMapMarker,
                     title: "Address",
-                    info: "1234 Innovation Way, Tech District, SF, CA 94105",
+                    info: "373-20210, Litein Kenya",
                   },
                   {
                     icon: FaPhone,
                     title: "Phone",
-                    info: "Sales: (800) 123-4567 | Support: (800) 765-4321",
+                    info: "Sales: +254 725 903309",
                   },
                   {
                     icon: FaEnvelope,
                     title: "Email",
-                    info: "sales@brickspring.com | support@brickspring.com",
+                    info: "info@brickspring.co.ke",
                   },
                   {
                     icon: FaClock,
@@ -308,16 +311,46 @@ const Home = () => {
                   </div>
                 ))}
                 <div className="flex space-x-4 mt-4">
-                  {[FaFacebook, FaTwitter, FaInstagram, FaLinkedin].map(
-                    (Icon, idx) => (
-                      <a
-                        key={idx}
-                        href="#"
-                        className="bg-[#236837] text-white p-3 rounded-full hover:bg-[#1a5129] transition">
-                        <Icon />
-                      </a>
-                    )
-                  )}
+                  <a
+                    href="https://www.facebook.com/profile.php?id=61577392503207"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#236837] text-blue-600 p-2 rounded-full hover:bg-[#1a5129] transition"
+                    aria-label="Facebook">
+                    <FaFacebook />
+                  </a>
+                  <a
+                    href="https://x.com/brick_spring"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#236837] text-shadow-sky-700 p-2 rounded-full hover:bg-[#1a5129] transition"
+                    aria-label="X (formerly Twitter)">
+                    <FaSquareXTwitter />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/brick_spring/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#236837] text-red-400 p-2 rounded-full hover:bg-[#1a5129] transition"
+                    aria-label="Instagram">
+                    <FaInstagram />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/brickspring/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#236837] text-white p-2 rounded-full hover:bg-[#1a5129] transition"
+                    aria-label="LinkedIn">
+                    <FaLinkedin />
+                  </a>
+                  <a
+                    href="https://www.tiktok.com/@brickspring?lang=en"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#236837] text-black p-2 rounded-full hover:bg-[#1a5129] transition"
+                    aria-label="TikTok">
+                    <FaTiktok />
+                  </a>
                 </div>
               </div>
             </div>

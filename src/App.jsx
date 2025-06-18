@@ -14,7 +14,7 @@ import FAQs from "./pages/Faqs.jsx";
 
 export default function App() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-[#FFF9E6]">
       <Navbar />
       <main className="flex-grow">
         <Routes>

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FaChevronRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Quote = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +12,6 @@ const Quote = () => {
     quantity: "",
     details: "",
   });
-
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
@@ -20,174 +21,130 @@ const Quote = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real app, you would send formData to your backend here.
     console.log("Quote request submitted:", formData);
     setSubmitted(true);
-    // Optionally reset form:
-    // setFormData({ name: "", email: "", company: "", phone: "", product: "", quantity: "", details: "" });
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4">
-      <div className="max-w-xl w-full bg-white rounded-lg shadow-md p-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-          Request a Quote
-        </h2>
-
-        {submitted ? (
-          <div className="text-center">
-            <p className="text-green-600 font-semibold mb-4">
-              Thank you! Your quote request has been submitted.
-            </p>
-            <button
-              onClick={() => setSubmitted(false)}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
-              Submit Another Request
-            </button>
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="relative h-[40vh] sm:h-[50vh] md:h-[60vh] overflow-hidden bg-gradient-to-r from-green-700/70 to-transparent">
+        <img
+          src="/images/quote-hero.jpg"
+          alt="Request a Quote"
+          className="absolute inset-0 w-full h-full object-cover object-top opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-green-700/50 to-transparent z-10"></div>
+        <div className="relative z-20 flex flex-col justify-center items-center h-full text-center px-4">
+          <div className="flex items-center text-xs sm:text-sm mb-2 text-white/80">
+            <Link to="/" className="hover:underline">
+              Home
+            </Link>
+            <FaChevronRight className="mx-2" />
+            <span className="font-semibold">Request a Quote</span>
           </div>
-        ) : (
-          <form onSubmit={handleSubmit}>
-            {/* Name */}
-            <div className="mb-4">
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-700 mb-1">
-                Full Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Your full name"
-              />
-            </div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+            Need a Custom Solution? Request a Quote
+          </h1>
+          <p className="text-base sm:text-lg text-white/80 max-w-xl">
+            Share your requirements and we'll send over a tailored estimate
+            shortly.
+          </p>
+        </div>
+      </section>
 
-            {/* Email */}
-            <div className="mb-4">
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700 mb-1">
-                Email Address
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="you@example.com"
-              />
-            </div>
+      {/* Form Section */}
+      <div className="flex items-center justify-center py-12 px-4">
+        <div className="max-w-xl w-full bg-white rounded-lg shadow-md p-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+            Request a Quote
+          </h2>
 
-            {/* Company */}
-            <div className="mb-4">
-              <label
-                htmlFor="company"
-                className="block text-sm font-medium text-gray-700 mb-1">
-                Company / Organization
-              </label>
-              <input
-                type="text"
-                id="company"
-                name="company"
-                value={formData.company}
-                onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Your company name"
-              />
-            </div>
-
-            {/* Phone */}
-            <div className="mb-4">
-              <label
-                htmlFor="phone"
-                className="block text-sm font-medium text-gray-700 mb-1">
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="(123) 456-7890"
-              />
-            </div>
-
-            {/* Product */}
-            <div className="mb-4">
-              <label
-                htmlFor="product"
-                className="block text-sm font-medium text-gray-700 mb-1">
-                Product / Service
-              </label>
-              <input
-                type="text"
-                id="product"
-                name="product"
-                value={formData.product}
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="E.g., SmartScale Pro"
-              />
-            </div>
-
-            {/* Quantity */}
-            <div className="mb-4">
-              <label
-                htmlFor="quantity"
-                className="block text-sm font-medium text-gray-700 mb-1">
-                Quantity Needed
-              </label>
-              <input
-                type="number"
-                id="quantity"
-                name="quantity"
-                value={formData.quantity}
-                onChange={handleChange}
-                min="1"
-                required
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="1"
-              />
-            </div>
-
-            {/* Additional Details */}
-            <div className="mb-6">
-              <label
-                htmlFor="details"
-                className="block text-sm font-medium text-gray-700 mb-1">
-                Additional Details / Requirements
-              </label>
-              <textarea
-                id="details"
-                name="details"
-                value={formData.details}
-                onChange={handleChange}
-                rows="4"
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Any specific requirements, delivery timeline, etc."
-              />
-            </div>
-
-            {/* Submit Button */}
+          {submitted ? (
             <div className="text-center">
+              <p className="text-green-600 font-semibold mb-4">
+                Thank you! Your quote request has been submitted.
+              </p>
               <button
-                type="submit"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md transition text-sm">
-                Submit Quote Request
+                onClick={() => setSubmitted(false)}
+                className="bg-green-800 hover:bg-green-700 text-white px-4 py-2 rounded-md transition">
+                Submit Another Request
               </button>
             </div>
-          </form>
-        )}
+          ) : (
+            <form onSubmit={handleSubmit}>
+              {[
+                {
+                  label: "Full Name",
+                  name: "name",
+                  type: "text",
+                  required: true,
+                },
+                {
+                  label: "Email Address",
+                  name: "email",
+                  type: "email",
+                  required: true,
+                },
+                {
+                  label: "Company / Organization",
+                  name: "company",
+                  type: "text",
+                },
+                { label: "Phone Number", name: "phone", type: "tel" },
+                {
+                  label: "Product / Service",
+                  name: "product",
+                  type: "text",
+                  required: true,
+                },
+                {
+                  label: "Quantity Needed",
+                  name: "quantity",
+                  type: "number",
+                  required: true,
+                },
+              ].map((field) => (
+                <div key={field.name} className="mb-4">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    {field.label}
+                  </label>
+                  <input
+                    name={field.name}
+                    type={field.type}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                    required={field.required || false}
+                    placeholder={field.label}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-800 transition"
+                  />
+                </div>
+              ))}
+
+              <div className="mb-6">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Additional Details / Requirements
+                </label>
+                <textarea
+                  name="details"
+                  value={formData.details}
+                  onChange={handleChange}
+                  rows="4"
+                  placeholder="Any specific requirements, timeline, etc."
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-800 transition"
+                />
+              </div>
+
+              <div className="text-center">
+                <button
+                  type="submit"
+                  className="bg-green-800 hover:bg-green-700 text-white px-6 py-3 rounded-md transition text-sm">
+                  Submit Quote Request
+                </button>
+              </div>
+            </form>
+          )}
+        </div>
       </div>
     </div>
   );

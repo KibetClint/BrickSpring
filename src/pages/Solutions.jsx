@@ -4,6 +4,7 @@ import {
   FaBoxes,
   FaCheckCircle,
   FaCheckDouble,
+  FaChevronRight,
   FaCircle,
   FaLaptopCode,
   FaLayerGroup,
@@ -103,39 +104,38 @@ export default function Solutions() {
     <div className="min-h-screen bg-gray-50 text-[#236837]">
       <main>
         {/* Hero Banner */}
-        <section className="relative bg-gradient-to-r from-[#236837]/80 to-transparent text-white overflow-hidden h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[80vh]">
-          <div className="absolute inset-0">
+        <section className="relative h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[80vh] overflow-hidden bg-gradient-to-r from-[#236837]/80 to-transparent text-white">
+          <div className="absolute inset-0 overflow-hidden">
             <img
               src="/images/consultation.jpg"
-              alt="Background"
+              alt="About background"
               className="w-full h-full object-cover object-top opacity-20"
             />
           </div>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center relative z-10">
-            <nav className="text-sm mb-4">
-              <Link to="/" className="text-blue-200 hover:text-white">
+          <div className="container mx-auto px-4 py-20 relative z-10 text-center">
+            <div className="flex justify-center items-center mb-4 text-xs sm:text-sm">
+              <a href="/" className="text-blue-200 hover:text-white">
                 Home
-              </Link>
-              <span className="mx-2 text-blue-300">/</span>
-              <span className="font-semibold">Solutions</span>
-            </nav>
-            <div className="text-center max-w-2xl mx-auto">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-                Our{" "}
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1F6632] to-[#4CAF50]">
-                  Solutions
-                </span>
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl mb-6 text-[#1F6632]/80">
-                Discover how Brickspring’s weight scale technology transforms
-                operations across industries.
-              </p>
-              <Link
-                to="/consultation"
-                className="inline-block bg-white text-blue-800 px-5 py-2 rounded-md font-semibold hover:bg-blue-50 transition">
-                Schedule Consultation
-              </Link>
+              </a>
+              <FaChevronRight className="mx-2 text-blue-300" />
+              <span className="font-semibold">Products and Services</span>
             </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-[#1F6632] leading-tight">
+              Our{" "}
+              <span className="inline-block bg-gradient-to-r from-[#1F6632] to-[#4CAF50] bg-clip-text text-transparent">
+                Solutions
+              </span>
+            </h1>
+            <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-[#1F6632] to-[#4CAF50] mx-auto rounded-full mb-4 sm:mb-6" />
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto text-[#1F6632]/80 leading-relaxed">
+              Discover how Brickspring’s weight scale technology transforms
+              operations across industries.
+            </p>
+            <Link
+              to="/consultation"
+              className="inline-block bg-green-800 text-white px-4 py-3 rounded-md font-semibold hover:bg-blue-50 transition">
+              Schedule Consultation
+            </Link>
           </div>
         </section>
 

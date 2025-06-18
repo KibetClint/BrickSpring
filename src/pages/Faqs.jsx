@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FaChevronRight } from "react-icons/fa";
+import { Link } from "react-router";
 
 const faqs = [
   {
@@ -40,38 +42,67 @@ const faqs = [
 
 const FAQs = () => {
   const [openIndex, setOpenIndex] = useState(null);
-
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  const toggleFAQ = (i) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold text-center mb-10 text-black sm:text-gray-900">
-        Frequently Asked Questions
-      </h1>
-      <div className="space-y-4">
-        {faqs.map((faq, index) => (
-          <div
-            key={index}
-            className="border border-gray-200 rounded-xl shadow-sm overflow-hidden">
-            <button
-              onClick={() => toggleFAQ(index)}
-              className="w-full px-6 py-4 flex justify-between items-center bg-gray-50 hover:bg-gray-100 text-left">
-              <span className="text-lg font-medium text-black sm:text-gray-900">
-                {faq.question}
-              </span>
-              <span className="text-xl text-black sm:text-gray-700">
-                {openIndex === index ? "−" : "+"}
-              </span>
-            </button>
-            {openIndex === index && (
-              <div className="px-6 py-4 text-black sm:text-gray-700 bg-white">
-                {faq.answer}
-              </div>
-            )}
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative h-[30vh] sm:h-[40vh] md:h-[50vh] bg-gradient-to-r from-[#1F6632]/70 to-transparent overflow-hidden">
+        <img
+          src="/images/faqs.jpg"
+          alt="FAQs Hero"
+          className="absolute inset-0 w-full h-full object-cover object-bottom-right opacity-20"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1F6632]/70 to-transparent z-10" />
+        <div className="relative z-20 flex flex-col justify-center items-center h-full text-center px-4">
+          <div className="flex items-center text-xs sm:text-sm mb-2 text-white/80">
+            <Link to="/" className="hover:underline">
+              Home
+            </Link>
+            <FaChevronRight className="mx-2" />
+            <span className="font-semibold">FAQs</span>
           </div>
-        ))}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-[#1F6632] leading-tight">
+            Frequently {"  "}
+            <span className="inline-block bg-gradient-to-r from-[#1F6632] to-[#4CAF50] bg-clip-text text-transparent">
+              Asked Questions
+            </span>
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto text-[#1F6632]/90 leading-relaxed">
+            Find quick answers to the questions we hear most often.
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ Content */}
+      <div className="max-w-4xl mx-auto px-4 py-12">
+        <div className="space-y-4">
+          {faqs.map((faq, i) => {
+            const isOpen = openIndex === i;
+            return (
+              <div
+                key={i}
+                className="border border-gray-200 rounded-xl overflow-hidden">
+                <button
+                  onClick={() => toggleFAQ(i)}
+                  className="w-full px-6 py-4 flex justify-between items-center bg-gray-50 hover:bg-gray-100">
+                  <span className="text-lg font-medium text-gray-900">
+                    {faq.question}
+                  </span>
+                  <span
+                    className={`text-xl text-gray-700 transform transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}>
+                    ▼
+                  </span>
+                </button>
+                <div
+                  className={`px-6 overflow-hidden transition-all duration-300 ${isOpen ? "max-h-screen py-4" : "max-h-0"}`}>
+                  <p className="text-gray-700">{faq.answer}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

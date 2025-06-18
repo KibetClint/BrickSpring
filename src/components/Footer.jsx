@@ -1,5 +1,11 @@
 import React from "react";
-import { FaFacebook, FaInstagram, FaYoutube, FaLinkedin } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaYoutube,
+  FaLinkedin,
+  FaTiktok,
+} from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
@@ -77,21 +83,21 @@ function Footer() {
           </h2>
           <div className="flex flex-wrap gap-3">
             <a
-              href="#"
+              href="https://www.facebook.com/profile.php?id=61577392503207"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 hover:text-blue-400 text-lg sm:text-xl">
               <FaFacebook />
             </a>
             <a
-              href="#"
+              href="https://x.com/brick_spring"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-blue-300 text-lg sm:text-xl">
               <FaXTwitter />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/brick_spring/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-pink-500 hover:text-pink-400 text-lg sm:text-xl">
@@ -105,11 +111,19 @@ function Footer() {
               <FaYoutube />
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/brickspring/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sky-500 hover:text-sky-400 text-lg sm:text-xl">
               <FaLinkedin />
+            </a>
+            <a
+              href="https://www.tiktok.com/@brickspring?lang=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black hover:text-black-400 text-lg sm:text-xl"
+              aria-label="TikTok">
+              <FaTiktok />
             </a>
           </div>
         </div>

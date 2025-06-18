@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaHeadset } from "react-icons/fa6";
-import { FaCheck, FaFilePdf, FaLaptop } from "react-icons/fa";
+import { FaCheck, FaChevronRight, FaFilePdf, FaLaptop } from "react-icons/fa";
 
 export default function Consultation() {
   const [formData] = useState({
@@ -68,29 +68,30 @@ export default function Consultation() {
     <div className="bg-[#FFF9E6] text-gray-800">
       <main>
         {/* Header Banner */}
-        <section className="relative h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[60vh] overflow-hidden bg-gradient-to-r from-[#236837]/80 to-transparent text-white">
-          <div className="absolute inset-0">
+        <section className="relative h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[80vh] overflow-hidden bg-gradient-to-r from-[#236837]/80 to-transparent text-white">
+          <div className="absolute inset-0 overflow-hidden">
             <img
               src="/images/consultation.jpg"
-              alt="Consultation"
-              className="w-full h-full object-cover opacity-20"
+              alt="About background"
+              className="w-full h-full object-cover object-top opacity-20"
             />
           </div>
-          <div className="container mx-auto px-4 py-16 flex flex-col items-center justify-center relative z-10 text-center">
-            <nav className="flex items-center text-xs sm:text-sm mb-4">
-              <Link to="/" className="text-blue-200 hover:text-white">
+          <div className="container mx-auto px-4 py-20 relative z-10 text-center">
+            <div className="flex justify-center items-center mb-4 text-xs sm:text-sm">
+              <a href="/" className="text-blue-200 hover:text-white">
                 Home
-              </Link>
-              <span className="mx-2">/</span>
-              <span className="font-semibold">Consultation</span>
-            </nav>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
-              Consultation{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1F6632] to-[#4CAF50]">
+              </a>
+              <FaChevronRight className="mx-2 text-blue-300" />
+              <span className="font-semibold">Consultations</span>
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-[#1F6632] leading-tight">
+              Consultation{"  "}
+              <span className="inline-block bg-gradient-to-r from-[#1F6632] to-[#4CAF50] bg-clip-text text-transparent">
                 Services
               </span>
             </h1>
-            <p className="text-sm sm:text-base md:text-lg max-w-2xl text-[#1F6632]/80">
+            <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-[#1F6632] to-[#4CAF50] mx-auto rounded-full mb-4 sm:mb-6" />
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto text-[#1F6632]/80 leading-relaxed">
               Our expert team provides tailored consultation to implement
               perfect weight scale integration solutions.
             </p>

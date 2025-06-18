@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/BG1.png";
+import logo from "../assets/logo.png";
 import {
   FaBars,
   FaTimes,
@@ -8,6 +8,8 @@ import {
   FaInstagram,
   FaEnvelope,
   FaPhone,
+  FaLinkedin,
+  FaTiktok,
 } from "react-icons/fa";
 import { throttle } from "lodash";
 import { FaSquareXTwitter } from "react-icons/fa6";
@@ -56,14 +58,30 @@ function Header() {
         }`}>
         <div className="container mx-auto flex justify-between items-center px-4 py-1 text-xs sm:text-sm text-white">
           <div className="flex items-center space-x-3">
-            <a href="#" className="hover:text-blue-300">
+            <a
+              href="https://www.facebook.com/profile.php?id=61577392503207"
+              className="hover:text-blue-300">
               <FaFacebook size={16} />
             </a>
-            <a href="#" className="hover:text-blue-300">
+            <a
+              href="https://x.com/brick_spring"
+              className="hover:text-blue-300">
               <FaSquareXTwitter size={16} />
             </a>
-            <a href="#" className="hover:text-pink-300">
+            <a
+              href="https://www.instagram.com/brick_spring/"
+              className="hover:text-pink-300">
               <FaInstagram size={16} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/brickspring/"
+              className="hover:text-pink-300">
+              <FaLinkedin size={16} />
+            </a>
+            <a
+              href="https://www.tiktok.com/@brickspring?lang=en"
+              className="hover:text-pink-300">
+              <FaTiktok size={16} />
             </a>
           </div>
           <div className="flex items-center space-x-4 text-xs sm:text-sm">
@@ -89,14 +107,14 @@ function Header() {
             <img
               src={logo}
               alt="Logo"
-              className="h-8 w-8 sm:h-10 sm:w-10 rounded-full"
+              className="h-9 w-9 sm:h-12 sm:w-12 rounded-full"
             />
             <span className="text-lg sm:text-xl font-bold text-white">
               Brickspring
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-4 text-sm lg:space-x-6">
+          <nav className="hidden md:flex flex items-center space-x-4 text-sm lg:space-x-6">
             {navLinks.map((item) => (
               <Link
                 key={item}
@@ -114,11 +132,11 @@ function Header() {
           </button>
         </div>
 
-        {/* Mobile Navigation: reduced height on small screens */}
+        {/* Mobile Navigation */}
         <div
           className={`fixed top-2 right-0 w-34 bg-[#236434] text-white transform transition-transform duration-300 z-50 
             ${menuOpen ? "translate-x-0" : "translate-x-full"} 
-            h-[70vh] sm:h-full
+            h-[50vh] sm:h-full
           `}>
           <button
             onClick={() => setMenuOpen(false)}
@@ -140,7 +158,7 @@ function Header() {
       </header>
 
       {/* Spacer */}
-      <div className="h-16 sm:h-20" />
+      <div className="h-16 sm:h-24" />
     </>
   );
 }

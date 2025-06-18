@@ -9,7 +9,9 @@ import {
   FaFacebookF,
   FaInstagram,
   FaCheckCircle,
+  FaChevronRight,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -106,40 +108,47 @@ export default function Contact() {
   ];
 
   return (
-    <section
-      ref={sectionRef}
-      className="py-12 sm:py-16 lg:py-20 bg-[#FEFAEA] overflow-hidden">
-      {/* Decorative Background */}
-      <div className="hidden sm:block absolute inset-0 pointer-events-none">
-        <div className="absolute top-10 left-10 w-56 h-56 bg-green-200/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-80 h-80 bg-yellow-200/20 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="max-w-6xl mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1F6632] mb-4 relative inline-block">
+    <div className="min-h-screen bg-[#FEFAEA] text-[#1F6632]">
+      {/* Hero Section (added to mirror Products page style) */}
+      <section className="relative h-[40vh] sm:h-[50vh] md:h-[60vh] overflow-hidden bg-gradient-to-r from-[#1F6632]/80 to-transparent">
+        <img
+          src="/images/contact-hero.jpg"
+          alt="Contact Hero"
+          className="absolute inset-0 w-full h-full object-cover object-top opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1F6632]/60 to-transparent z-10"></div>
+        <div className="relative z-20 flex flex-col justify-center items-center h-full text-center px-4">
+          <div className="flex items-center text-xs sm:text-sm mb-2">
+            <Link to="/" className="text-blue-200 hover:text-white">
+              Home
+            </Link>
+            <FaChevronRight className="mx-2 text-blue-300" />
+            <span className="font-semibold">Contact Us</span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
             Contact Us
-            <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-[#1F6632] to-green-400"></span>
-          </h2>
-          <p className="text-base sm:text-lg text-[#1F6632]/80">
-            Ready for your next project? Reach out and we’ll help you get
-            started.
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-white/80 max-w-2xl">
+            Ready to discuss your next project? Get in touch and our team will
+            be happy to assist.
           </p>
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Form */}
+      {/* Contact Form & Info */}
+      <section
+        ref={sectionRef}
+        className="py-12 sm:py-16 lg:py-20 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
           <form
             onSubmit={handleSubmit}
-            className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg relative z-10">
+            className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg">
             {submitSuccess && (
               <div className="mb-6 p-4 bg-green-100 border border-green-300 rounded-lg flex items-center text-green-800">
-                <FaCheckCircle className="text-green-600 mr-2" />
-                Message sent successfully!
+                <FaCheckCircle className="text-green-600 mr-2" /> Message sent
+                successfully!
               </div>
             )}
-
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
               {formFields.map((f) => (
                 <div key={f.id}>
@@ -157,7 +166,6 @@ export default function Contact() {
                 </div>
               ))}
             </div>
-
             <div className="mb-4">
               <label className="block mb-1 text-sm font-medium text-[#1F6632]">
                 📝 Subject
@@ -171,7 +179,6 @@ export default function Contact() {
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1F6632] transition"
               />
             </div>
-
             <div className="mb-6">
               <label className="block mb-1 text-sm font-medium text-[#1F6632]">
                 💬 Message
@@ -182,9 +189,9 @@ export default function Contact() {
                 placeholder="Your message..."
                 value={formData.message}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1F6632] transition resize-none"></textarea>
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1F6632] transition resize-none"
+              />
             </div>
-
             <button
               type="submit"
               disabled={isSubmitting}
@@ -193,14 +200,13 @@ export default function Contact() {
             </button>
           </form>
 
-          {/* Contact Info */}
-          <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg relative z-10">
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#1F6632] mb-6">
+          <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-6">
               Get In Touch
             </h3>
             <div className="space-y-6 mb-8">
               {contactInfo.map((info) => (
-                <div key={info.label} className="flex">
+                <div key={info.label} className="flex items-start">
                   <div className="p-3 bg-[#1F6632] text-white rounded-full mr-4">
                     <info.icon />
                   </div>
@@ -217,26 +223,23 @@ export default function Contact() {
                 </div>
               ))}
             </div>
-
-            <div>
-              <h4 className="font-semibold text-[#1F6632] mb-4">
-                Connect With Us
-              </h4>
-              <div className="flex space-x-4">
-                {socialLinks.map((s) => (
-                  <a
-                    key={s.name}
-                    href={s.url}
-                    className="w-10 h-10 flex items-center justify-center bg-[#1F6632] rounded-full text-white hover:opacity-80 transition"
-                    aria-label={s.name}>
-                    <s.icon />
-                  </a>
-                ))}
-              </div>
+            <h4 className="font-semibold text-[#1F6632] mb-4">
+              Connect With Us
+            </h4>
+            <div className="flex space-x-4">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.url}
+                  className="w-10 h-10 flex items-center justify-center bg-[#1F6632] rounded-full text-white hover:opacity-80 transition"
+                  aria-label={s.name}>
+                  <s.icon />
+                </a>
+              ))}
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
