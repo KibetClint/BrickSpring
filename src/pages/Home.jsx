@@ -97,10 +97,10 @@ const Home = () => {
         {/* Products Section */}
         <section className="py-6">
           <div className="text-center mb-12 px-4">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-[#236837]">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-4 text-[#236837]">
               Our Products
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-[#236837] max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#236837] max-w-2xl mx-auto">
               Discover our range of innovative solutions designed to transform
               how weight scales and computers work together.
             </p>
@@ -111,7 +111,7 @@ const Home = () => {
                 <button
                   key={cat}
                   onClick={() => setActiveFilter(cat)}
-                  className={`px-3 py-1.5 rounded-full text-xs sm:text-sm md:text-base transition ${
+                  className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm md:text-base transition ${
                     activeFilter === cat
                       ? "bg-[#236837] text-white"
                       : "bg-gray-200 text-gray-700 hover:bg-gray-300"
@@ -126,23 +126,23 @@ const Home = () => {
                 <div
                   key={product.id}
                   className="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col">
-                  <div className="w-full h-40 sm:h-48 md:h-56 overflow-hidden">
+                  <div className="w-full h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64 overflow-hidden">
                     <img
                       src={`/images/${product.image}`}
                       alt={product.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="p-4 flex flex-col flex-grow">
+                  <div className="p-3 sm:p-4 flex flex-col flex-grow">
                     <div className="flex justify-between items-center mb-1">
-                      <h3 className="text-base font-semibold text-[#236837]">
+                      <h3 className="text-base sm:text-lg md:text-xl font-semibold text-[#236837]">
                         {product.name}
                       </h3>
-                      <span className="bg-[#236837]/20 text-[#236837] text-xs font-medium px-2 py-0.5 rounded-full">
+                      <span className="bg-[#236837]/20 text-[#236837] text-xs sm:text-sm font-medium px-2 py-0.5 rounded-full">
                         {product.category}
                       </span>
                     </div>
-                    <p className="text-sm text-gray-600 flex-grow">
+                    <p className="text-xs sm:text-sm md:text-base text-gray-600 flex-grow">
                       {product.description}
                     </p>
                   </div>
@@ -153,10 +153,10 @@ const Home = () => {
             <div className="flex justify-center mt-6">
               <Link
                 to="/products"
-                className="bg-[#236837] hover:bg-[#1a5129] text-white px-6 py-2 rounded-md text-base transition inline-flex items-center gap-1">
+                className="bg-[#236837] hover:bg-[#1a5129] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md text-sm sm:text-base md:text-lg transition inline-flex items-center gap-1">
                 More Products
                 <svg
-                  className="h-5 w-5"
+                  className="h-4 sm:h-5 w-4 sm:w-5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor">
