@@ -91,7 +91,7 @@ function Header() {
             </div>
             <div className="flex items-center space-x-1">
               <FaPhone size={16} />
-              <span>+254 725 903309</span>
+              <span>+254725903309</span>
             </div>
           </div>
         </div>
