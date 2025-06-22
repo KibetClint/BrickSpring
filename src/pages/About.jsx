@@ -54,12 +54,12 @@ const About = () => {
     <div className="min-h-screen bg-[#fffbf0] text-[#236434]">
       <main>
         {/* Hero Banner */}
-        <section className="relative h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[80vh] overflow-hidden bg-gradient-to-r from-[#236837]/80 to-transparent text-white">
+        <section className="relative h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[60vh] overflow-hidden bg-gradient-to-r from-[#236837]/80 to-transparent text-white">
           <div className="absolute inset-0 overflow-hidden">
             <img
-              src="/images/consultation.jpg"
+              src="/images/about.jpg"
               alt="About background"
-              className="w-full h-full object-cover object-top opacity-20"
+              className="w-full h-full object-cover object opacity-30"
             />
           </div>
           <div className="container mx-auto px-4 py-20 relative z-10 text-center">
@@ -68,19 +68,24 @@ const About = () => {
                 Home
               </a>
               <FaChevronRight className="mx-2 text-blue-300" />
-              <span className="font-semibold">About Us</span>
+              <span className="font-semibold">About us</span>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-[#1F6632] leading-tight">
-              Who We{" "}
+              Who We{"  "}
               <span className="inline-block bg-gradient-to-r from-[#1F6632] to-[#4CAF50] bg-clip-text text-transparent">
                 Are
               </span>
             </h1>
             <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-[#1F6632] to-[#4CAF50] mx-auto rounded-full mb-4 sm:mb-6" />
             <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto text-[#1F6632]/80 leading-relaxed">
-              We're on a mission to transform industries through innovative
-              weight scale technology. Since 2023, we've pioneered solutions
-              that connect precision measurement with intelligent data systems.
+              Brickspring delivers a comprehensive ecosystem that empowers
+              organizations to modernize operations with everything from
+              field-level IoT hardware and scale systems, to secure enterprise
+              software and professional integration, development, and
+              cybersecurity services. Whether upgrading infrastructure,
+              enhancing safety, automating finance and payroll, or deploying
+              custom software, Brickspring provides the tools and expertise for
+              a seamless digital transformation journey.
             </p>
           </div>
         </section>

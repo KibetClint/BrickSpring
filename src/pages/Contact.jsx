@@ -55,14 +55,14 @@ export default function Contact() {
       id: "name",
       label: "Full Name",
       type: "text",
-      placeholder: "John Smith",
+      placeholder: "Full Name",
       icon: "👤",
     },
     {
       id: "email",
       label: "Email",
       type: "email",
-      placeholder: "john@example.com",
+      placeholder: "Enter your email",
       icon: "📧",
     },
     {
@@ -76,7 +76,7 @@ export default function Contact() {
       id: "company",
       label: "Company",
       type: "text",
-      placeholder: "Your Company, Inc.",
+      placeholder: "Your Company",
       icon: "🏢",
     },
   ];
@@ -110,25 +110,30 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-[#FEFAEA] text-[#1F6632]">
       {/* Hero Section (added to mirror Products page style) */}
-      <section className="relative h-[40vh] sm:h-[50vh] md:h-[60vh] overflow-hidden bg-gradient-to-r from-[#1F6632]/80 to-transparent">
-        <img
-          src="/images/contact-hero.jpg"
-          alt="Contact Hero"
-          className="absolute inset-0 w-full h-full object-cover object-top opacity-20"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1F6632]/60 to-transparent z-10"></div>
-        <div className="relative z-20 flex flex-col justify-center items-center h-full text-center px-4">
-          <div className="flex items-center text-xs sm:text-sm mb-2">
-            <Link to="/" className="text-blue-200 hover:text-white">
+      <section className="relative h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[60vh] overflow-hidden bg-gradient-to-r from-[#236837]/80 to-transparent text-white">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="/images/contact.jpg"
+            alt="About background"
+            className="w-full h-full object-cover  opacity-20"
+          />
+        </div>
+        <div className="container mx-auto px-4 py-20 relative z-10 text-center">
+          <div className="flex justify-center items-center mb-4 text-xs sm:text-sm">
+            <a href="/" className="text-blue-200 hover:text-white">
               Home
-            </Link>
+            </a>
             <FaChevronRight className="mx-2 text-blue-300" />
-            <span className="font-semibold">Contact Us</span>
+            <span className="font-semibold">Contact us</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-            Contact Us
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-[#1F6632] leading-tight">
+            Get in{" "}
+            <span className="inline-block bg-gradient-to-r from-[#1F6632] to-[#4CAF50] bg-clip-text text-transparent">
+              Touch
+            </span>
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-white/80 max-w-2xl">
+          <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-[#1F6632] to-[#4CAF50] mx-auto rounded-full mb-4 sm:mb-6" />
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto text-[#1F6632]/80 leading-relaxed">
             Ready to discuss your next project? Get in touch and our team will
             be happy to assist.
           </p>
@@ -161,6 +166,7 @@ export default function Contact() {
                     placeholder={f.placeholder}
                     value={formData[f.id]}
                     onChange={handleInputChange}
+                    required
                     className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1F6632] transition"
                   />
                 </div>
@@ -176,6 +182,7 @@ export default function Contact() {
                 placeholder="Subject"
                 value={formData.subject}
                 onChange={handleInputChange}
+                required
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1F6632] transition"
               />
             </div>
@@ -189,6 +196,7 @@ export default function Contact() {
                 placeholder="Your message..."
                 value={formData.message}
                 onChange={handleInputChange}
+                required
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1F6632] transition resize-none"
               />
             </div>
@@ -201,9 +209,7 @@ export default function Contact() {
           </form>
 
           <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-6">
-              Get In Touch
-            </h3>
+            <h3 className="text-2xl sm:text-3xl font-bold mb-6">Reach Out</h3>
             <div className="space-y-6 mb-8">
               {contactInfo.map((info) => (
                 <div key={info.label} className="flex items-start">

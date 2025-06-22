@@ -47,29 +47,30 @@ const FAQs = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[30vh] sm:h-[40vh] md:h-[50vh] bg-gradient-to-r from-[#1F6632]/70 to-transparent overflow-hidden">
-        <img
-          src="/images/faqs.jpg"
-          alt="FAQs Hero"
-          className="absolute inset-0 w-full h-full object-cover object-bottom-right opacity-20"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1F6632]/70 to-transparent z-10" />
-        <div className="relative z-20 flex flex-col justify-center items-center h-full text-center px-4">
-          <div className="flex items-center text-xs sm:text-sm mb-2 text-white/80">
-            <Link to="/" className="hover:underline">
+      <section className="relative h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[60vh] overflow-hidden bg-gradient-to-r from-[#236837]/80 to-transparent text-white">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="/images/faqs.jpg"
+            alt="About background"
+            className="w-full h-full object-cover object-bottom opacity-50"
+          />
+        </div>
+        <div className="container mx-auto px-4 py-20 relative z-10 text-center">
+          <div className="flex justify-center items-center mb-4 text-xs sm:text-sm">
+            <a href="/" className="text-blue-200 hover:text-white">
               Home
-            </Link>
-            <FaChevronRight className="mx-2" />
+            </a>
+            <FaChevronRight className="mx-2 text-blue-300" />
             <span className="font-semibold">FAQs</span>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-[#1F6632] leading-tight">
-            Frequently {"  "}
+            Frequently{" "}
             <span className="inline-block bg-gradient-to-r from-[#1F6632] to-[#4CAF50] bg-clip-text text-transparent">
               Asked Questions
             </span>
           </h1>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto text-[#1F6632]/90 leading-relaxed">
+          <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-[#1F6632] to-[#4CAF50] mx-auto rounded-full mb-4 sm:mb-6" />
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto text-[#1F6632]/80 leading-relaxed">
             Find quick answers to the questions we hear most often.
           </p>
         </div>

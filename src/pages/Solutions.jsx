@@ -23,56 +23,62 @@ export default function Solutions() {
       client: "Kisyet Tea Factory",
       industry: "Manufacturing & Processing",
       challenge:
-        "Inventory discrepancies across 500+ locations leading to stock issues and revenue loss",
+        "Inventory discrepancies across 500+ collection sites leading to stock issues and revenue loss.",
       solution:
-        "Implemented SmartScale Pro with WeighConnect Software across all locations",
-      results: "98% reduction in inventory discrepancies, $2.4M annual savings",
+        "Installed Bluetooth-enabled OCS hanging scales paired with PDA and portable thermal printers to issue on-the-spot weight receipts and transmit data via GSM to central servers.",
+      results:
+        "Achieved a 98% reduction in inventory discrepancies and saved approximately $2.4 million annually.",
       testimonial:
-        "Brickspring's solution transformed our inventory management process. What used to take days now happens in real-time with unprecedented accuracy.",
-      products: ["SmartScale Pro", "WeighConnect Software"],
+        "Brickspring’s field weighing solution revolutionized our operations—data is captured accurately at source, receipts printed on the spot, and central systems updated seamlessly.",
+      products: ["OCS Bluetooth Hanging Scale", "Bluetooth Thermal Printer"],
       image: "/images/kisyet.jpg",
     },
+
     {
       id: 2,
       client: "Browns Group",
-      industry: "Retail & Commerce",
+      industry: "Agriculture",
       challenge:
-        "Maintaining precise measurements for pharmaceutical compounds with regulatory compliance",
+        "Lack of accurate farm-produce weighing at factory intake enabled cheating and manual manipulation of farmer deliveries.",
       solution:
-        "Deployed DataWeight Enterprise with ScaleGuard Security Module",
+        "Installed precision farm-produce digital scales (±0.1% accuracy) with Bluetooth thermal printers at factory intake points to issue tamper-proof weight tickets and record real-time delivery data.",
       results:
-        "100% compliance with FDA regulations, 45% faster compound preparation",
+        "Dramatically reduced measurement disputes; ensured transparency and fairness, empowering farmers and protecting factory margins.",
       testimonial:
-        "The precision and security features have been game-changing for our lab operations. The audit trail capabilities alone have saved us countless hours during inspections.",
-      products: ["DataWeight Enterprise", "ScaleGuard Security Module"],
+        "The Bluetooth printer and accurate scales have transformed our intake process—farmers trust the system and data is instantly recorded with zero room for manipulation.",
+      products: ["Scales (≤±0.1%)", "Bluetooth Thermal Printer"],
       image: "/images/browns.png",
     },
+
     {
       id: 3,
-      client: "Mr Green",
+      client: "Mr Green Africa",
       industry: "Plastic Collection & Recycling",
       challenge:
-        "Inefficient package weighing process causing shipping delays and incorrect billing",
+        "Inefficient bulk weighing process at the recycling plant causing delays in material intake and billing discrepancies.",
       solution:
-        "Integrated MicroScale Portable devices with WeighConnect Enterprise",
-      results: "72% reduction in processing time, 99.8% billing accuracy",
+        "Installed a high‑accuracy 100 ton digital weighbridge fully integrated with WeighConnect Enterprise for real‑time data capture.",
+      results:
+        "70% faster intake processing, 99.8% billing accuracy, and seamless integration into their ERP workflows.",
       testimonial:
-        "Our warehouse efficiency has improved dramatically. The mobile weighing capability has eliminated bottlenecks and the integration with our billing system is seamless.",
-      products: ["MicroScale Portable", "WeighConnect Enterprise"],
-      image: "/images/mrgreen.webp",
+        "Our operations at the plant have been greatly streamlined. The weighbridge integration eliminated bottlenecks in raw material intake and ensures precise billing every time.",
+      products: ["100 T Digital Weighbridge", "WeighConnect Enterprise"],
+      image: "/images/Mrgreen.webp",
     },
+
     {
       id: 4,
       client: "Kiron Construction Ltd",
-      industry: "Plastic Collection & Recycling",
+      industry: "Construction & Project Management",
       challenge:
-        "Inefficient package weighing process causing shipping delays and incorrect billing",
+        "Coordinating real-time communication across multiple sites and ensuring timely delivery of critical project updates.",
       solution:
-        "Integrated MicroScale Portable devices with WeighConnect Enterprise",
-      results: "72% reduction in processing time, 99.8% billing accuracy",
+        "Deployed **Timespring**, enabling scheduled messaging and instant alerts to site teams, supervisors, and management across mobile and desktop platforms.",
+      results:
+        "Enhanced coordination—project updates now delivered 48 hours in advance, reducing miscommunication by 65 % and boosting on-site task alignment.",
       testimonial:
-        "Our warehouse efficiency has improved dramatically. The mobile weighing capability has eliminated bottlenecks and the integration with our billing system is seamless.",
-      products: ["MicroScale Portable", "WeighConnect Enterprise"],
+        "Timespring has transformed how we communicate our teams now receive clear, timely updates without chasing information. Scheduled alerts have kept projects running smoothly.",
+      products: ["Timespring Software"],
       image: "/images/kiron.png",
     },
   ];
@@ -101,15 +107,15 @@ export default function Solutions() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 text-[#236837]">
+    <div className="min-h-screen bg-[#FFF9E6] text-[#236837]">
       <main>
         {/* Hero Banner */}
-        <section className="relative h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[80vh] overflow-hidden bg-gradient-to-r from-[#236837]/80 to-transparent text-white">
+        <section className="relative h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[60vh] overflow-hidden bg-gradient-to-r from-[#236837]/80 to-transparent text-white">
           <div className="absolute inset-0 overflow-hidden">
             <img
-              src="/images/consultation.jpg"
+              src="/images/solution.jpg"
               alt="About background"
-              className="w-full h-full object-cover object-top opacity-20"
+              className="w-full h-full object-cover object opacity-20"
             />
           </div>
           <div className="container mx-auto px-4 py-20 relative z-10 text-center">
@@ -140,7 +146,7 @@ export default function Solutions() {
         </section>
 
         {/* Industry Categories */}
-        <section className="py-8 sm:py-12 md:py-16 bg-white">
+        <section className="py-8 sm:py-12 md:py-16">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4">
               Solutions by Industry
@@ -153,7 +159,7 @@ export default function Solutions() {
               {[
                 {
                   title: "Retail & Commerce",
-                  img: "/images/Retail.jpg",
+                  img: "/images/Retail.webp",
                   highlights: [
                     "Point-of-sale integration",
                     "Inventory management",
@@ -208,7 +214,7 @@ export default function Solutions() {
                         </li>
                       ))}
                     </ul>
-                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md transition">
+                    <button className="w-full bg-green-800 hover:bg-blue-700 text-white py-2 rounded-md transition">
                       Learn More
                     </button>
                   </div>
@@ -219,7 +225,7 @@ export default function Solutions() {
         </section>
 
         {/* Key Business Solutions */}
-        <section className="py-8 sm:py-12 md:py-16 bg-gray-50">
+        <section className="py-8 sm:py-12 md:py-16 ">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4">
               Key Business Solutions
@@ -255,7 +261,7 @@ export default function Solutions() {
                 key={sol.title}
                 className="bg-white rounded-lg shadow p-6 transition hover:shadow-lg">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto">
-                  <sol.icon className="text-blue-600 text-xl" />
+                  <sol.icon className="text-green-600 text-xl" />
                 </div>
                 <h3 className="font-semibold text-lg mb-2">{sol.title}</h3>
                 <p className="text-sm text-gray-600">{sol.desc}</p>
@@ -265,7 +271,7 @@ export default function Solutions() {
         </section>
 
         {/* Case Studies */}
-        <section className="py-8 sm:py-12 md:py-16 bg-white">
+        <section className="py-8 sm:py-12 md:py-16">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
               <h2 className="text-2xl sm:text-3xl font-bold">
@@ -294,7 +300,7 @@ export default function Solutions() {
               {/* Content */}
               <div className="px-4 py-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div>
-                  <span className="inline-block text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded mb-2">
+                  <span className="inline-block text-sm bg-blue-100 text-green-800 px-3 py-1 rounded mb-2">
                     {caseStudies[activeStudy].industry}
                   </span>
                   <h3 className="text-xl font-bold mb-4">
@@ -321,7 +327,7 @@ export default function Solutions() {
                     </div>
                   </div>
                   <Link to={`/case-study/${caseStudies[activeStudy].id}`}>
-                    <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+                    <button className="bg-green-800 hover:bg-blue-700 text-white px-4 py-2 rounded">
                       Read Full Case Study
                     </button>
                   </Link>
@@ -333,13 +339,13 @@ export default function Solutions() {
                       backgroundImage: `url(${caseStudies[activeStudy].image})`,
                     }}
                   />
-                  <blockquote className="border-l-4 border-blue-500 pl-4 italic text-gray-600 mb-4">
+                  <blockquote className="border-l-4 border-green-800 pl-4 italic text-gray-600 mb-4">
                     "{caseStudies[activeStudy].testimonial}"
                   </blockquote>
                   <div className="flex flex-col sm:flex-row sm:justify-between items-center gap-4">
                     <div className="flex items-center">
                       <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                        <FaUser className="text-blue-600" />
+                        <FaUser className="text-green-800" />
                       </div>
                       <div>
                         <p className="font-semibold">Operations Director</p>
@@ -362,7 +368,7 @@ export default function Solutions() {
         </section>
 
         {/* Integration & Compatibility */}
-        <section className="py-8 sm:py-12 md:py-16 bg-gray-50">
+        <section className="py-8 sm:py-12 md:py-16 ">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center mb-6">
             <h2 className="text-2xl sm:text-3xl font-bold mb-2">
               Integration & Compatibility
@@ -377,7 +383,7 @@ export default function Solutions() {
                 key={sys.category}
                 className="bg-white rounded-lg shadow p-6 transition hover:shadow-lg">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto">
-                  <sys.icon className="text-blue-600 text-xl" />
+                  <sys.icon className="text-green-800 text-xl" />
                 </div>
                 <h3 className="font-semibold text-lg mb-2 text-center">
                   {sys.category}

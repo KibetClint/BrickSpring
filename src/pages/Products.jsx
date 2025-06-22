@@ -79,27 +79,27 @@ const Products = () => {
         <section className="relative h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[60vh] overflow-hidden bg-gradient-to-r from-[#236837]/80 to-transparent text-white">
           <div className="absolute inset-0 overflow-hidden">
             <img
-              src="/images/consultation.jpg"
-              alt="Products Hero"
-              className="w-full h-full object-cover object-top opacity-20"
+              src="/images/products.jpg"
+              alt="About background"
+              className="w-full h-full object-cover  opacity-20"
             />
           </div>
-          <div className="container mx-auto px-4 py-16 relative z-10 text-center">
-            <div className="flex justify-center items-center mb-2 text-xs sm:text-sm">
-              <Link to="/" className="text-blue-200 hover:text-white">
+          <div className="container mx-auto px-4 py-20 relative z-10 text-center">
+            <div className="flex justify-center items-center mb-4 text-xs sm:text-sm">
+              <a href="/" className="text-blue-200 hover:text-white">
                 Home
-              </Link>
+              </a>
               <FaChevronRight className="mx-2 text-blue-300" />
               <span className="font-semibold">Products & Services</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 text-[#1F6632] leading-tight">
-              Products{" "}
-              <span className="bg-gradient-to-r from-[#1F6632] to-[#4CAF50] bg-clip-text text-transparent">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-[#1F6632] leading-tight">
+              Products{" & "}
+              <span className="inline-block bg-gradient-to-r from-[#1F6632] to-[#4CAF50] bg-clip-text text-transparent">
                 Services
               </span>
             </h1>
-            <div className="w-20 sm:w-24 md:w-28 h-1 bg-gradient-to-r from-[#1F6632] to-[#4CAF50] mx-auto rounded-full mb-4 sm:mb-6" />
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl max-w-3xl mx-auto text-[#1F6632]/80 leading-relaxed">
+            <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-[#1F6632] to-[#4CAF50] mx-auto rounded-full mb-4 sm:mb-6" />
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto text-[#1F6632]/80 leading-relaxed">
               Explore our comprehensive range of weight scale technology
               solutions designed for seamless integration and optimal
               performance.
@@ -108,67 +108,77 @@ const Products = () => {
         </section>
 
         {/* Filters & Product Grid */}
-        <section className="py-8 lg:py-12">
-          <div className="container mx-auto px-4">
+        <section className="py-6 sm:py-8 lg:py-12">
+          <div className="container mx-auto px-2 sm:px-4 lg:px-6">
             <div className="flex flex-col lg:flex-row">
               {/* Sidebar */}
-              <div className="lg:w-1/4 xl:w-1/5 mb-6 lg:mb-0">
-                <div className="bg-white rounded-lg shadow-md p-4 lg:p-6 sticky top-20">
+              <div className="lg:w-1/4 xl:w-1/5 mb-4 sm:mb-6 lg:mb-0">
+                <div className="bg-white rounded-lg shadow-md p-3 sm:p-4 lg:p-6 sticky top-16 sm:top-20">
                   <button
                     onClick={() => setMobileFiltersOpen((o) => !o)}
-                    className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-md block lg:hidden mb-4">
+                    className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-1 sm:py-2 rounded-md block lg:hidden mb-3 sm:mb-4 text-sm sm:text-base">
                     Filters
                   </button>
                   <div
-                    className={`space-y-4 ${
+                    className={`space-y-3 sm:space-y-4 ${
                       mobileFiltersOpen ? "block" : "hidden lg:block"
                     }`}>
-                    <h2 className="text-lg md:text-xl font-bold border-b pb-2">
+                    <h2 className="text-base sm:text-lg md:text-xl font-bold border-b pb-1 sm:pb-2">
                       Filters
                     </h2>
+
+                    {/* Categories */}
                     <div>
-                      <h3 className="font-semibold mb-2">Categories</h3>
-                      <div className="space-y-2">
+                      <h3 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base">
+                        Categories
+                      </h3>
+                      <div className="space-y-1 sm:space-y-2">
                         {categories.map((c) => (
                           <label
                             key={c}
-                            className="flex items-center text-sm md:text-base">
+                            className="flex items-center text-xs sm:text-sm md:text-base">
                             <input
                               type="checkbox"
                               checked={selectedCategories.includes(c)}
                               onChange={() => handleCategoryChange(c)}
-                              className="mr-2 w-4 h-4 text-blue-600"
+                              className="mr-2 w-4 h-4 sm:w-5 sm:h-5 text-blue-600"
                             />
                             {c}
                           </label>
                         ))}
                       </div>
                     </div>
+
+                    {/* Brands */}
                     <div>
-                      <h3 className="font-semibold mb-2">Brands</h3>
-                      <div className="space-y-2">
+                      <h3 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base">
+                        Brands
+                      </h3>
+                      <div className="space-y-1 sm:space-y-2">
                         {brands.map((b) => (
                           <label
                             key={b}
-                            className="flex items-center text-sm md:text-base">
+                            className="flex items-center text-xs sm:text-sm md:text-base">
                             <input
                               type="checkbox"
                               checked={selectedBrands.includes(b)}
                               onChange={() => handleBrandChange(b)}
-                              className="mr-2 w-4 h-4 text-blue-600"
+                              className="mr-2 w-4 h-4 sm:w-5 sm:h-5 text-blue-600"
                             />
                             {b}
                           </label>
                         ))}
                       </div>
                     </div>
+
+                    {/* Reset */}
                     <button
                       onClick={() => {
                         setSelectedCategories([]);
                         setSelectedBrands([]);
                         setSelectedRatings([]);
                       }}
-                      className="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 rounded-md">
+                      className="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 py-1.5 sm:py-2 rounded-md text-sm sm:text-base">
                       Reset Filters
                     </button>
                   </div>
@@ -177,21 +187,21 @@ const Products = () => {
 
               {/* Main */}
               <div className="lg:w-3/4 xl:w-4/5">
-                <div className="bg-white rounded-lg shadow-md p-4 mb-6 flex flex-col sm:flex-row justify-between items-center">
-                  <p className="text-sm sm:text-base">
+                <div className="bg-white rounded-lg shadow-md p-3 sm:p-4 md:p-6 mb-4 sm:mb-6 flex flex-col sm:flex-row justify-between items-center">
+                  <p className="text-xs sm:text-sm md:text-base">
                     Showing{" "}
                     <span className="font-semibold">{sorted.length}</span>{" "}
                     products
                   </p>
-                  <div className="mt-2 sm:mt-0 flex items-center space-x-2">
-                    <label htmlFor="sort" className="text-sm">
+                  <div className="mt-1 sm:mt-0 flex items-center space-x-1 sm:space-x-2">
+                    <label htmlFor="sort" className="text-xs sm:text-sm">
                       Sort by:
                     </label>
                     <select
                       id="sort"
                       value={sortOption}
                       onChange={(e) => setSortOption(e.target.value)}
-                      className="appearance-none bg-white border border-gray-300 rounded-md px-3 py-1">
+                      className="appearance-none bg-white border border-gray-300 rounded-md px-2 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm">
                       <option value="All">All</option>
                       <option value="Hardware">Hardware</option>
                       <option value="Software">Software</option>
@@ -200,7 +210,7 @@ const Products = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-3 sm:gap-4">
                   {currentProducts.map((p) => (
                     <ProductCard
                       key={p.id}
@@ -211,11 +221,11 @@ const Products = () => {
                 </div>
 
                 {sorted.length === 0 && (
-                  <div className="bg-white rounded-lg shadow-md p-6 text-center mt-6">
-                    <h3 className="text-lg sm:text-xl font-bold mb-2">
+                  <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 text-center mt-6">
+                    <h3 className="text-base sm:text-lg font-bold mb-2">
                       No products found
                     </h3>
-                    <p className="text-sm sm:text-base mb-4">
+                    <p className="text-xs sm:text-sm md:text-base mb-4">
                       Adjust filters and try again.
                     </p>
                     <button
@@ -224,33 +234,33 @@ const Products = () => {
                         setSelectedBrands([]);
                         setSelectedRatings([]);
                       }}
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md">
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">
                       Reset Filters
                     </button>
                   </div>
                 )}
 
                 {totalPages > 1 && (
-                  <div className="flex justify-center items-center space-x-4 mt-8">
+                  <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4 mt-6 sm:mt-8">
                     <button
                       disabled={currentPage === 1}
                       onClick={() => setCurrentPage((c) => c - 1)}
-                      className={`px-4 py-2 rounded ${
+                      className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded text-xs sm:text-sm md:text-base ${
                         currentPage === 1
-                          ? "bg-gray-300"
+                          ? "bg-gray-300 text-gray-500"
                           : "bg-[#236434] text-white"
                       }`}>
                       Previous
                     </button>
-                    <span className="text-sm sm:text-base">
+                    <span className="text-xs sm:text-sm md:text-base">
                       Page {currentPage} of {totalPages}
                     </span>
                     <button
                       disabled={currentPage === totalPages}
                       onClick={() => setCurrentPage((c) => c + 1)}
-                      className={`px-4 py-2 rounded ${
+                      className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded text-xs sm:text-sm md:text-base ${
                         currentPage === totalPages
-                          ? "bg-gray-300"
+                          ? "bg-gray-300 text-gray-500"
                           : "bg-[#236434] text-white"
                       }`}>
                       Next

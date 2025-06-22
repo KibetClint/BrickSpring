@@ -19,8 +19,12 @@ function Footer() {
             Brickspring Enterprises
           </h2>
           <p className="text-[10px] sm:text-xs md:text-sm">
-            Revolutionizing how weight scales and computers work together since
-            2023. We provide cutting-edge solutions for businesses of all sizes.
+            Brickspring engineers digital transformation by combining
+            industrial-grade hardware, specialized software suites, and tailored
+            services from installation to integration and security. Whether
+            you're scaling operations, digitizing safety practices, securing
+            data, or building custom apps, Brickspring is your trusted partner
+            for a seamless, end-to-end solution.
           </p>
         </div>
 

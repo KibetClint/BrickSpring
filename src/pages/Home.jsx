@@ -28,15 +28,15 @@ const Home = () => {
       id: 1,
       title: "Revolutionizing Weight Scale Technology Integration",
       subtitle: "Seamless solutions for modern business operations",
-      imgUrl: "/images/UNIWA V710 PDA.png",
+      imgUrl: "/images/Pallet scale.png",
       link: "/products",
       pageName: "Explore Products",
     },
     {
       id: 2,
-      title: "Optimize Operations with Real-Time Data",
-      subtitle: "Harness the power of instant weight analytics",
-      imgUrl: "/images/payrollspring.png",
+      title: "Optimize Operations with Real-Time Surveillance",
+      subtitle: "Harness the power of professional CCTV monitoring",
+      imgUrl: "/images/cctv.jpg",
       link: "/consultation",
       pageName: "Get a Consultation",
     },
@@ -44,7 +44,7 @@ const Home = () => {
       id: 3,
       title: "Custom Integration, Maximum ROI",
       subtitle: "Tailored solutions for your unique business needs",
-      imgUrl: "/images/cybersecurity.webp",
+      imgUrl: "/images/integration.png",
       link: "/solutions",
       pageName: "Custom Solutions",
     },
@@ -61,7 +61,7 @@ const Home = () => {
     <div className="bg-[#FFF9E6] text-gray-800">
       <main>
         {/* Hero Slider */}
-        <section className="relative h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[80vh] overflow-hidden">
+        <section className="relative h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[80vh] overflow-hidden">
           <Swiper
             modules={[Autoplay, Pagination]}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
@@ -70,12 +70,15 @@ const Home = () => {
             className="h-full">
             {slides.map((slide) => (
               <SwiperSlide key={slide.id} className="relative h-full">
+                {/* Use object-contain instead of object-cover */}
                 <img
                   src={slide.imgUrl}
                   alt={slide.title}
-                  className="absolute inset-0 w-full h-full object-cover object-top"
+                  className="absolute inset-0 w-full h-full object-cover opacity-90"
                 />
+
                 <div className="absolute inset-0 bg-gradient-to-r from-[#236837]/100 to-transparent z-10" />
+
                 <div className="max-w-3xl mx-auto px-4 h-full flex flex-col justify-center items-center relative z-20 text-center">
                   <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight mb-4">
                     {slide.title}
@@ -241,35 +244,35 @@ const Home = () => {
                   <input
                     type="text"
                     placeholder="Full Name"
-                    className="w-full px-3 py-2 border rounded focus:ring-[#236837] focus:outline-none"
+                    className="w-full px-3 py-2 border bg-white rounded focus:ring-[#236837] focus:outline-none"
                   />
                   <input
                     type="email"
                     placeholder="Email Address"
-                    className="w-full px-3 py-2 border rounded focus:ring-[#236837] focus:outline-none"
+                    className="w-full px-3 py-2 border rounded  bg-white  focus:ring-[#236837] focus:outline-none"
                   />
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input
                     type="tel"
                     placeholder="Phone Number"
-                    className="w-full px-3 py-2 border rounded focus:ring-[#236837] focus:outline-none"
+                    className="w-full px-3 py-2 border rounded  bg-white focus:ring-[#236837] focus:outline-none"
                   />
                   <input
                     type="text"
                     placeholder="Company"
-                    className="w-full px-3 py-2 border rounded focus:ring-[#236837] focus:outline-none"
+                    className="w-full px-3 py-2 border rounded  bg-white  focus:ring-[#236837] focus:outline-none"
                   />
                 </div>
                 <input
                   type="text"
                   placeholder="Subject"
-                  className="w-full px-3 py-2 border rounded focus:ring-[#236837] focus:outline-none"
+                  className="w-full px-3 py-2 border rounded  bg-white  focus:ring-[#236837] focus:outline-none"
                 />
                 <textarea
                   rows={4}
                   placeholder="Your Message"
-                  className="w-full px-3 py-2 border rounded focus:ring-[#236837] focus:outline-none"></textarea>
+                  className="w-full px-3 py-2 border rounded  bg-white  focus:ring-[#236837] focus:outline-none"></textarea>
                 <button className="w-full bg-[#236837] hover:bg-[#1a5129] text-white py-2 rounded transition">
                   Send Message
                 </button>

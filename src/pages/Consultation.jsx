@@ -68,12 +68,12 @@ export default function Consultation() {
     <div className="bg-[#FFF9E6] text-gray-800">
       <main>
         {/* Header Banner */}
-        <section className="relative h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[80vh] overflow-hidden bg-gradient-to-r from-[#236837]/80 to-transparent text-white">
+        <section className="relative h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[60vh] overflow-hidden bg-gradient-to-r from-[#236837]/80 to-transparent text-white">
           <div className="absolute inset-0 overflow-hidden">
             <img
-              src="/images/consultation.jpg"
+              src="/images/consultation.webp"
               alt="About background"
-              className="w-full h-full object-cover object-top opacity-20"
+              className="w-full h-full object-cover opacity-50"
             />
           </div>
           <div className="container mx-auto px-4 py-20 relative z-10 text-center">

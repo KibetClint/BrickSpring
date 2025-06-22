@@ -56,41 +56,41 @@ function Header() {
         className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 bg-[#116452] ${
           scrolled ? "-translate-y-full" : "translate-y-0"
         }`}>
-        <div className="container mx-auto flex justify-between items-center px-4 py-1 text-xs sm:text-sm text-white">
-          <div className="flex items-center space-x-3">
+        <div className="container mx-auto flex justify-between items-center px-2 py-0.5 text-xs sm:text-sm text-white">
+          <div className="flex items-center space-x-1.5 sm:space-x-2">
             <a
               href="https://www.facebook.com/profile.php?id=61577392503207"
-              className="hover:text-blue-300">
-              <FaFacebook size={16} />
+              className="text-sky-600 hover:text-blue-300">
+              <FaFacebook size={14} />
             </a>
             <a
               href="https://x.com/brick_spring"
-              className="hover:text-blue-300">
-              <FaSquareXTwitter size={16} />
+              className="text-sky-500 hover:text-blue-300">
+              <FaSquareXTwitter size={14} />
             </a>
             <a
               href="https://www.instagram.com/brick_spring/"
-              className="hover:text-pink-300">
-              <FaInstagram size={16} />
+              className="text-red-400 hover:text-pink-300">
+              <FaInstagram size={14} />
             </a>
             <a
               href="https://www.linkedin.com/in/brickspring/"
-              className="hover:text-pink-300">
-              <FaLinkedin size={16} />
+              className="text-black hover:text-pink-300">
+              <FaLinkedin size={14} />
             </a>
             <a
               href="https://www.tiktok.com/@brickspring?lang=en"
-              className="hover:text-pink-300">
-              <FaTiktok size={16} />
+              className="text-black hover:text-pink-300">
+              <FaTiktok size={14} />
             </a>
           </div>
           <div className="flex items-center space-x-4 text-xs sm:text-sm">
             <div className="flex items-center space-x-1">
-              <FaEnvelope size={16} />
+              <FaEnvelope size={12} />
               <span>info@brickspring.co.ke</span>
             </div>
             <div className="flex items-center space-x-1">
-              <FaPhone size={16} />
+              <FaPhone size={12} />
               <span>+254725903309</span>
             </div>
           </div>
@@ -107,24 +107,22 @@ function Header() {
             <img
               src={logo}
               alt="Logo"
-              className="h-9 w-9 sm:h-12 sm:w-12 rounded-full"
+              className="h-10 w-10 sm:h-12 sm:w-12 rounded-full"
             />
             <span className="text-lg sm:text-xl font-bold text-white">
               Brickspring
             </span>
           </Link>
-
-          <nav className="hidden md:flex flex items-center space-x-4 text-sm lg:space-x-6">
+          <nav className="hidden md:flex items-center space-x-3 sm:space-x-4 lg:space-x-6">
             {navLinks.map((item) => (
               <Link
                 key={item}
                 to={getRoute(item)}
-                className="text-white hover:text-blue-300 transition duration-300">
+                className=" text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-white hover:text-blue-300 transition duration-300 ">
                 {item}
               </Link>
             ))}
           </nav>
-
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden text-white text-2xl p-2 focus:outline-none">
