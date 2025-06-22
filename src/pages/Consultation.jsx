@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaHeadset } from "react-icons/fa6";
 import { FaCheck, FaChevronRight, FaFilePdf, FaLaptop } from "react-icons/fa";
 
-export default function Consultation() {
+function Consultation() {
   const [formData] = useState({
     firstName: "",
     lastName: "",
@@ -237,3 +237,4 @@ export default function Consultation() {
     </div>
   );
 }
+export default Consultation;
